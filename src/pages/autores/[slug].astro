@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAuthors, getPublishedWorksByAuthor } from '../../lib/content';
+import { createPublicSupabaseClient } from '../../lib/supabase';
+import type { Author, Work } from '../../lib/zod-schemas';
+import {
+  PUBLIC_SUPABASE_ANON_KEY,
+  PUBLIC_SUPABASE_URL,
+} from 'astro:env/client';
+
+interface Props {
+  author: Author;
+  works: Work[];
+}
+
+export async function getStaticPaths() {
+  if (!PUBLIC_SUPABASE_URL || !PUBLIC_SUPABASE_ANON_KEY) return [];
+
+  const client = createPublicSupabaseClient();
+  const authors = await getAuthors(client);
+
+  return Promise.all(
+    authors.map(async (author) => ({
+      params: { slug: author.slug },
+      props: {
+        author,
+        works: await getPublishedWorksByAuthor(client, author.id),
+      },
+    })),
+  );
+}
+
+const { author, works } = Astro.props;
+---
+
+<BaseLayout
+  title={author.fullname}
+  description={`Obras de ${author.fullname} — CubanCFCronology`}
+>
+  <article class="space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <a href="/autores" class="font-mono text-sm text-green-400">
+        ← Todos los autores
+      </a>
+      <h1 class="mt-4 font-mono text-3xl text-bone-50">{author.fullname}</h1>
+      {author.pseudonyme && (
+        <p class="mt-2 text-lg text-green-400">{author.pseudonyme}</p>
+      )}
+      {author.biography && (
+        <p class="mt-5 max-w-3xl whitespace-pre-line text-bone-300">
+          {author.biography}
+        </p>
+      )}
+    </header>
+
+    <section aria-labelledby="works-heading">
+      <h2 id="works-heading" class="section-title">
+        Obras publicadas
+      </h2>
+      {works.length === 0 ? (
+        <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
+          No hay obras publicadas asociadas a este perfil.
+        </p>
+      ) : (
+        <ul class="divide-y divide-green-600/25">
+          {works.map((work) => (
+            <li class="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:justify-between">
+              <span class="font-mono text-bone-50">{work.title}</span>
+              <span class="text-sm text-bone-400">
+                {work.year} · {work.type}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  </article>
+</BaseLayout>

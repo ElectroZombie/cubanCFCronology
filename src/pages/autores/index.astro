@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAuthors } from '../../lib/content';
+import { createPublicSupabaseClient } from '../../lib/supabase';
+import { SITE } from '../../config/site';
+import {
+  PUBLIC_SUPABASE_ANON_KEY,
+  PUBLIC_SUPABASE_URL,
+} from 'astro:env/client';
+
+const supabaseConfigured = Boolean(
+  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
+);
+const authors = supabaseConfigured
+  ? await getAuthors(createPublicSupabaseClient())
+  : [];
+---
+
+<BaseLayout
+  title="Autores"
+  description={`Autores de la ciencia ficción y fantasía cubana — ${SITE.title}`}
+>
+  <section class="space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <p class="font-mono text-xs uppercase text-green-500">
+        Archivo de autores
+      </p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Autores</h1>
+      <p class="mt-3 max-w-2xl text-bone-300">
+        Perfiles de quienes han contribuido a la ciencia ficción y la fantasía
+        cubanas.
+      </p>
+    </header>
+
+    {!supabaseConfigured ? (
+      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
+        El archivo estará disponible cuando se configure la conexión con la base
+        de datos.
+      </p>
+    ) : authors.length === 0 ? (
+      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
+        Todavía no hay perfiles registrados.
+      </p>
+    ) : (
+      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {authors.map((author) => (
+          <li class="panel p-5">
+            <h2 class="font-mono text-lg text-bone-50">{author.fullname}</h2>
+            {author.pseudonyme && (
+              <p class="mt-1 text-sm text-green-400">{author.pseudonyme}</p>
+            )}
+            {author.biography && (
+              <p class="mt-3 text-sm text-bone-300">{author.biography}</p>
+            )}
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</BaseLayout>

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublishedWorksWithAuthors } from '../../lib/content';
+import { createPublicSupabaseClient } from '../../lib/supabase';
+import type { Author, Work } from '../../lib/zod-schemas';
+import {
+  PUBLIC_SUPABASE_ANON_KEY,
+  PUBLIC_SUPABASE_URL,
+} from 'astro:env/client';
+
+interface Props {
+  work: Work & { authors: Author[] };
+}
+
+export async function getStaticPaths() {
+  if (!PUBLIC_SUPABASE_URL || !PUBLIC_SUPABASE_ANON_KEY) return [];
+
+  const works = await getPublishedWorksWithAuthors(
+    createPublicSupabaseClient(),
+  );
+
+  return works.map((work) => ({
+    params: { slug: work.slug },
+    props: { work },
+  }));
+}
+
+const { work } = Astro.props;
+const typeLabels: Record<string, string> = {
+  short_story: 'Cuento',
+  novel: 'Novela',
+  poetry: 'Poesía',
+  play: 'Teatro',
+  essay: 'Ensayo',
+  chronicle: 'Crónica',
+  anthology: 'Antología',
+  comic: 'Historieta',
+};
+---
+
+<BaseLayout
+  title={work.title}
+  description={`${work.title} (${work.year}), ${typeLabels[work.type].toLocaleLowerCase('es')}. Catálogo de ciencia ficción y fantasía cubanas.`}
+>
+  <article class="max-w-3xl space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <a href="/obras" class="font-mono text-sm text-green-400">
+        ← Todas las obras
+      </a>
+      <p class="mt-5 font-mono text-xs uppercase text-green-500">
+        {typeLabels[work.type]} · {work.year}
+      </p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">{work.title}</h1>
+    </header>
+
+    <dl class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div>
+        <dt class="font-mono text-xs uppercase text-bone-400">Autoría</dt>
+        <dd class="mt-2 text-bone-50">
+          {work.authors.length > 0
+            ? work.authors.map((author, index) => (
+                <>
+                  {index > 0 && ', '}
+                  <a href={`/autores/${author.slug}`}>{author.fullname}</a>
+                </>
+              ))
+            : 'No especificada en la fuente'}
+        </dd>
+      </div>
+      <div>
+        <dt class="font-mono text-xs uppercase text-bone-400">Edición</dt>
+        <dd class="mt-2 text-bone-50">
+          {work.edition_number
+            ? `Edición ${work.edition_number}`
+            : 'Sin dato de edición'}
+          {work.cant_pages && ` · ${work.cant_pages} páginas`}
+        </dd>
+      </div>
+    </dl>
+
+    {work.link && (
+      <p>
+        <a
+          href={work.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-ship"
+        >
+          Consultar fuente
+        </a>
+      </p>
+    )}
+  </article>
+</BaseLayout>

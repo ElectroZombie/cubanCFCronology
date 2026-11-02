@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPublishedWorksWithAuthors } from '../../lib/content';
+import { createPublicSupabaseClient } from '../../lib/supabase';
+import {
+  PUBLIC_SUPABASE_ANON_KEY,
+  PUBLIC_SUPABASE_URL,
+} from 'astro:env/client';
+
+const supabaseConfigured = Boolean(
+  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
+);
+const works = supabaseConfigured
+  ? await getPublishedWorksWithAuthors(createPublicSupabaseClient())
+  : [];
+const years = [...new Set(works.map(({ year }) => year))].sort((a, b) => b - a);
+const authors = [
+  ...new Map(
+    works.flatMap((work) =>
+      work.authors.map((author) => [author.id, author] as const),
+    ),
+  ).values(),
+].sort((left, right) => left.fullname.localeCompare(right.fullname, 'es'));
+const workTypeLabels: Record<string, string> = {
+  short_story: 'Cuento',
+  novel: 'Novela',
+  poetry: 'Poesía',
+  play: 'Teatro',
+  essay: 'Ensayo',
+  chronicle: 'Crónica',
+  anthology: 'Antología',
+  comic: 'Historieta',
+};
+const workTypes = [...new Set(works.map(({ type }) => type))].sort();
+---
+
+<BaseLayout
+  title="Obras"
+  description="Catálogo de obras publicadas de ciencia ficción y fantasía cubanas."
+>
+  <section class="space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <p class="font-mono text-xs uppercase text-green-500">
+        Catálogo bibliográfico
+      </p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Obras publicadas</h1>
+      <p class="mt-3 max-w-2xl text-bone-300">
+        Un registro consultable de libros y otras obras de ciencia ficción y
+        fantasía cubanas.
+      </p>
+    </header>
+
+    {!supabaseConfigured ? (
+      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
+        El catálogo estará disponible cuando se configure la conexión con la
+        base de datos.
+      </p>
+    ) : works.length === 0 ? (
+      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
+        Todavía no hay obras publicadas en el catálogo.
+      </p>
+    ) : (
+      <>
+        <form
+          id="work-filters"
+          class="grid grid-cols-1 gap-4 border-b border-green-600/30 pb-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          <label class="space-y-1 font-mono text-xs text-bone-300">
+            <span>Buscar título</span>
+            <input
+              id="filter-title"
+              type="search"
+              class="w-full border border-green-600/50 bg-space-800 px-3 py-2 text-sm text-bone-50"
+            />
+          </label>
+          <label class="space-y-1 font-mono text-xs text-bone-300">
+            <span>Año</span>
+            <select
+              id="filter-year"
+              class="w-full border border-green-600/50 bg-space-800 px-3 py-2 text-sm text-bone-50"
+            >
+              <option value="">Todos</option>
+              {years.map((year) => (
+                <option value={year}>{year}</option>
+              ))}
+            </select>
+          </label>
+          <label class="space-y-1 font-mono text-xs text-bone-300">
+            <span>Tipo</span>
+            <select
+              id="filter-type"
+              class="w-full border border-green-600/50 bg-space-800 px-3 py-2 text-sm text-bone-50"
+            >
+              <option value="">Todos</option>
+              {workTypes.map((type) => (
+                <option value={type}>{workTypeLabels[type]}</option>
+              ))}
+            </select>
+          </label>
+          <label class="space-y-1 font-mono text-xs text-bone-300">
+            <span>Autor</span>
+            <select
+              id="filter-author"
+              class="w-full border border-green-600/50 bg-space-800 px-3 py-2 text-sm text-bone-50"
+            >
+              <option value="">Todos</option>
+              {authors.map((author) => (
+                <option value={author.id}>{author.fullname}</option>
+              ))}
+            </select>
+          </label>
+        </form>
+
+        <p
+          id="work-count"
+          class="font-mono text-xs text-bone-400"
+          aria-live="polite"
+        ></p>
+        <ul id="work-list" class="divide-y divide-green-600/25">
+          {works.map((work) => (
+            <li
+              class="work-entry py-5"
+              data-title={work.title.toLocaleLowerCase('es')}
+              data-year={work.year}
+              data-type={work.type}
+              data-authors={work.authors.map(({ id }) => id).join(' ')}
+            >
+              <article class="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+                <div>
+                  <h2 class="font-mono text-lg text-bone-50">
+                    <a href={`/obras/${work.slug}`}>{work.title}</a>
+                  </h2>
+                  <p class="mt-1 text-sm text-bone-400">
+                    {work.authors.length > 0
+                      ? work.authors.map((author, index) => (
+                          <>
+                            {index > 0 && ', '}
+                            <a href={`/autores/${author.slug}`}>
+                              {author.fullname}
+                            </a>
+                          </>
+                        ))
+                      : 'Autoría no especificada'}
+                  </p>
+                </div>
+                <p class="shrink-0 text-sm text-bone-400">
+                  {work.year} · {workTypeLabels[work.type]}
+                </p>
+              </article>
+            </li>
+          ))}
+        </ul>
+        <p
+          id="work-empty"
+          class="hidden border-l-2 border-bone-400 px-4 py-3 text-bone-300"
+        >
+          No hay obras que coincidan con esos filtros.
+        </p>
+      </>
+    )}
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#work-filters');
+  const entries = [...document.querySelectorAll<HTMLElement>('.work-entry')];
+  const count = document.querySelector<HTMLElement>('#work-count');
+  const emptyState = document.querySelector<HTMLElement>('#work-empty');
+
+  form?.addEventListener('input', () => {
+    const title =
+      document
+        .querySelector<HTMLInputElement>('#filter-title')
+        ?.value.trim()
+        .toLocaleLowerCase('es') ?? '';
+    const year =
+      document.querySelector<HTMLSelectElement>('#filter-year')?.value ?? '';
+    const type =
+      document.querySelector<HTMLSelectElement>('#filter-type')?.value ?? '';
+    const authorId =
+      document.querySelector<HTMLSelectElement>('#filter-author')?.value ?? '';
+    let visibleCount = 0;
+
+    for (const entry of entries) {
+      const matches =
+        entry.dataset.title?.includes(title) === true &&
+        (year === '' || entry.dataset.year === year) &&
+        (type === '' || entry.dataset.type === type) &&
+        (authorId === '' ||
+          entry.dataset.authors?.split(' ').includes(authorId) === true);
+      entry.hidden = !matches;
+      if (matches) visibleCount += 1;
+    }
+
+    if (count)
+      count.textContent = `${visibleCount} ${visibleCount === 1 ? 'obra' : 'obras'}`;
+    emptyState?.classList.toggle('hidden', visibleCount > 0);
+  });
+
+  form?.dispatchEvent(new Event('input'));
+</script>
