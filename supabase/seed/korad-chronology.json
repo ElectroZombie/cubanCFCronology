@@ -1,0 +1,3774 @@
+{
+  "meta": {
+    "source": "https://revistakorad.wordpress.com/2026/05/23/cronologia-de-la-ciencia-ficcion-cubana-contemporanea-1999-2025-rinaldo-acosta-y-carlos-duarte-cano/",
+    "source_title": "Cronología de la ciencia ficción cubana contemporánea (1999-2025)",
+    "source_authors": [
+      "Rinaldo Acosta",
+      "Carlos Duarte Cano"
+    ],
+    "source_publication": "Revista Korad 53",
+    "source_date": "2026-05-23",
+    "generated_for": "supabase/migrations/20261025000000_init.sql",
+    "notes": [
+      "Titles, years, publishers and page counts follow the Korad chronology.",
+      "Every entry in the main chronology is is_published = true; the 'Títulos en preparación' section is is_published = false.",
+      "Anthologies are typed 'anthology' and are linked to their included authors only when the source names them; the source lists anthology contents as 'Varios', so most anthologies have no author links.",
+      "Genre is 'ciencia-ficcion' by default; 'fantasia' is added only where the source itself labels the volume as fantasy.",
+      "editorial_id has been removed from works; editorial relationships live in the editorial_work junction table (supports co-editions).",
+      "is_published lives only on works (not on authors).",
+      "edition_number is optional; null unless a numbered edition is known.",
+      "One comic entry included: 'La historia de Zoe' (2016, Alejandro Rodríguez, tipo Historieta → comic)."
+    ]
+  },
+  "genres": [
+    {
+      "id": 1,
+      "name": "Ciencia ficción"
+    },
+    {
+      "id": 2,
+      "name": "Fantasía"
+    }
+  ],
+  "editorials": [
+    {
+      "id": 1,
+      "name": "Letras Cubanas",
+      "country": "Cuba"
+    },
+    {
+      "id": 2,
+      "name": "Desde la Gente",
+      "country": "Argentina"
+    },
+    {
+      "id": 3,
+      "name": "Lectorum",
+      "country": "México"
+    },
+    {
+      "id": 4,
+      "name": "Ediciones Extramuros",
+      "country": "Cuba"
+    },
+    {
+      "id": 5,
+      "name": "Ediciones B",
+      "country": "España"
+    },
+    {
+      "id": 6,
+      "name": "Editorial Equipo Sirius",
+      "country": "España"
+    },
+    {
+      "id": 7,
+      "name": "Casa Editora Abril",
+      "country": "Cuba"
+    },
+    {
+      "id": 8,
+      "name": "Ediciones Sed de Belleza",
+      "country": "Cuba"
+    },
+    {
+      "id": 9,
+      "name": "Editorial Gente Nueva",
+      "country": "Cuba"
+    },
+    {
+      "id": 10,
+      "name": "Pagès Editors",
+      "country": "España"
+    },
+    {
+      "id": 11,
+      "name": "Ediciones Neverland",
+      "country": "España"
+    },
+    {
+      "id": 12,
+      "name": "Ediciones Erídano",
+      "country": "España"
+    },
+    {
+      "id": 13,
+      "name": "Atom Press",
+      "country": "Estados Unidos"
+    },
+    {
+      "id": 14,
+      "name": "Cubaliteraria",
+      "country": "Cuba"
+    },
+    {
+      "id": 15,
+      "name": "Ediciones Capiro",
+      "country": "Cuba"
+    },
+    {
+      "id": 16,
+      "name": "Efory Atocha Ediciones",
+      "country": "España"
+    },
+    {
+      "id": 17,
+      "name": "Ediciones Obrador",
+      "country": "Canadá"
+    },
+    {
+      "id": 18,
+      "name": "Editorial José Martí",
+      "country": "Cuba"
+    },
+    {
+      "id": 19,
+      "name": "Editorial Hypermedia",
+      "country": "España"
+    },
+    {
+      "id": 20,
+      "name": "Ediciones Ácana",
+      "country": "Cuba"
+    },
+    {
+      "id": 21,
+      "name": "Áncoras Ediciones",
+      "country": "Cuba"
+    },
+    {
+      "id": 22,
+      "name": "Ediciones Unión",
+      "country": "Cuba"
+    },
+    {
+      "id": 23,
+      "name": "Ediciones Loynaz",
+      "country": "Cuba"
+    },
+    {
+      "id": 24,
+      "name": "Aldabón",
+      "country": "Cuba"
+    },
+    {
+      "id": 25,
+      "name": "Editorial Primigenios",
+      "country": "Estados Unidos"
+    },
+    {
+      "id": 26,
+      "name": "Create Space Independent",
+      "country": "Estados Unidos"
+    },
+    {
+      "id": 27,
+      "name": "Últimos Monstruos Editores",
+      "country": "República Dominicana"
+    },
+    {
+      "id": 28,
+      "name": "Editorial McPherson",
+      "country": "Panamá"
+    },
+    {
+      "id": 29,
+      "name": "Ediciones Vestigio Colombia",
+      "country": "Colombia"
+    },
+    {
+      "id": 30,
+      "name": "Indómita Luz Editorial",
+      "country": "Argentina"
+    },
+    {
+      "id": 31,
+      "name": "Luna Insomne Editores",
+      "country": "República Dominicana"
+    },
+    {
+      "id": 32,
+      "name": "Ilíada Ediciones",
+      "country": "Alemania"
+    },
+    {
+      "id": 33,
+      "name": "Editorial Nuevo Milenio",
+      "country": "Cuba"
+    },
+    {
+      "id": 34,
+      "name": "Ediciones Matanzas",
+      "country": "Cuba"
+    }
+  ],
+  "authors": [
+    {
+      "id": "3e6cd88a-1fe5-54af-b162-c222f741be32",
+      "slug": "f-mond",
+      "fullname": "F. Mond",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "df03d9ee-842c-5578-904d-81171d95cceb",
+      "slug": "eduardo-del-llano",
+      "fullname": "Eduardo del Llano",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "slug": "vladimir-hernandez-pacin",
+      "fullname": "Vladimir Hernández Pacín",
+      "pseudonyme": "Vlad Hernández",
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "slug": "yoss",
+      "fullname": "Yoss",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "8c042c45-af0c-5268-be66-7da48ffa209a",
+      "slug": "michel-encinosa-fu",
+      "fullname": "Michel Encinosa Fú",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "f5baefc8-3c03-5745-a650-27ec20fe7fa7",
+      "slug": "jorge-enrique-lage",
+      "fullname": "Jorge Enrique Lage",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "f020c684-8d04-557a-821a-69c525e78db4",
+      "slug": "eduardo-barredo",
+      "fullname": "Eduardo Barredo",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "8d1e1839-8e78-5f6e-ad69-ab4a9e979bd9",
+      "slug": "anabel-enriquez",
+      "fullname": "Anabel Enríquez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "341e2500-2329-550a-b897-17f3892c151f",
+      "slug": "roberto-estrada-bourgeois",
+      "fullname": "Roberto Estrada Bourgeois",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "fd623086-676a-52e7-8475-cd6b45fbeeb7",
+      "slug": "luis-hugo-vallin",
+      "fullname": "Luis Hugo Vallín",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "c9f1c2e4-6670-59ee-a9ea-1afbb2672e88",
+      "slug": "raul-flores-iriarte",
+      "fullname": "Raúl Flores Iriarte",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "slug": "erick-j-mota",
+      "fullname": "Erick J. Mota",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "f933cfba-d28d-51aa-bb18-958f3b963efa",
+      "slug": "j-hernandez",
+      "fullname": "J. Hernández",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "abafc807-d1e1-5bd5-aa1b-52a094643228",
+      "slug": "elaine-vilar-madruga",
+      "fullname": "Elaine Vilar Madruga",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "1b89331d-7827-5046-b375-f7b3f411e302",
+      "slug": "leonardo-gala-echemendia",
+      "fullname": "Leonardo Gala Echemendía",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "310a1ae2-c8c4-5353-be29-604120ed5282",
+      "slug": "nuria-dolores-ordas-matos",
+      "fullname": "Nuria Dolores Ordas Matos",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "52f11925-73fe-52ce-b74d-a2c848cc5456",
+      "slug": "sigrid-victoria-duenas",
+      "fullname": "Sigrid Victoria Dueñas",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "40d93d23-5e01-53f6-b8a6-70c4b84e9d37",
+      "slug": "bruno-henriquez",
+      "fullname": "Bruno Henríquez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "3f340a77-67ff-5943-b356-adcf293561e8",
+      "slug": "yonnier-torres",
+      "fullname": "Yonnier Torres",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "02892b39-5e8f-5a0f-908a-e55b8535c7bd",
+      "slug": "gabriel-gil-perez",
+      "fullname": "Gabriel Gil Pérez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "b1154546-93cb-5b6b-a797-d77ea42b7c21",
+      "slug": "claudio-del-castillo",
+      "fullname": "Claudio Del Castillo",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "c30d968f-74b6-562c-8d6c-c1f3491b08d9",
+      "slug": "carlos-munoz",
+      "fullname": "Carlos Muñoz",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "40cb1827-8bc7-5cc2-ba0c-e1e494849d2a",
+      "slug": "david-alfonso",
+      "fullname": "David Alfonso",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "f57f3c62-d7e1-58fe-8e52-8af1400d0bba",
+      "slug": "roger-durasona-vargas",
+      "fullname": "Roger Durañona Vargas",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "c0e77ef9-a358-5c07-80ef-ddbf5b8e0012",
+      "slug": "hamlet-lopez-garcia",
+      "fullname": "Hamlet López García",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "d1755194-51f4-5db5-bca0-a21282fbd3cb",
+      "slug": "victor-hugo-perez-gallo",
+      "fullname": "Víctor Hugo Pérez Gallo",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "589a0999-d6e1-50ce-985e-d42b91a72458",
+      "slug": "carlos-a-duarte-cano",
+      "fullname": "Carlos A. Duarte Cano",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "64878faf-1643-545e-8760-5e4ce92c7f65",
+      "slug": "dennis-mourdouch",
+      "fullname": "Dennis Mourdouch",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "f236288f-41dd-599a-ab94-5900bb1aacf2",
+      "slug": "raul-aguiar",
+      "fullname": "Raúl Aguiar",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "81bd59db-5ed3-51a2-866d-d0c6279ff122",
+      "slug": "yunieski-betancourt-dipotet",
+      "fullname": "Yunieski Betancourt Dipotet",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "b91f73ad-bb3c-5887-af68-a4262cf1514a",
+      "slug": "eric-flores-taylor",
+      "fullname": "Eric Flores Taylor",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "460d0413-8670-5d64-8b6a-4e474ca78e65",
+      "slug": "alejandro-rodriguez",
+      "fullname": "Alejandro Rodríguez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "f0d5212e-632c-5ef5-9d88-dd32de389db5",
+      "slug": "alejandro-rojas",
+      "fullname": "Alejandro Rojas",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "480d9929-977c-54ca-9db6-556cae0313a0",
+      "slug": "daniel-burguet",
+      "fullname": "Daniel Burguet",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "f8c82536-6a17-55bc-941f-8bf38356d154",
+      "slug": "abel-guelmes",
+      "fullname": "Abel Guelmes Roblejo",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "200c807a-7f0b-59b4-b179-20c3be8b6748",
+      "slug": "raul-piad",
+      "fullname": "Raúl Piad",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "45fc43a6-907d-57bb-848e-9b3918d5977c",
+      "slug": "malena-salazar",
+      "fullname": "Malena Salazar",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "60cec16d-c3f7-550c-9266-743f22d2cbbb",
+      "slug": "alexy-dumenigo",
+      "fullname": "Alexy Dumenigo",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "0aaa6564-455c-57c3-954b-8185b69a59aa",
+      "slug": "carlos-antonio-noda",
+      "fullname": "Carlos Antonio Noda",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "deb23667-ddbc-5e91-bd7f-73267eb1ebde",
+      "slug": "alex-padron",
+      "fullname": "Álex Padrón",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "645d67fc-41b9-5e39-bbde-0a6840ad7fad",
+      "slug": "yadira-albet",
+      "fullname": "Yadira AlBet",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "76845b79-a36c-535a-98f1-897cb6133d73",
+      "slug": "reinaldo-garcia-martinez",
+      "fullname": "Reinaldo García Martínez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "862fbd3f-8507-560f-973a-246c707fedca",
+      "slug": "denis-alvarez-betancourt",
+      "fullname": "Denis Álvarez Betancourt",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "fc8893e6-855d-505c-9644-cd8151f6d26a",
+      "slug": "reinier-del-pino-cejas",
+      "fullname": "Reinier del Pino Cejas",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "5e852b2a-328a-56d8-aafb-1ad42aa3acd5",
+      "slug": "marta-acosta-alvarez",
+      "fullname": "Marta Acosta Álvarez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "688f2d48-25a3-5353-aa0b-0880563e0940",
+      "slug": "nathaly-hernandez-chavez",
+      "fullname": "Nathaly Hernández Chávez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "1f99d644-e319-5783-ae6e-edc09bf8d47f",
+      "slug": "nelson-roman",
+      "fullname": "Nelson Román",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "003736ec-cd82-5e04-9f9d-ad32adbfbfb5",
+      "slug": "rinaldo-acosta",
+      "fullname": "Rinaldo Acosta",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "fb42196b-abd4-5684-8921-bb28b9fc5fda",
+      "slug": "ariel-perez-rodriguez",
+      "fullname": "Ariel Pérez Rodríguez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "be65e40b-27b3-5bc6-8824-fcbae8d5ba9d",
+      "slug": "jesus-minsal",
+      "fullname": "Jesús Minsal",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "37ce7a64-6ec1-5a32-a24c-4eafee9f63c8",
+      "slug": "maria-de-jesus-chavez",
+      "fullname": "María de Jesús Chávez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    },
+    {
+      "id": "281f0039-c391-5d77-9554-289854e1554f",
+      "slug": "alejandro-rodriguez-comic",
+      "fullname": "Alejandro Rodríguez",
+      "pseudonyme": null,
+      "age": null,
+      "birthdate": null,
+      "biography": ""
+    }
+  ],
+  "works": [
+    {
+      "id": "bc5903a6-9ea5-5c22-88ba-93067152f70d",
+      "slug": "holocausto-2084-1999",
+      "type": "novel",
+      "title": "Holocausto 2084",
+      "genres": [
+        1
+      ],
+      "year": 1999,
+      "edition_number": 1,
+      "cant_pages": 215,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "c1bb9df5-5f8f-5f1d-8845-845d5c291c1a",
+      "slug": "polvo-en-el-viento-antologia-de-la-ciencia-ficcion-cubana-1999",
+      "type": "anthology",
+      "title": "Polvo en el viento. Antología de la ciencia ficción cubana",
+      "genres": [
+        1
+      ],
+      "year": 1999,
+      "edition_number": null,
+      "cant_pages": 128,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "f9eef77f-3205-5661-ae26-58dea23c1ee0",
+      "slug": "horizontes-probables-1999",
+      "type": "anthology",
+      "title": "Horizontes probables",
+      "genres": [
+        1
+      ],
+      "year": 1999,
+      "edition_number": null,
+      "cant_pages": 202,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b2a2c283-d90e-5e70-aa08-857261156b00",
+      "slug": "reino-eterno-cuentos-de-fantasia-y-ciencia-ficcion-1999",
+      "type": "anthology",
+      "title": "Reino eterno. Cuentos de fantasía y ciencia ficción",
+      "genres": [
+        1,
+        2
+      ],
+      "year": 1999,
+      "edition_number": null,
+      "cant_pages": 225,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "bddf1a1d-4aa7-527d-b8bf-89935998dcd1",
+      "slug": "los-viajes-de-nicanor-2000",
+      "type": "short_story",
+      "title": "Los viajes de Nicanor",
+      "genres": [
+        1
+      ],
+      "year": 2000,
+      "edition_number": null,
+      "cant_pages": 88,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "36f39879-b7a1-5472-acf8-6c5a99e8693c",
+      "slug": "nova-de-cuarzo-2000",
+      "type": "short_story",
+      "title": "Nova de cuarzo",
+      "genres": [
+        1
+      ],
+      "year": 2000,
+      "edition_number": null,
+      "cant_pages": 123,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "dada4cf9-6ceb-5704-92ee-4478070a4823",
+      "slug": "los-pecios-y-los-naufragos-2000",
+      "type": "novel",
+      "title": "Los pecios y los náufragos",
+      "genres": [
+        1
+      ],
+      "year": 2000,
+      "edition_number": null,
+      "cant_pages": 146,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b5ad7641-40ee-5068-bc93-23a452f8c1b5",
+      "slug": "ninos-de-neon-2001",
+      "type": "short_story",
+      "title": "Niños de neón",
+      "genres": [
+        1
+      ],
+      "year": 2001,
+      "edition_number": null,
+      "cant_pages": 136,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "a4735172-11a2-50b6-9cbe-ea524ced0628",
+      "slug": "signos-de-guerra-2001",
+      "type": "novel",
+      "title": "Signos de guerra",
+      "genres": [
+        1
+      ],
+      "year": 2001,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4648f0a4-318a-506c-a2be-68e7eda409fe",
+      "slug": "se-alquila-un-planeta-2001",
+      "type": "short_story",
+      "title": "Se alquila un planeta",
+      "genres": [
+        1
+      ],
+      "year": 2001,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "28dc270b-6c27-50bd-ac8d-de705c4a1505",
+      "slug": "al-final-de-la-senda-2002",
+      "type": "novel",
+      "title": "Al final de la senda",
+      "genres": [
+        1
+      ],
+      "year": 2002,
+      "edition_number": null,
+      "cant_pages": 224,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "0c9ef7c8-bc88-57d1-9bf1-fb9830e251c1",
+      "slug": "suenos-de-interfaz-2004",
+      "type": "novel",
+      "title": "Sueños de interfaz",
+      "genres": [
+        1
+      ],
+      "year": 2004,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "0afce42f-16b9-5d9f-af14-fdcf367285fa",
+      "slug": "los-ojos-de-fuego-verde-2004",
+      "type": "short_story",
+      "title": "Los ojos de fuego verde",
+      "genres": [
+        1
+      ],
+      "year": 2004,
+      "edition_number": null,
+      "cant_pages": 56,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4b1a026a-3570-5463-8d4e-8f9515166233",
+      "slug": "polvo-rojo-2004",
+      "type": "novel",
+      "title": "Polvo rojo",
+      "genres": [
+        1
+      ],
+      "year": 2004,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "48b5fdeb-4c01-5f96-80ac-ebcaf405548c",
+      "slug": "semiotica-para-lobos-2005",
+      "type": "novel",
+      "title": "Semiótica para lobos",
+      "genres": [
+        1
+      ],
+      "year": 2005,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "a00257ef-4402-539d-b697-079198868fa8",
+      "slug": "onda-de-choque-2005",
+      "type": "anthology",
+      "title": "Onda de choque",
+      "genres": [
+        1
+      ],
+      "year": 2005,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "88557259-d654-52f4-85fc-2697b7ea6262",
+      "slug": "secretos-del-futuro-2005",
+      "type": "anthology",
+      "title": "Secretos del futuro",
+      "genres": [
+        1
+      ],
+      "year": 2005,
+      "edition_number": null,
+      "cant_pages": 192,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b5f899ef-70d9-5cca-9a62-95db26eba688",
+      "slug": "el-pez-volador-2006",
+      "type": "short_story",
+      "title": "El pez volador",
+      "genres": [
+        1
+      ],
+      "year": 2006,
+      "edition_number": null,
+      "cant_pages": 190,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "0f047e9e-09a1-54d0-92b4-a996a2f32ef7",
+      "slug": "dioses-de-neon-2006",
+      "type": "short_story",
+      "title": "Dioses de neón",
+      "genres": [
+        1
+      ],
+      "year": 2006,
+      "edition_number": null,
+      "cant_pages": 253,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "ae749914-faf0-5f7e-b51c-0713e19cf4ba",
+      "slug": "veredas-2006",
+      "type": "novel",
+      "title": "Veredas",
+      "genres": [
+        1
+      ],
+      "year": 2006,
+      "edition_number": null,
+      "cant_pages": 122,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4af2e9cf-0ea9-5031-b1a1-09b849be690c",
+      "slug": "nada-que-declarar-2006",
+      "type": "short_story",
+      "title": "Nada que declarar",
+      "genres": [
+        1
+      ],
+      "year": 2006,
+      "edition_number": null,
+      "cant_pages": 62,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "7c898301-0cad-5f9f-bcd3-8a5525bdf761",
+      "slug": "bosque-2006",
+      "type": "novel",
+      "title": "Bosque",
+      "genres": [
+        1
+      ],
+      "year": 2006,
+      "edition_number": null,
+      "cant_pages": 102,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "6511d62d-5894-52e9-a82d-898d7b291e80",
+      "slug": "hacia-la-eternidad-2006",
+      "type": "novel",
+      "title": "Hacia la eternidad",
+      "genres": [
+        1
+      ],
+      "year": 2006,
+      "edition_number": null,
+      "cant_pages": 106,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "27a29f93-1cbb-5c9f-a895-51328ed1f595",
+      "slug": "precio-justo-2006",
+      "type": "short_story",
+      "title": "Precio justo",
+      "genres": [
+        1
+      ],
+      "year": 2006,
+      "edition_number": null,
+      "cant_pages": 54,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "fae0ebc5-3bfe-5104-be7b-b65cafc42e84",
+      "slug": "enemigo-sin-voz-2007",
+      "type": "novel",
+      "title": "Enemigo sin voz",
+      "genres": [
+        1
+      ],
+      "year": 2007,
+      "edition_number": null,
+      "cant_pages": 61,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "1fb46965-e16d-57a4-bae8-1398ceea74d4",
+      "slug": "horitzo-de-successos-2007",
+      "type": "novel",
+      "title": "Horitzó de successos",
+      "genres": [
+        1
+      ],
+      "year": 2007,
+      "edition_number": null,
+      "cant_pages": 250,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "e8938f82-d783-50dd-a219-7db853178ad5",
+      "slug": "pluma-de-leon-2007",
+      "type": "novel",
+      "title": "Pluma de león",
+      "genres": [
+        1
+      ],
+      "year": 2007,
+      "edition_number": null,
+      "cant_pages": 322,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "054d1955-ec5b-519f-ac3c-065bc786bc3b",
+      "slug": "la-puerta-del-mar-cuantico-2008",
+      "type": "novel",
+      "title": "La puerta del mar cuántico",
+      "genres": [
+        1
+      ],
+      "year": 2008,
+      "edition_number": null,
+      "cant_pages": 219,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "007f3043-b1a2-5410-b280-24c4311e1790",
+      "slug": "la-carne-luminosa-de-los-gigantes-2008",
+      "type": "short_story",
+      "title": "La carne luminosa de los gigantes",
+      "genres": [
+        1
+      ],
+      "year": 2008,
+      "edition_number": null,
+      "cant_pages": 101,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "e96dd1f1-c741-5111-9d43-77b7c33963ad",
+      "slug": "bajo-presion-2008",
+      "type": "novel",
+      "title": "Bajo presión",
+      "genres": [
+        1
+      ],
+      "year": 2008,
+      "edition_number": null,
+      "cant_pages": 63,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "1f6b2a1d-6911-5a28-ba10-627f2ce3f3b4",
+      "slug": "cronicas-del-manana-50-anos-de-cuentos-cubanos-de-ciencia-ficcion-2008",
+      "type": "anthology",
+      "title": "Crónicas del mañana. 50 años de cuentos cubanos de ciencia ficción",
+      "genres": [
+        1
+      ],
+      "year": 2008,
+      "edition_number": null,
+      "cant_pages": 342,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "babd68fb-0af2-5856-b407-ab9f6587fad0",
+      "slug": "suenos-de-interfaz-2009",
+      "type": "short_story",
+      "title": "Sueños de interfaz",
+      "genres": [
+        1
+      ],
+      "year": 2009,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "a37fa72f-569d-50b5-a23f-07ba80408b5e",
+      "slug": "hijos-de-glorian-2009",
+      "type": "novel",
+      "title": "Hijos de Glorian",
+      "genres": [
+        1
+      ],
+      "year": 2009,
+      "edition_number": null,
+      "cant_pages": 127,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "c6ad14a0-4055-5c55-baf4-4ffa1fbc38df",
+      "slug": "al-limite-de-los-olivos-2009",
+      "type": "short_story",
+      "title": "Al límite de los olivos",
+      "genres": [
+        1
+      ],
+      "year": 2009,
+      "edition_number": null,
+      "cant_pages": 82,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "86f05113-129d-5a15-9349-ad13edd546bb",
+      "slug": "aitana-2010",
+      "type": "novel",
+      "title": "Aitana",
+      "genres": [
+        1
+      ],
+      "year": 2010,
+      "edition_number": null,
+      "cant_pages": 62,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "71ca9eb9-efd9-5256-823e-bee469e5369e",
+      "slug": "algunos-recuerdos-que-valen-la-pena-2010",
+      "type": "short_story",
+      "title": "Algunos recuerdos que valen la pena",
+      "genres": [
+        1
+      ],
+      "year": 2010,
+      "edition_number": null,
+      "cant_pages": 100,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "426de29a-5d87-5538-9d9a-cc7a0d385b6a",
+      "slug": "habana-underguater-2010",
+      "type": "novel",
+      "title": "Habana underguater",
+      "genres": [
+        1
+      ],
+      "year": 2010,
+      "edition_number": null,
+      "cant_pages": 324,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "3ee01465-48b4-5853-b49f-b8a7afee33fe",
+      "slug": "entremundos-2010",
+      "type": "novel",
+      "title": "Entremundos",
+      "genres": [
+        1
+      ],
+      "year": 2010,
+      "edition_number": null,
+      "cant_pages": 182,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "d14dee10-1126-52af-aa50-8bef96db1250",
+      "slug": "tropas-auxiliares-2010",
+      "type": "novel",
+      "title": "Tropas auxiliares",
+      "genres": [
+        1
+      ],
+      "year": 2010,
+      "edition_number": null,
+      "cant_pages": 134,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "be7369a8-bba9-540e-a7c0-954426c64558",
+      "slug": "ciudad-en-red-2011",
+      "type": "novel",
+      "title": "Ciudad en red",
+      "genres": [
+        1
+      ],
+      "year": 2011,
+      "edition_number": null,
+      "cant_pages": 93,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "536e0616-d79d-588a-92d1-766eab075c4c",
+      "slug": "cuentos-de-bajavel-2011",
+      "type": "short_story",
+      "title": "Cuentos de Bajavel",
+      "genres": [
+        1
+      ],
+      "year": 2011,
+      "edition_number": null,
+      "cant_pages": 78,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "a742f28f-a465-5c5c-8135-e4b91aef34ab",
+      "slug": "solo-en-su-mente-2011",
+      "type": "short_story",
+      "title": "Solo en su mente",
+      "genres": [
+        1
+      ],
+      "year": 2011,
+      "edition_number": null,
+      "cant_pages": 147,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b067e943-bf27-5abb-977b-e75a7a7560e3",
+      "slug": "delicados-procesos-2011",
+      "type": "short_story",
+      "title": "Delicados procesos",
+      "genres": [
+        1
+      ],
+      "year": 2011,
+      "edition_number": null,
+      "cant_pages": 71,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "5d84b3ed-0b45-5fc0-ae5d-bc3189079ca4",
+      "slug": "ciberficcion-2011",
+      "type": "anthology",
+      "title": "Ciberficción",
+      "genres": [
+        1
+      ],
+      "year": 2011,
+      "edition_number": null,
+      "cant_pages": 311,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "1bede1c5-6f95-58c6-bcf8-2d67c2db063d",
+      "slug": "en-sus-marcas-listos-futuro-2011",
+      "type": "anthology",
+      "title": "En sus marcas, listos, futuro",
+      "genres": [
+        1
+      ],
+      "year": 2011,
+      "edition_number": null,
+      "cant_pages": 251,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "9bab18d4-1eec-58fe-a3c9-2fe99c4a5d2e",
+      "slug": "por-casa-tengo-el-espacio-2012",
+      "type": "short_story",
+      "title": "Por casa tengo el espacio",
+      "genres": [
+        1
+      ],
+      "year": 2012,
+      "edition_number": null,
+      "cant_pages": 101,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "ad61672a-9333-5307-8571-6cc2850eddd1",
+      "slug": "hipernova-2012",
+      "type": "short_story",
+      "title": "Hipernova",
+      "genres": [
+        1
+      ],
+      "year": 2012,
+      "edition_number": null,
+      "cant_pages": 472,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "f69c0cd3-806f-551c-95ee-994f214a68ea",
+      "slug": "tiempo-0-premios-del-concurso-anual-de-cuentos-de-cf-de-la-revista-juventud-tecn-2012",
+      "type": "anthology",
+      "title": "Tiempo 0. Premios del Concurso Anual de cuentos de CF de la revista Juventud Técnica",
+      "genres": [
+        1
+      ],
+      "year": 2012,
+      "edition_number": null,
+      "cant_pages": 280,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "18b26fa4-c0d9-5b15-afa9-e8d092b52781",
+      "slug": "superextragrande-2012",
+      "type": "novel",
+      "title": "Superextragrande",
+      "genres": [
+        1
+      ],
+      "year": 2012,
+      "edition_number": null,
+      "cant_pages": 102,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "05dbaed8-55b7-55a0-b6ae-869e3a9660aa",
+      "slug": "el-vuelo-del-ilirith-2013",
+      "type": "short_story",
+      "title": "El vuelo del Ilirith",
+      "genres": [
+        1
+      ],
+      "year": 2013,
+      "edition_number": null,
+      "cant_pages": 107,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "1421479a-ffc6-5e6d-8cb8-75f900031153",
+      "slug": "historias-del-altipuerto-2013",
+      "type": "short_story",
+      "title": "Historias del Altipuerto",
+      "genres": [
+        1
+      ],
+      "year": 2013,
+      "edition_number": null,
+      "cant_pages": 77,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "bbc1f345-4ba6-5493-8c27-55ada5dd0d7f",
+      "slug": "hijos-de-korad-2013",
+      "type": "anthology",
+      "title": "Hijos de Korad",
+      "genres": [
+        1
+      ],
+      "year": 2013,
+      "edition_number": null,
+      "cant_pages": 379,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "30ca9e5a-9b1f-50de-bb46-36e3000f46ff",
+      "slug": "sexbot-antologia-cubana-de-cuentos-eroticos-de-ciencia-ficcion-2013",
+      "type": "anthology",
+      "title": "Sexbot. Antología cubana de cuentos eróticos de ciencia ficción",
+      "genres": [
+        1
+      ],
+      "year": 2013,
+      "edition_number": null,
+      "cant_pages": 208,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "593be5b1-962f-572e-8a66-e5d397c7a4e5",
+      "slug": "condonautas-2013",
+      "type": "novel",
+      "title": "Condonautas",
+      "genres": [
+        1
+      ],
+      "year": 2013,
+      "edition_number": null,
+      "cant_pages": 147,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "60b0f1e7-d1ac-54d8-b8c3-85de5aa29f63",
+      "slug": "la-piedra-ardiente-2014",
+      "type": "novel",
+      "title": "La piedra ardiente",
+      "genres": [
+        1
+      ],
+      "year": 2014,
+      "edition_number": null,
+      "cant_pages": 211,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "a9652e38-bd07-52fd-a33c-ca3f892b178d",
+      "slug": "daniel-y-los-calices-de-fuego-2014",
+      "type": "novel",
+      "title": "Daniel y los cálices de fuego",
+      "genres": [
+        1
+      ],
+      "year": 2014,
+      "edition_number": null,
+      "cant_pages": 146,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "1bf1f092-a55d-5c2b-8131-6bf3909d29ae",
+      "slug": "memorias-del-cosmos-salvaje-2014",
+      "type": "short_story",
+      "title": "Memorias del cosmos salvaje",
+      "genres": [
+        1
+      ],
+      "year": 2014,
+      "edition_number": null,
+      "cant_pages": 145,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "e63b02fe-e918-5fd0-b449-2efffba1bd9f",
+      "slug": "los-endemoniados-de-yaguaramas-2014",
+      "type": "novel",
+      "title": "Los endemoniados de Yaguaramas",
+      "genres": [
+        1
+      ],
+      "year": 2014,
+      "edition_number": null,
+      "cant_pages": 149,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "e95495cc-6740-5d09-a5bf-9e1386f590d2",
+      "slug": "ciencia-riccion-2014",
+      "type": "anthology",
+      "title": "Ciencia ricción",
+      "genres": [
+        1
+      ],
+      "year": 2014,
+      "edition_number": null,
+      "cant_pages": 307,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "bc2f8306-dbd1-540f-a7db-4bb41ced884a",
+      "slug": "salome-2014",
+      "type": "novel",
+      "title": "Salomé",
+      "genres": [
+        1
+      ],
+      "year": 2014,
+      "edition_number": null,
+      "cant_pages": 85,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "32435e90-11ec-5cf2-b273-e5b8a00684eb",
+      "slug": "angelica-2014",
+      "type": "novel",
+      "title": "Angélica",
+      "genres": [
+        1
+      ],
+      "year": 2014,
+      "edition_number": null,
+      "cant_pages": 202,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "41a030c9-cb0b-5853-b073-bf5720c2fcc4",
+      "slug": "caleidoscopio-con-vistas-al-futuro-2015",
+      "type": "short_story",
+      "title": "Caleidoscopio con vistas al futuro",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 134,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "8639ab61-7fa6-5010-ab25-6c0e2ab58f25",
+      "slug": "la-guerra-de-bianca-2015",
+      "type": "novel",
+      "title": "La guerra de Bianca",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 214,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "6df7fdfe-a223-545a-8b11-2b1ae34ec1eb",
+      "slug": "caos-2015",
+      "type": "short_story",
+      "title": "Caos",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 100,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4b761574-2751-59d9-bfe5-9b177381c608",
+      "slug": "dentro-de-la-boca-del-lobo-2015",
+      "type": "novel",
+      "title": "Dentro de la boca del lobo",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 109,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b94496b0-c5f6-5eb3-b811-3738e3f9e565",
+      "slug": "danzario-mecanico-2015",
+      "type": "short_story",
+      "title": "Danzario mecánico",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 99,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "979c88f3-1fcd-5c7f-bbcf-4f0782caed2a",
+      "slug": "visitantes-inesperados-seleccion-de-cuentos-de-cf-cubana-2015",
+      "type": "anthology",
+      "title": "Visitantes inesperados. Selección de cuentos de CF cubana",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 219,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "a7519aa0-c7ce-50fb-9571-5a06ce05e12c",
+      "slug": "culto-de-acoplamiento-2015",
+      "type": "short_story",
+      "title": "Culto de acoplamiento",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 115,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4ba29c3d-614c-59ac-8417-a6244537c67e",
+      "slug": "ingenieros-y-jenizaros-2015",
+      "type": "novel",
+      "title": "Ingenieros y jenízaros",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 437,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "7680e2d1-fa09-5dfc-a602-069b399ccc5b",
+      "slug": "mision-korad-2015",
+      "type": "short_story",
+      "title": "Misión Korad",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 19,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4946dfee-4aa9-55ad-8ca9-89501290f3d4",
+      "slug": "alter-cuba-2016",
+      "type": "novel",
+      "title": "Alter Cuba",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 126,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "c39c24a4-a352-537a-a11d-5615b598e337",
+      "slug": "razones-para-no-viajar-en-el-tiempo-2016",
+      "type": "short_story",
+      "title": "Razones para no viajar en el tiempo",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 142,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4ed5fded-d41f-52f6-b8ff-242823b1f7e0",
+      "slug": "metamundo-willy-capote-dos-novelas-cortas-2016",
+      "type": "novel",
+      "title": "Metamundo / Willy Capote. Dos novelas cortas",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 201,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "32006910-d021-5d3b-aac5-8a0359d67a4d",
+      "slug": "en-la-habana-es-mas-dificil-2016",
+      "type": "short_story",
+      "title": "En La Habana es más difícil",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 118,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "04282870-c11a-5196-bb99-6520d89576cd",
+      "slug": "las-puertas-del-cielo-2016",
+      "type": "novel",
+      "title": "Las puertas del cielo",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "9a628ad5-5709-54dc-b4b2-4e7c41287253",
+      "slug": "memorias-del-cosmos-cercano-2016",
+      "type": "short_story",
+      "title": "Memorias del cosmos cercano",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 235,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b6e6f63f-971e-5d00-8865-9902d6f90e99",
+      "slug": "los-dias-del-futuro-premios-calendario-de-ciencia-ficcion-2003-2016-2016",
+      "type": "anthology",
+      "title": "Los días del futuro. Premios Calendario de ciencia ficción 2003-2016",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 140,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "e299ed44-2494-5ef0-9a03-64ed4127f768",
+      "slug": "pais-grande-pais-pequeno-2016",
+      "type": "short_story",
+      "title": "País grande, país pequeño",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 111,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "c15e2be6-1413-5204-877c-0dc6c2c1be7b",
+      "slug": "reto-prehistorico-2016",
+      "type": "novel",
+      "title": "Reto prehistórico",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 143,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "1671392e-31ef-5e3d-a8a3-e0200301b1f3",
+      "slug": "entre-clones-anda-el-juego-2016",
+      "type": "novel",
+      "title": "Entre clones anda el juego",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": 228,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b282c626-665c-5544-98a2-69e980aa6d6d",
+      "slug": "la-historia-de-zoe-2016",
+      "type": "comic",
+      "title": "La historia de Zoe",
+      "genres": [
+        1
+      ],
+      "year": 2016,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "6843f062-e8db-5c53-9837-b6b64a390804",
+      "slug": "el-olor-acre-de-la-libertad-2017",
+      "type": "novel",
+      "title": "El olor acre de la libertad",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 100,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b133f02c-2a5f-5a43-b950-2af173401b6d",
+      "slug": "historias-del-altipuerto-ii-2017",
+      "type": "short_story",
+      "title": "Historias del Altipuerto II",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 115,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "add8a0a1-7018-52c8-963a-313c7179ead1",
+      "slug": "chunga-maya-2017",
+      "type": "short_story",
+      "title": "Chunga Maya",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 125,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "ffbb228c-9142-524e-aa72-7526684f5152",
+      "slug": "el-ano-del-tigre-2017",
+      "type": "short_story",
+      "title": "El año del tigre",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 189,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "49be847c-2a5f-542a-b9b0-279145bfff3d",
+      "slug": "orbita-juracan-cuentos-cubanos-de-ciencia-ficcion-2017",
+      "type": "anthology",
+      "title": "Órbita Juracán. Cuentos cubanos de ciencia ficción",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 330,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "a2cdbfea-d441-58cf-ad1d-537063cea4c3",
+      "slug": "otras-tierras-otros-soles-una-mirada-a-la-ciencia-ficcion-2017",
+      "type": "anthology",
+      "title": "Otras tierras otros soles. Una mirada a la ciencia ficción",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 357,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4ffc687e-3027-5fdd-8cd2-f73eb1f03cdb",
+      "slug": "el-trono-de-ecbatana-libro-primero-la-ciudad-de-las-mascaras-2017",
+      "type": "novel",
+      "title": "El trono de Ecbatana, libro primero: La ciudad de las máscaras",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 323,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "875316f2-09fb-524c-894c-dc1475b37ac5",
+      "slug": "la-ultima-aurora-2017",
+      "type": "novel",
+      "title": "La última aurora",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 184,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "e14e3fcc-f066-5475-8f24-3f544f124f83",
+      "slug": "que-den-un-paso-al-frente-los-caidos-2017",
+      "type": "novel",
+      "title": "Que den un paso al frente los caídos",
+      "genres": [
+        1
+      ],
+      "year": 2017,
+      "edition_number": null,
+      "cant_pages": 246,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "7bc1627b-cc3b-55e0-b6e8-a34fdc355ffe",
+      "slug": "cronicas-del-hipercosmos-2018",
+      "type": "short_story",
+      "title": "Crónicas del hipercosmos",
+      "genres": [
+        1
+      ],
+      "year": 2018,
+      "edition_number": null,
+      "cant_pages": 371,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "acd58182-4538-57b2-b4ac-8f0268dbabcb",
+      "slug": "el-colapso-de-las-habanas-infinitas-2018",
+      "type": "short_story",
+      "title": "El colapso de las habanas infinitas",
+      "genres": [
+        1
+      ],
+      "year": 2018,
+      "edition_number": null,
+      "cant_pages": 128,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "a7e819e3-e77c-5763-bbae-9578fad8ba83",
+      "slug": "lo-mejor-es-sonar-2018",
+      "type": "short_story",
+      "title": "Lo mejor es soñar",
+      "genres": [
+        1
+      ],
+      "year": 2018,
+      "edition_number": null,
+      "cant_pages": 134,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "76ce35f0-f2b6-56a4-9b97-12187aa378d6",
+      "slug": "las-peregrinaciones-de-los-dioses-2018",
+      "type": "short_story",
+      "title": "Las peregrinaciones de los dioses",
+      "genres": [
+        1
+      ],
+      "year": 2018,
+      "edition_number": null,
+      "cant_pages": 149,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "1ff280a8-7082-5f73-b7c2-468cf50c42e0",
+      "slug": "los-mundos-de-la-guerra-2018",
+      "type": "short_story",
+      "title": "Los mundos de la guerra",
+      "genres": [
+        1
+      ],
+      "year": 2018,
+      "edition_number": null,
+      "cant_pages": 276,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "74d18bd4-900f-520e-a42a-38cb678b3cca",
+      "slug": "cuando-despiertes-2019",
+      "type": "novel",
+      "title": "Cuando despiertes",
+      "genres": [
+        1
+      ],
+      "year": 2019,
+      "edition_number": null,
+      "cant_pages": 88,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "9f966e9d-f3dd-5e47-bf57-69e2c34a08b8",
+      "slug": "menu-completo-2019",
+      "type": "short_story",
+      "title": "Menú completo",
+      "genres": [
+        1
+      ],
+      "year": 2019,
+      "edition_number": null,
+      "cant_pages": 64,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "99d88417-28ff-55a0-9f25-b42ab401cf6a",
+      "slug": "recuerdame-2019",
+      "type": "novel",
+      "title": "Recuérdame",
+      "genres": [
+        1
+      ],
+      "year": 2019,
+      "edition_number": null,
+      "cant_pages": 214,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "d90bbd46-05f8-5219-961e-49a9bbb98a76",
+      "slug": "la-marca-de-kahim-2019",
+      "type": "novel",
+      "title": "La marca de Kahim",
+      "genres": [
+        1
+      ],
+      "year": 2019,
+      "edition_number": null,
+      "cant_pages": 110,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "881c3399-06de-537b-82ab-46789c6a2b98",
+      "slug": "los-mil-y-un-zombies-2019",
+      "type": "anthology",
+      "title": "Los mil y un zombies",
+      "genres": [
+        1
+      ],
+      "year": 2019,
+      "edition_number": null,
+      "cant_pages": 80,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "76c5a433-04e5-534f-9a98-ee50a2552a59",
+      "slug": "el-trono-de-ecbatana-libro-segundo-la-flor-transparente-2019",
+      "type": "novel",
+      "title": "El trono de Ecbatana, libro segundo: La flor transparente",
+      "genres": [
+        1
+      ],
+      "year": 2019,
+      "edition_number": null,
+      "cant_pages": 382,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "f22970db-0e85-5fd8-bfe3-07c6e81fbd23",
+      "slug": "etcetera-y-otras-cosas-paratextos-y-otros-cuentos-experimentales-de-ciencia-ficc-2019",
+      "type": "short_story",
+      "title": "Etcétera y otras cosas (paratextos y otros cuentos experimentales de ciencia ficción)",
+      "genres": [
+        1
+      ],
+      "year": 2019,
+      "edition_number": null,
+      "cant_pages": 176,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4310f741-5689-5aa2-a706-ac542d0f6936",
+      "slug": "izokumi-2020",
+      "type": "short_story",
+      "title": "Izokumi",
+      "genres": [
+        1
+      ],
+      "year": 2020,
+      "edition_number": null,
+      "cant_pages": 70,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "d9cad294-c847-5ffd-8175-79c1197ce687",
+      "slug": "ra-cletara-y-otros-cuentos-fantasticos-2020",
+      "type": "short_story",
+      "title": "Ra-cletara y otros cuentos fantásticos",
+      "genres": [
+        1,
+        2
+      ],
+      "year": 2020,
+      "edition_number": null,
+      "cant_pages": 90,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "fc0cef67-bb4e-5d24-b26c-b15e6a93f394",
+      "slug": "pesadilla-tragedia-y-fantasmas-de-neon-2020",
+      "type": "short_story",
+      "title": "Pesadilla, tragedia y fantasmas de Neón",
+      "genres": [
+        1
+      ],
+      "year": 2020,
+      "edition_number": null,
+      "cant_pages": 138,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "7067d978-0754-5ee2-ac98-bc8216053d6b",
+      "slug": "el-umbral-oscuro-2020",
+      "type": "novel",
+      "title": "El umbral oscuro",
+      "genres": [
+        1
+      ],
+      "year": 2020,
+      "edition_number": null,
+      "cant_pages": 180,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "27c77d8b-d342-575f-ab7b-e0e97279a3a5",
+      "slug": "la-ira-de-los-sobrevivientes-2020",
+      "type": "novel",
+      "title": "La ira de los sobrevivientes",
+      "genres": [
+        1
+      ],
+      "year": 2020,
+      "edition_number": null,
+      "cant_pages": 221,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "7cbe3ff3-1133-5815-9783-459af7f7a8fc",
+      "slug": "e-a-vol-1-breve-antologia-de-literatura-fantastica-y-de-ciencia-ficcion-espacio--2020",
+      "type": "anthology",
+      "title": "E. A. Vol. 1. Breve antología de literatura fantástica y de ciencia ficción «Espacio Abierto»",
+      "genres": [
+        1,
+        2
+      ],
+      "year": 2020,
+      "edition_number": null,
+      "cant_pages": 246,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "e07343ee-dd7e-52ec-bb0e-d5d3880dc06f",
+      "slug": "reservoir-alien-2021",
+      "type": "novel",
+      "title": "Reservoir Alien",
+      "genres": [
+        1
+      ],
+      "year": 2021,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "cb9beb30-b24f-5acb-a6e2-af6fe645d091",
+      "slug": "cumulos-2021",
+      "type": "novel",
+      "title": "Cúmulos",
+      "genres": [
+        1
+      ],
+      "year": 2021,
+      "edition_number": null,
+      "cant_pages": 88,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "9dfffa21-0a45-5b3f-b517-8ac909049174",
+      "slug": "diarios-del-metacosmos-2021",
+      "type": "novel",
+      "title": "Diarios del metacosmos",
+      "genres": [
+        1
+      ],
+      "year": 2021,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "ba1a65b8-c1b2-5e51-9863-c3f2b367a64d",
+      "slug": "habana-underguater-edicion-aumentada-con-capitulos-nuevos-prologo-y-anexos-2021",
+      "type": "novel",
+      "title": "Habana underguater [Edición aumentada con capítulos nuevos, prólogo y anexos]",
+      "genres": [
+        1
+      ],
+      "year": 2021,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "5b53e880-ba57-5d7c-9f0e-50aac5aec435",
+      "slug": "la-silueta-del-suba-2021",
+      "type": "short_story",
+      "title": "La silueta del suba",
+      "genres": [
+        1
+      ],
+      "year": 2021,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "b415a650-09a5-59c9-bd6c-f5dc95e98ba2",
+      "slug": "los-errantes-2021",
+      "type": "novel",
+      "title": "Los errantes",
+      "genres": [
+        1
+      ],
+      "year": 2021,
+      "edition_number": null,
+      "cant_pages": 120,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "5fadef55-16c5-5cd1-98c6-2250677a75ab",
+      "slug": "el-advenimiento-2021",
+      "type": "novel",
+      "title": "El advenimiento",
+      "genres": [
+        1
+      ],
+      "year": 2021,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "36fe6b0d-0859-5535-b70e-bf6f9780ec8f",
+      "slug": "prueba-de-destruccion-2021",
+      "type": "short_story",
+      "title": "Prueba de destrucción",
+      "genres": [
+        1
+      ],
+      "year": 2021,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "9d537ca0-3a65-57d0-a742-427f3869f315",
+      "slug": "el-foso-de-mabuya-2022",
+      "type": "novel",
+      "title": "El foso de Mabuya",
+      "genres": [
+        1
+      ],
+      "year": 2022,
+      "edition_number": null,
+      "cant_pages": 342,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "958072dd-dd0b-5b7b-8ea8-5651eba73517",
+      "slug": "a-la-sombra-del-mundo-hogar-2022",
+      "type": "novel",
+      "title": "A la sombra del mundo hogar",
+      "genres": [
+        1
+      ],
+      "year": 2022,
+      "edition_number": null,
+      "cant_pages": 116,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "cefbd809-4f0d-5d89-aea5-68b26f39e315",
+      "slug": "llueven-piedras-sobre-el-valle-del-alquin-2023",
+      "type": "short_story",
+      "title": "Llueven piedras sobre el valle del Alquin",
+      "genres": [
+        1
+      ],
+      "year": 2023,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "4a510c95-1c7d-523b-bdcd-9f9200a72fb0",
+      "slug": "siete-dias-sin-yrla-2023",
+      "type": "short_story",
+      "title": "Siete días sin Yrla",
+      "genres": [
+        1
+      ],
+      "year": 2023,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "c3b9d161-218e-544a-93de-f0fa2304b26e",
+      "slug": "memorias-del-mar-de-dirac-2023",
+      "type": "short_story",
+      "title": "Memorias del mar de Dirac",
+      "genres": [
+        1
+      ],
+      "year": 2023,
+      "edition_number": null,
+      "cant_pages": 268,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "986aa2ab-973f-526d-b682-3c5161f3eff5",
+      "slug": "guadana-universal-el-codice-2023",
+      "type": "short_story",
+      "title": "Guadaña universal: El códice",
+      "genres": [
+        1
+      ],
+      "year": 2023,
+      "edition_number": null,
+      "cant_pages": 109,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "ced2d089-95d2-5761-b0da-c992d92b31a8",
+      "slug": "la-balada-de-xander-sirius-2023",
+      "type": "novel",
+      "title": "La balada de Xander Sirius",
+      "genres": [
+        1
+      ],
+      "year": 2023,
+      "edition_number": null,
+      "cant_pages": 164,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "fd77fdaf-8690-56c7-9b6e-605507555552",
+      "slug": "embajador-sin-retorno-2023",
+      "type": "novel",
+      "title": "Embajador sin retorno",
+      "genres": [
+        1
+      ],
+      "year": 2023,
+      "edition_number": null,
+      "cant_pages": 131,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "9a6adbfc-6c64-5366-b6fb-3c58f6abd12e",
+      "slug": "voces-fantasmas-2023",
+      "type": "short_story",
+      "title": "Voces fantasmas",
+      "genres": [
+        1
+      ],
+      "year": 2023,
+      "edition_number": null,
+      "cant_pages": 96,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "33a54d6a-8fc6-5c0a-8214-2eb9f62bd028",
+      "slug": "refugiados-2024",
+      "type": "novel",
+      "title": "Refugiados",
+      "genres": [
+        1
+      ],
+      "year": 2024,
+      "edition_number": null,
+      "cant_pages": 88,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "9aab006f-0c31-526f-803d-110d4a4a1556",
+      "slug": "las-fronteras-de-la-vida-2024",
+      "type": "anthology",
+      "title": "Las fronteras de la vida",
+      "genres": [
+        1
+      ],
+      "year": 2024,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "6518b115-6a1b-5018-842a-5684ca710c26",
+      "slug": "la-biblioteca-de-alexa-2025",
+      "type": "novel",
+      "title": "La biblioteca de Alexa",
+      "genres": [
+        1
+      ],
+      "year": 2025,
+      "edition_number": null,
+      "cant_pages": 127,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "5d549387-bc3c-5b7a-b8b5-58c0f191bcfa",
+      "slug": "el-signo-de-la-serpiente-parte-ii-santo-domingo-shi-2025",
+      "type": "novel",
+      "title": "El signo de la serpiente. Parte II – Santo Domingo-shi",
+      "genres": [
+        1
+      ],
+      "year": 2025,
+      "edition_number": null,
+      "cant_pages": 92,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "2fc9a601-1f2a-53bd-a8aa-e7b8c10cc896",
+      "slug": "la-escuadra-negra-2025",
+      "type": "novel",
+      "title": "La escuadra negra",
+      "genres": [
+        1
+      ],
+      "year": 2025,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "8c18be18-c573-5364-8d04-81cdaa3a9353",
+      "slug": "el-universo-de-la-ciencia-ficcion-2005",
+      "type": "essay",
+      "title": "El universo de la ciencia ficción",
+      "genres": [
+        1
+      ],
+      "year": 2005,
+      "edition_number": null,
+      "cant_pages": 243,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "266c6913-1547-5a1b-a5ef-e27f8b2bade6",
+      "slug": "cronicas-de-lo-ajeno-y-lo-lejano-2010",
+      "type": "essay",
+      "title": "Crónicas de lo ajeno y lo lejano",
+      "genres": [
+        1
+      ],
+      "year": 2010,
+      "edition_number": null,
+      "cant_pages": 412,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "48f4d419-68ce-509c-a891-e0fa3b9d4076",
+      "slug": "viaje-al-centro-del-verne-desconocido-2010",
+      "type": "essay",
+      "title": "Viaje al centro del Verne desconocido",
+      "genres": [
+        1
+      ],
+      "year": 2010,
+      "edition_number": null,
+      "cant_pages": 384,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "27237c21-ddf3-520a-a0a3-c70214393dcc",
+      "slug": "la-quinta-dimension-de-la-literatura-2012",
+      "type": "essay",
+      "title": "La quinta dimensión de la literatura",
+      "genres": [
+        1
+      ],
+      "year": 2012,
+      "edition_number": null,
+      "cant_pages": 363,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "fdf3ee39-a4b4-5821-85ec-5b5a1edd5e4c",
+      "slug": "la-isla-y-las-estrellas-el-ensayo-y-la-critica-de-ciencia-ficcion-en-cuba-2015",
+      "type": "anthology",
+      "title": "La Isla y las estrellas. El ensayo y la crítica de ciencia ficción en Cuba",
+      "genres": [
+        1
+      ],
+      "year": 2015,
+      "edition_number": null,
+      "cant_pages": 462,
+      "link": null,
+      "is_published": true
+    },
+    {
+      "id": "af6910f9-aae4-5a69-8181-6174ba0b7057",
+      "slug": "le-ataje-de-los-almacigues-2024",
+      "type": "novel",
+      "title": "Le ataje de los almácigues",
+      "genres": [
+        1
+      ],
+      "year": 2024,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": false
+    },
+    {
+      "id": "62aee9ec-c648-5c17-a5c6-dc79ec8861b6",
+      "slug": "mundo-hipotecado-2025",
+      "type": "novel",
+      "title": "Mundo hipotecado",
+      "genres": [
+        1
+      ],
+      "year": 2025,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": false
+    },
+    {
+      "id": "c522f237-8a3d-5e27-9857-ea76fe062aab",
+      "slug": "agente-del-caos-cont-de-la-ira-de-los-sobrevivientes-2025",
+      "type": "novel",
+      "title": "Agente del caos (cont. de La ira de los sobrevivientes)",
+      "genres": [
+        1
+      ],
+      "year": 2025,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": false
+    },
+    {
+      "id": "8d5fe0d6-d53b-5fe1-87f9-967a6c9e31ad",
+      "slug": "la-balada-del-pastor-2025",
+      "type": "short_story",
+      "title": "La balada del pastor",
+      "genres": [
+        1
+      ],
+      "year": 2025,
+      "edition_number": null,
+      "cant_pages": 80,
+      "link": null,
+      "is_published": false
+    },
+    {
+      "id": "f042311b-8164-59a6-bf07-70de72cb9cbb",
+      "slug": "alma-y-corazon-2025",
+      "type": "novel",
+      "title": "Alma y corazón",
+      "genres": [
+        1
+      ],
+      "year": 2025,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": false
+    },
+    {
+      "id": "004ebb79-de10-56b0-9038-27e2c2027367",
+      "slug": "las-azules-colinas-de-europa-2026",
+      "type": "short_story",
+      "title": "Las azules colinas de Europa",
+      "genres": [
+        1
+      ],
+      "year": 2026,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": false
+    },
+    {
+      "id": "d1bec45e-e27f-5d0d-ad31-bf264363d806",
+      "slug": "donde-la-noche-es-eterna-2026",
+      "type": "short_story",
+      "title": "Donde la noche es eterna",
+      "genres": [
+        1
+      ],
+      "year": 2026,
+      "edition_number": null,
+      "cant_pages": null,
+      "link": null,
+      "is_published": false
+    },
+    {
+      "id": "ed5ffcfd-0795-5df3-a9da-11365773ffcb",
+      "slug": "al-centro-del-metaverso-2026",
+      "type": "novel",
+      "title": "Al centro del metaverso",
+      "genres": [
+        1
+      ],
+      "year": 2026,
+      "edition_number": null,
+      "cant_pages": 85,
+      "link": null,
+      "is_published": false
+    }
+  ],
+  "author_works": [
+    {
+      "author_id": "3e6cd88a-1fe5-54af-b162-c222f741be32",
+      "work_id": "bc5903a6-9ea5-5c22-88ba-93067152f70d"
+    },
+    {
+      "author_id": "df03d9ee-842c-5578-904d-81171d95cceb",
+      "work_id": "bddf1a1d-4aa7-527d-b8bf-89935998dcd1"
+    },
+    {
+      "author_id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "work_id": "36f39879-b7a1-5472-acf8-6c5a99e8693c"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "dada4cf9-6ceb-5704-92ee-4478070a4823"
+    },
+    {
+      "author_id": "8c042c45-af0c-5268-be66-7da48ffa209a",
+      "work_id": "b5ad7641-40ee-5068-bc93-23a452f8c1b5"
+    },
+    {
+      "author_id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "work_id": "a4735172-11a2-50b6-9cbe-ea524ced0628"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "4648f0a4-318a-506c-a2be-68e7eda409fe"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "28dc270b-6c27-50bd-ac8d-de705c4a1505"
+    },
+    {
+      "author_id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "work_id": "0c9ef7c8-bc88-57d1-9bf1-fb9830e251c1"
+    },
+    {
+      "author_id": "f5baefc8-3c03-5745-a650-27ec20fe7fa7",
+      "work_id": "0afce42f-16b9-5d9f-af14-fdcf367285fa"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "4b1a026a-3570-5463-8d4e-8f9515166233"
+    },
+    {
+      "author_id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "work_id": "48b5fdeb-4c01-5f96-80ac-ebcaf405548c"
+    },
+    {
+      "author_id": "f020c684-8d04-557a-821a-69c525e78db4",
+      "work_id": "b5f899ef-70d9-5cca-9a62-95db26eba688"
+    },
+    {
+      "author_id": "8c042c45-af0c-5268-be66-7da48ffa209a",
+      "work_id": "0f047e9e-09a1-54d0-92b4-a996a2f32ef7"
+    },
+    {
+      "author_id": "8c042c45-af0c-5268-be66-7da48ffa209a",
+      "work_id": "ae749914-faf0-5f7e-b51c-0713e19cf4ba"
+    },
+    {
+      "author_id": "8d1e1839-8e78-5f6e-ad69-ab4a9e979bd9",
+      "work_id": "4af2e9cf-0ea9-5031-b1a1-09b849be690c"
+    },
+    {
+      "author_id": "341e2500-2329-550a-b897-17f3892c151f",
+      "work_id": "7c898301-0cad-5f9f-bcd3-8a5525bdf761"
+    },
+    {
+      "author_id": "fd623086-676a-52e7-8475-cd6b45fbeeb7",
+      "work_id": "6511d62d-5894-52e9-a82d-898d7b291e80"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "27a29f93-1cbb-5c9f-a895-51328ed1f595"
+    },
+    {
+      "author_id": "8c042c45-af0c-5268-be66-7da48ffa209a",
+      "work_id": "fae0ebc5-3bfe-5104-be7b-b65cafc42e84"
+    },
+    {
+      "author_id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "work_id": "1fb46965-e16d-57a4-bae8-1398ceea74d4"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "e8938f82-d783-50dd-a219-7db853178ad5"
+    },
+    {
+      "author_id": "341e2500-2329-550a-b897-17f3892c151f",
+      "work_id": "054d1955-ec5b-519f-ac3c-065bc786bc3b"
+    },
+    {
+      "author_id": "c9f1c2e4-6670-59ee-a9ea-1afbb2672e88",
+      "work_id": "007f3043-b1a2-5410-b280-24c4311e1790"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "e96dd1f1-c741-5111-9d43-77b7c33963ad"
+    },
+    {
+      "author_id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "work_id": "babd68fb-0af2-5856-b407-ab9f6587fad0"
+    },
+    {
+      "author_id": "f933cfba-d28d-51aa-bb18-958f3b963efa",
+      "work_id": "a37fa72f-569d-50b5-a23f-07ba80408b5e"
+    },
+    {
+      "author_id": "abafc807-d1e1-5bd5-aa1b-52a094643228",
+      "work_id": "c6ad14a0-4055-5c55-baf4-4ffa1fbc38df"
+    },
+    {
+      "author_id": "1b89331d-7827-5046-b375-f7b3f411e302",
+      "work_id": "86f05113-129d-5a15-9349-ad13edd546bb"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "71ca9eb9-efd9-5256-823e-bee469e5369e"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "426de29a-5d87-5538-9d9a-cc7a0d385b6a"
+    },
+    {
+      "author_id": "310a1ae2-c8c4-5353-be29-604120ed5282",
+      "work_id": "3ee01465-48b4-5853-b49f-b8a7afee33fe"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "d14dee10-1126-52af-aa50-8bef96db1250"
+    },
+    {
+      "author_id": "52f11925-73fe-52ce-b74d-a2c848cc5456",
+      "work_id": "be7369a8-bba9-540e-a7c0-954426c64558"
+    },
+    {
+      "author_id": "1b89331d-7827-5046-b375-f7b3f411e302",
+      "work_id": "536e0616-d79d-588a-92d1-766eab075c4c"
+    },
+    {
+      "author_id": "40d93d23-5e01-53f6-b8a6-70c4b84e9d37",
+      "work_id": "a742f28f-a465-5c5c-8135-e4b91aef34ab"
+    },
+    {
+      "author_id": "3f340a77-67ff-5943-b356-adcf293561e8",
+      "work_id": "b067e943-bf27-5abb-977b-e75a7a7560e3"
+    },
+    {
+      "author_id": "02892b39-5e8f-5a0f-908a-e55b8535c7bd",
+      "work_id": "9bab18d4-1eec-58fe-a3c9-2fe99c4a5d2e"
+    },
+    {
+      "author_id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "work_id": "ad61672a-9333-5307-8571-6cc2850eddd1"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "18b26fa4-c0d9-5b15-afa9-e8d092b52781"
+    },
+    {
+      "author_id": "b1154546-93cb-5b6b-a797-d77ea42b7c21",
+      "work_id": "05dbaed8-55b7-55a0-b6ae-869e3a9660aa"
+    },
+    {
+      "author_id": "c30d968f-74b6-562c-8d6c-c1f3491b08d9",
+      "work_id": "1421479a-ffc6-5e6d-8cb8-75f900031153"
+    },
+    {
+      "author_id": "40cb1827-8bc7-5cc2-ba0c-e1e494849d2a",
+      "work_id": "1421479a-ffc6-5e6d-8cb8-75f900031153"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "593be5b1-962f-572e-8a66-e5d397c7a4e5"
+    },
+    {
+      "author_id": "f57f3c62-d7e1-58fe-8e52-8af1400d0bba",
+      "work_id": "60b0f1e7-d1ac-54d8-b8c3-85de5aa29f63"
+    },
+    {
+      "author_id": "c0e77ef9-a358-5c07-80ef-ddbf5b8e0012",
+      "work_id": "a9652e38-bd07-52fd-a33c-ca3f892b178d"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "1bf1f092-a55d-5c2b-8131-6bf3909d29ae"
+    },
+    {
+      "author_id": "d1755194-51f4-5db5-bca0-a21282fbd3cb",
+      "work_id": "e63b02fe-e918-5fd0-b449-2efffba1bd9f"
+    },
+    {
+      "author_id": "abafc807-d1e1-5bd5-aa1b-52a094643228",
+      "work_id": "bc2f8306-dbd1-540f-a7db-4bb41ced884a"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "32435e90-11ec-5cf2-b273-e5b8a00684eb"
+    },
+    {
+      "author_id": "589a0999-d6e1-50ce-985e-d42b91a72458",
+      "work_id": "41a030c9-cb0b-5853-b073-bf5720c2fcc4"
+    },
+    {
+      "author_id": "8c042c45-af0c-5268-be66-7da48ffa209a",
+      "work_id": "8639ab61-7fa6-5010-ab25-6c0e2ab58f25"
+    },
+    {
+      "author_id": "40d93d23-5e01-53f6-b8a6-70c4b84e9d37",
+      "work_id": "6df7fdfe-a223-545a-8b11-2b1ae34ec1eb"
+    },
+    {
+      "author_id": "64878faf-1643-545e-8760-5e4ce92c7f65",
+      "work_id": "4b761574-2751-59d9-bfe5-9b177381c608"
+    },
+    {
+      "author_id": "c30d968f-74b6-562c-8d6c-c1f3491b08d9",
+      "work_id": "b94496b0-c5f6-5eb3-b811-3738e3f9e565"
+    },
+    {
+      "author_id": "40cb1827-8bc7-5cc2-ba0c-e1e494849d2a",
+      "work_id": "b94496b0-c5f6-5eb3-b811-3738e3f9e565"
+    },
+    {
+      "author_id": "abafc807-d1e1-5bd5-aa1b-52a094643228",
+      "work_id": "a7519aa0-c7ce-50fb-9571-5a06ce05e12c"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "4ba29c3d-614c-59ac-8417-a6244537c67e"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "7680e2d1-fa09-5dfc-a602-069b399ccc5b"
+    },
+    {
+      "author_id": "f236288f-41dd-599a-ab94-5900bb1aacf2",
+      "work_id": "4946dfee-4aa9-55ad-8ca9-89501290f3d4"
+    },
+    {
+      "author_id": "81bd59db-5ed3-51a2-866d-d0c6279ff122",
+      "work_id": "c39c24a4-a352-537a-a11d-5615b598e337"
+    },
+    {
+      "author_id": "341e2500-2329-550a-b897-17f3892c151f",
+      "work_id": "4ed5fded-d41f-52f6-b8ff-242823b1f7e0"
+    },
+    {
+      "author_id": "b91f73ad-bb3c-5887-af68-a4262cf1514a",
+      "work_id": "32006910-d021-5d3b-aac5-8a0359d67a4d"
+    },
+    {
+      "author_id": "d0552ac9-5588-56cd-b948-ea71b9e2363f",
+      "work_id": "04282870-c11a-5196-bb99-6520d89576cd"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "9a628ad5-5709-54dc-b4b2-4e7c41287253"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "e299ed44-2494-5ef0-9a03-64ed4127f768"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "c15e2be6-1413-5204-877c-0dc6c2c1be7b"
+    },
+    {
+      "author_id": "b91f73ad-bb3c-5887-af68-a4262cf1514a",
+      "work_id": "1671392e-31ef-5e3d-a8a3-e0200301b1f3"
+    },
+    {
+      "author_id": "be65e40b-27b3-5bc6-8824-fcbae8d5ba9d",
+      "work_id": "1671392e-31ef-5e3d-a8a3-e0200301b1f3"
+    },
+    {
+      "author_id": "281f0039-c391-5d77-9554-289854e1554f",
+      "work_id": "b282c626-665c-5544-98a2-69e980aa6d6d"
+    },
+    {
+      "author_id": "589a0999-d6e1-50ce-985e-d42b91a72458",
+      "work_id": "6843f062-e8db-5c53-9837-b6b64a390804"
+    },
+    {
+      "author_id": "c30d968f-74b6-562c-8d6c-c1f3491b08d9",
+      "work_id": "b133f02c-2a5f-5a43-b950-2af173401b6d"
+    },
+    {
+      "author_id": "40cb1827-8bc7-5cc2-ba0c-e1e494849d2a",
+      "work_id": "b133f02c-2a5f-5a43-b950-2af173401b6d"
+    },
+    {
+      "author_id": "f0d5212e-632c-5ef5-9d88-dd32de389db5",
+      "work_id": "add8a0a1-7018-52c8-963a-313c7179ead1"
+    },
+    {
+      "author_id": "3f340a77-67ff-5943-b356-adcf293561e8",
+      "work_id": "ffbb228c-9142-524e-aa72-7526684f5152"
+    },
+    {
+      "author_id": "abafc807-d1e1-5bd5-aa1b-52a094643228",
+      "work_id": "4ffc687e-3027-5fdd-8cd2-f73eb1f03cdb"
+    },
+    {
+      "author_id": "abafc807-d1e1-5bd5-aa1b-52a094643228",
+      "work_id": "875316f2-09fb-524c-894c-dc1475b37ac5"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "e14e3fcc-f066-5475-8f24-3f544f124f83"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "7bc1627b-cc3b-55e0-b6e8-a34fdc355ffe"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "acd58182-4538-57b2-b4ac-8f0268dbabcb"
+    },
+    {
+      "author_id": "200c807a-7f0b-59b4-b179-20c3be8b6748",
+      "work_id": "a7e819e3-e77c-5763-bbae-9578fad8ba83"
+    },
+    {
+      "author_id": "45fc43a6-907d-57bb-848e-9b3918d5977c",
+      "work_id": "76ce35f0-f2b6-56a4-9b97-12187aa378d6"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "1ff280a8-7082-5f73-b7c2-468cf50c42e0"
+    },
+    {
+      "author_id": "480d9929-977c-54ca-9db6-556cae0313a0",
+      "work_id": "74d18bd4-900f-520e-a42a-38cb678b3cca"
+    },
+    {
+      "author_id": "f8c82536-6a17-55bc-941f-8bf38356d154",
+      "work_id": "9f966e9d-f3dd-5e47-bf57-69e2c34a08b8"
+    },
+    {
+      "author_id": "3e6cd88a-1fe5-54af-b162-c222f741be32",
+      "work_id": "99d88417-28ff-55a0-9f25-b42ab401cf6a"
+    },
+    {
+      "author_id": "200c807a-7f0b-59b4-b179-20c3be8b6748",
+      "work_id": "d90bbd46-05f8-5219-961e-49a9bbb98a76"
+    },
+    {
+      "author_id": "abafc807-d1e1-5bd5-aa1b-52a094643228",
+      "work_id": "76c5a433-04e5-534f-9a98-ee50a2552a59"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "f22970db-0e85-5fd8-bfe3-07c6e81fbd23"
+    },
+    {
+      "author_id": "60cec16d-c3f7-550c-9266-743f22d2cbbb",
+      "work_id": "4310f741-5689-5aa2-a706-ac542d0f6936"
+    },
+    {
+      "author_id": "0aaa6564-455c-57c3-954b-8185b69a59aa",
+      "work_id": "d9cad294-c847-5ffd-8175-79c1197ce687"
+    },
+    {
+      "author_id": "deb23667-ddbc-5e91-bd7f-73267eb1ebde",
+      "work_id": "fc0cef67-bb4e-5d24-b26c-b15e6a93f394"
+    },
+    {
+      "author_id": "45fc43a6-907d-57bb-848e-9b3918d5977c",
+      "work_id": "7067d978-0754-5ee2-ac98-bc8216053d6b"
+    },
+    {
+      "author_id": "45fc43a6-907d-57bb-848e-9b3918d5977c",
+      "work_id": "27c77d8b-d342-575f-ab7b-e0e97279a3a5"
+    },
+    {
+      "author_id": "341e2500-2329-550a-b897-17f3892c151f",
+      "work_id": "e07343ee-dd7e-52ec-bb0e-d5d3880dc06f"
+    },
+    {
+      "author_id": "76845b79-a36c-535a-98f1-897cb6133d73",
+      "work_id": "cb9beb30-b24f-5acb-a6e2-af6fe645d091"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "9dfffa21-0a45-5b3f-b517-8ac909049174"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "ba1a65b8-c1b2-5e51-9863-c3f2b367a64d"
+    },
+    {
+      "author_id": "c30d968f-74b6-562c-8d6c-c1f3491b08d9",
+      "work_id": "5b53e880-ba57-5d7c-9f0e-50aac5aec435"
+    },
+    {
+      "author_id": "40cb1827-8bc7-5cc2-ba0c-e1e494849d2a",
+      "work_id": "5b53e880-ba57-5d7c-9f0e-50aac5aec435"
+    },
+    {
+      "author_id": "45fc43a6-907d-57bb-848e-9b3918d5977c",
+      "work_id": "b415a650-09a5-59c9-bd6c-f5dc95e98ba2"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "5fadef55-16c5-5cd1-98c6-2250677a75ab"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "36fe6b0d-0859-5535-b70e-bf6f9780ec8f"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "9d537ca0-3a65-57d0-a742-427f3869f315"
+    },
+    {
+      "author_id": "200c807a-7f0b-59b4-b179-20c3be8b6748",
+      "work_id": "958072dd-dd0b-5b7b-8ea8-5651eba73517"
+    },
+    {
+      "author_id": "862fbd3f-8507-560f-973a-246c707fedca",
+      "work_id": "cefbd809-4f0d-5d89-aea5-68b26f39e315"
+    },
+    {
+      "author_id": "fc8893e6-855d-505c-9644-cd8151f6d26a",
+      "work_id": "4a510c95-1c7d-523b-bdcd-9f9200a72fb0"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "c3b9d161-218e-544a-93de-f0fa2304b26e"
+    },
+    {
+      "author_id": "deb23667-ddbc-5e91-bd7f-73267eb1ebde",
+      "work_id": "986aa2ab-973f-526d-b682-3c5161f3eff5"
+    },
+    {
+      "author_id": "645d67fc-41b9-5e39-bbde-0a6840ad7fad",
+      "work_id": "986aa2ab-973f-526d-b682-3c5161f3eff5"
+    },
+    {
+      "author_id": "deb23667-ddbc-5e91-bd7f-73267eb1ebde",
+      "work_id": "ced2d089-95d2-5761-b0da-c992d92b31a8"
+    },
+    {
+      "author_id": "200c807a-7f0b-59b4-b179-20c3be8b6748",
+      "work_id": "fd77fdaf-8690-56c7-9b6e-605507555552"
+    },
+    {
+      "author_id": "200c807a-7f0b-59b4-b179-20c3be8b6748",
+      "work_id": "9a6adbfc-6c64-5366-b6fb-3c58f6abd12e"
+    },
+    {
+      "author_id": "5e852b2a-328a-56d8-aafb-1ad42aa3acd5",
+      "work_id": "33a54d6a-8fc6-5c0a-8214-2eb9f62bd028"
+    },
+    {
+      "author_id": "688f2d48-25a3-5353-aa0b-0880563e0940",
+      "work_id": "6518b115-6a1b-5018-842a-5684ca710c26"
+    },
+    {
+      "author_id": "1e1adad2-729d-5404-8116-8158daf3824d",
+      "work_id": "5d549387-bc3c-5b7a-b8b5-58c0f191bcfa"
+    },
+    {
+      "author_id": "deb23667-ddbc-5e91-bd7f-73267eb1ebde",
+      "work_id": "2fc9a601-1f2a-53bd-a8aa-e7b8c10cc896"
+    },
+    {
+      "author_id": "1f99d644-e319-5783-ae6e-edc09bf8d47f",
+      "work_id": "8c18be18-c573-5364-8d04-81cdaa3a9353"
+    },
+    {
+      "author_id": "003736ec-cd82-5e04-9f9d-ad32adbfbfb5",
+      "work_id": "266c6913-1547-5a1b-a5ef-e27f8b2bade6"
+    },
+    {
+      "author_id": "fb42196b-abd4-5684-8921-bb28b9fc5fda",
+      "work_id": "48f4d419-68ce-509c-a891-e0fa3b9d4076"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "27237c21-ddf3-520a-a0a3-c70214393dcc"
+    },
+    {
+      "author_id": "5f4b246f-3653-5784-bf6d-cd9016d800c0",
+      "work_id": "af6910f9-aae4-5a69-8181-6174ba0b7057"
+    },
+    {
+      "author_id": "341e2500-2329-550a-b897-17f3892c151f",
+      "work_id": "62aee9ec-c648-5c17-a5c6-dc79ec8861b6"
+    },
+    {
+      "author_id": "45fc43a6-907d-57bb-848e-9b3918d5977c",
+      "work_id": "c522f237-8a3d-5e27-9857-ea76fe062aab"
+    },
+    {
+      "author_id": "200c807a-7f0b-59b4-b179-20c3be8b6748",
+      "work_id": "8d5fe0d6-d53b-5fe1-87f9-967a6c9e31ad"
+    },
+    {
+      "author_id": "3e6cd88a-1fe5-54af-b162-c222f741be32",
+      "work_id": "f042311b-8164-59a6-bf07-70de72cb9cbb"
+    },
+    {
+      "author_id": "688f2d48-25a3-5353-aa0b-0880563e0940",
+      "work_id": "004ebb79-de10-56b0-9038-27e2c2027367"
+    },
+    {
+      "author_id": "37ce7a64-6ec1-5a32-a24c-4eafee9f63c8",
+      "work_id": "d1bec45e-e27f-5d0d-ad31-bf264363d806"
+    },
+    {
+      "author_id": "02892b39-5e8f-5a0f-908a-e55b8535c7bd",
+      "work_id": "ed5ffcfd-0795-5df3-a9da-11365773ffcb"
+    }
+  ],
+  "editorial_work": [
+    {
+      "work_id": "bc5903a6-9ea5-5c22-88ba-93067152f70d",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "c1bb9df5-5f8f-5f1d-8845-845d5c291c1a",
+      "editorial_id": 2
+    },
+    {
+      "work_id": "f9eef77f-3205-5661-ae26-58dea23c1ee0",
+      "editorial_id": 3
+    },
+    {
+      "work_id": "b2a2c283-d90e-5e70-aa08-857261156b00",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "bddf1a1d-4aa7-527d-b8bf-89935998dcd1",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "36f39879-b7a1-5472-acf8-6c5a99e8693c",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "dada4cf9-6ceb-5704-92ee-4478070a4823",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "b5ad7641-40ee-5068-bc93-23a452f8c1b5",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "a4735172-11a2-50b6-9cbe-ea524ced0628",
+      "editorial_id": 5
+    },
+    {
+      "work_id": "4648f0a4-318a-506c-a2be-68e7eda409fe",
+      "editorial_id": 6
+    },
+    {
+      "work_id": "28dc270b-6c27-50bd-ac8d-de705c4a1505",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "0c9ef7c8-bc88-57d1-9bf1-fb9830e251c1",
+      "editorial_id": 5
+    },
+    {
+      "work_id": "0afce42f-16b9-5d9f-af14-fdcf367285fa",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "4b1a026a-3570-5463-8d4e-8f9515166233",
+      "editorial_id": 5
+    },
+    {
+      "work_id": "48b5fdeb-4c01-5f96-80ac-ebcaf405548c",
+      "editorial_id": 5
+    },
+    {
+      "work_id": "a00257ef-4402-539d-b697-079198868fa8",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "88557259-d654-52f4-85fc-2697b7ea6262",
+      "editorial_id": 8
+    },
+    {
+      "work_id": "b5f899ef-70d9-5cca-9a62-95db26eba688",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "0f047e9e-09a1-54d0-92b4-a996a2f32ef7",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "ae749914-faf0-5f7e-b51c-0713e19cf4ba",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "4af2e9cf-0ea9-5031-b1a1-09b849be690c",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "7c898301-0cad-5f9f-bcd3-8a5525bdf761",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "6511d62d-5894-52e9-a82d-898d7b291e80",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "27a29f93-1cbb-5c9f-a895-51328ed1f595",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "fae0ebc5-3bfe-5104-be7b-b65cafc42e84",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "1fb46965-e16d-57a4-bae8-1398ceea74d4",
+      "editorial_id": 10
+    },
+    {
+      "work_id": "e8938f82-d783-50dd-a219-7db853178ad5",
+      "editorial_id": 11
+    },
+    {
+      "work_id": "054d1955-ec5b-519f-ac3c-065bc786bc3b",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "007f3043-b1a2-5410-b280-24c4311e1790",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "e96dd1f1-c741-5111-9d43-77b7c33963ad",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "1f6b2a1d-6911-5a28-ba10-627f2ce3f3b4",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "babd68fb-0af2-5856-b407-ab9f6587fad0",
+      "editorial_id": 12
+    },
+    {
+      "work_id": "a37fa72f-569d-50b5-a23f-07ba80408b5e",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "c6ad14a0-4055-5c55-baf4-4ffa1fbc38df",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "86f05113-129d-5a15-9349-ad13edd546bb",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "71ca9eb9-efd9-5256-823e-bee469e5369e",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "426de29a-5d87-5538-9d9a-cc7a0d385b6a",
+      "editorial_id": 13
+    },
+    {
+      "work_id": "3ee01465-48b4-5853-b49f-b8a7afee33fe",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "d14dee10-1126-52af-aa50-8bef96db1250",
+      "editorial_id": 13
+    },
+    {
+      "work_id": "be7369a8-bba9-540e-a7c0-954426c64558",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "536e0616-d79d-588a-92d1-766eab075c4c",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "a742f28f-a465-5c5c-8135-e4b91aef34ab",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "b067e943-bf27-5abb-977b-e75a7a7560e3",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "5d84b3ed-0b45-5fc0-ae5d-bc3189079ca4",
+      "editorial_id": 14
+    },
+    {
+      "work_id": "1bede1c5-6f95-58c6-bcf8-2d67c2db063d",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "9bab18d4-1eec-58fe-a3c9-2fe99c4a5d2e",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "ad61672a-9333-5307-8571-6cc2850eddd1",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "f69c0cd3-806f-551c-95ee-994f214a68ea",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "18b26fa4-c0d9-5b15-afa9-e8d092b52781",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "05dbaed8-55b7-55a0-b6ae-869e3a9660aa",
+      "editorial_id": 15
+    },
+    {
+      "work_id": "1421479a-ffc6-5e6d-8cb8-75f900031153",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "bbc1f345-4ba6-5493-8c27-55ada5dd0d7f",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "30ca9e5a-9b1f-50de-bb46-36e3000f46ff",
+      "editorial_id": 16
+    },
+    {
+      "work_id": "593be5b1-962f-572e-8a66-e5d397c7a4e5",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "60b0f1e7-d1ac-54d8-b8c3-85de5aa29f63",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "a9652e38-bd07-52fd-a33c-ca3f892b178d",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "1bf1f092-a55d-5c2b-8131-6bf3909d29ae",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "e63b02fe-e918-5fd0-b449-2efffba1bd9f",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "e95495cc-6740-5d09-a5bf-9e1386f590d2",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "bc2f8306-dbd1-540f-a7db-4bb41ced884a",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "32435e90-11ec-5cf2-b273-e5b8a00684eb",
+      "editorial_id": 17
+    },
+    {
+      "work_id": "41a030c9-cb0b-5853-b073-bf5720c2fcc4",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "8639ab61-7fa6-5010-ab25-6c0e2ab58f25",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "6df7fdfe-a223-545a-8b11-2b1ae34ec1eb",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "4b761574-2751-59d9-bfe5-9b177381c608",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "b94496b0-c5f6-5eb3-b811-3738e3f9e565",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "979c88f3-1fcd-5c7f-bbcf-4f0782caed2a",
+      "editorial_id": 14
+    },
+    {
+      "work_id": "a7519aa0-c7ce-50fb-9571-5a06ce05e12c",
+      "editorial_id": 18
+    },
+    {
+      "work_id": "4ba29c3d-614c-59ac-8417-a6244537c67e",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "7680e2d1-fa09-5dfc-a602-069b399ccc5b",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "4946dfee-4aa9-55ad-8ca9-89501290f3d4",
+      "editorial_id": 19
+    },
+    {
+      "work_id": "c39c24a4-a352-537a-a11d-5615b598e337",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "4ed5fded-d41f-52f6-b8ff-242823b1f7e0",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "32006910-d021-5d3b-aac5-8a0359d67a4d",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "04282870-c11a-5196-bb99-6520d89576cd",
+      "editorial_id": 12
+    },
+    {
+      "work_id": "9a628ad5-5709-54dc-b4b2-4e7c41287253",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "b6e6f63f-971e-5d00-8865-9902d6f90e99",
+      "editorial_id": 21
+    },
+    {
+      "work_id": "e299ed44-2494-5ef0-9a03-64ed4127f768",
+      "editorial_id": 20
+    },
+    {
+      "work_id": "c15e2be6-1413-5204-877c-0dc6c2c1be7b",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "1671392e-31ef-5e3d-a8a3-e0200301b1f3",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "b282c626-665c-5544-98a2-69e980aa6d6d",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "6843f062-e8db-5c53-9837-b6b64a390804",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "b133f02c-2a5f-5a43-b950-2af173401b6d",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "add8a0a1-7018-52c8-963a-313c7179ead1",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "ffbb228c-9142-524e-aa72-7526684f5152",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "49be847c-2a5f-542a-b9b0-279145bfff3d",
+      "editorial_id": 26
+    },
+    {
+      "work_id": "a2cdbfea-d441-58cf-ad1d-537063cea4c3",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "4ffc687e-3027-5fdd-8cd2-f73eb1f03cdb",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "875316f2-09fb-524c-894c-dc1475b37ac5",
+      "editorial_id": 20
+    },
+    {
+      "work_id": "e14e3fcc-f066-5475-8f24-3f544f124f83",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "7bc1627b-cc3b-55e0-b6e8-a34fdc355ffe",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "acd58182-4538-57b2-b4ac-8f0268dbabcb",
+      "editorial_id": 19
+    },
+    {
+      "work_id": "a7e819e3-e77c-5763-bbae-9578fad8ba83",
+      "editorial_id": 22
+    },
+    {
+      "work_id": "76ce35f0-f2b6-56a4-9b97-12187aa378d6",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "1ff280a8-7082-5f73-b7c2-468cf50c42e0",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "74d18bd4-900f-520e-a42a-38cb678b3cca",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "9f966e9d-f3dd-5e47-bf57-69e2c34a08b8",
+      "editorial_id": 23
+    },
+    {
+      "work_id": "99d88417-28ff-55a0-9f25-b42ab401cf6a",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "d90bbd46-05f8-5219-961e-49a9bbb98a76",
+      "editorial_id": 24
+    },
+    {
+      "work_id": "881c3399-06de-537b-82ab-46789c6a2b98",
+      "editorial_id": 20
+    },
+    {
+      "work_id": "76c5a433-04e5-534f-9a98-ee50a2552a59",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "f22970db-0e85-5fd8-bfe3-07c6e81fbd23",
+      "editorial_id": 34
+    },
+    {
+      "work_id": "4310f741-5689-5aa2-a706-ac542d0f6936",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "d9cad294-c847-5ffd-8175-79c1197ce687",
+      "editorial_id": 24
+    },
+    {
+      "work_id": "fc0cef67-bb4e-5d24-b26c-b15e6a93f394",
+      "editorial_id": 25
+    },
+    {
+      "work_id": "7067d978-0754-5ee2-ac98-bc8216053d6b",
+      "editorial_id": 24
+    },
+    {
+      "work_id": "27c77d8b-d342-575f-ab7b-e0e97279a3a5",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "7cbe3ff3-1133-5815-9783-459af7f7a8fc",
+      "editorial_id": 25
+    },
+    {
+      "work_id": "e07343ee-dd7e-52ec-bb0e-d5d3880dc06f",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "cb9beb30-b24f-5acb-a6e2-af6fe645d091",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "9dfffa21-0a45-5b3f-b517-8ac909049174",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "ba1a65b8-c1b2-5e51-9863-c3f2b367a64d",
+      "editorial_id": 30
+    },
+    {
+      "work_id": "5b53e880-ba57-5d7c-9f0e-50aac5aec435",
+      "editorial_id": 14
+    },
+    {
+      "work_id": "b415a650-09a5-59c9-bd6c-f5dc95e98ba2",
+      "editorial_id": 24
+    },
+    {
+      "work_id": "5fadef55-16c5-5cd1-98c6-2250677a75ab",
+      "editorial_id": 27
+    },
+    {
+      "work_id": "36fe6b0d-0859-5535-b70e-bf6f9780ec8f",
+      "editorial_id": 28
+    },
+    {
+      "work_id": "9d537ca0-3a65-57d0-a742-427f3869f315",
+      "editorial_id": 29
+    },
+    {
+      "work_id": "958072dd-dd0b-5b7b-8ea8-5651eba73517",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "cefbd809-4f0d-5d89-aea5-68b26f39e315",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "4a510c95-1c7d-523b-bdcd-9f9200a72fb0",
+      "editorial_id": 14
+    },
+    {
+      "work_id": "c3b9d161-218e-544a-93de-f0fa2304b26e",
+      "editorial_id": 27
+    },
+    {
+      "work_id": "986aa2ab-973f-526d-b682-3c5161f3eff5",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "ced2d089-95d2-5761-b0da-c992d92b31a8",
+      "editorial_id": 32
+    },
+    {
+      "work_id": "fd77fdaf-8690-56c7-9b6e-605507555552",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "9a6adbfc-6c64-5366-b6fb-3c58f6abd12e",
+      "editorial_id": 14
+    },
+    {
+      "work_id": "33a54d6a-8fc6-5c0a-8214-2eb9f62bd028",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "9aab006f-0c31-526f-803d-110d4a4a1556",
+      "editorial_id": 33
+    },
+    {
+      "work_id": "6518b115-6a1b-5018-842a-5684ca710c26",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "5d549387-bc3c-5b7a-b8b5-58c0f191bcfa",
+      "editorial_id": 31
+    },
+    {
+      "work_id": "2fc9a601-1f2a-53bd-a8aa-e7b8c10cc896",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "8c18be18-c573-5364-8d04-81cdaa3a9353",
+      "editorial_id": 4
+    },
+    {
+      "work_id": "266c6913-1547-5a1b-a5ef-e27f8b2bade6",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "48f4d419-68ce-509c-a891-e0fa3b9d4076",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "27237c21-ddf3-520a-a0a3-c70214393dcc",
+      "editorial_id": 1
+    },
+    {
+      "work_id": "fdf3ee39-a4b4-5821-85ec-5b5a1edd5e4c",
+      "editorial_id": 14
+    },
+    {
+      "work_id": "af6910f9-aae4-5a69-8181-6174ba0b7057",
+      "editorial_id": 7
+    },
+    {
+      "work_id": "62aee9ec-c648-5c17-a5c6-dc79ec8861b6",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "c522f237-8a3d-5e27-9857-ea76fe062aab",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "8d5fe0d6-d53b-5fe1-87f9-967a6c9e31ad",
+      "editorial_id": 24
+    },
+    {
+      "work_id": "f042311b-8164-59a6-bf07-70de72cb9cbb",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "004ebb79-de10-56b0-9038-27e2c2027367",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "d1bec45e-e27f-5d0d-ad31-bf264363d806",
+      "editorial_id": 9
+    },
+    {
+      "work_id": "ed5ffcfd-0795-5df3-a9da-11365773ffcb",
+      "editorial_id": 24
+    }
+  ]
+}
