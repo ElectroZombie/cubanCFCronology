@@ -1,43 +1,53 @@
-# Astro Starter Kit: Minimal
+# CubanCFCronology
 
-```sh
-pnpm create astro@latest -- --template minimal
+Cronología de la ciencia ficción cubana contemporánea (1999-2025).
+
+Sitio construido con **Astro** y todo el contenido almacenado en **Supabase** (PostgreSQL), sin ORM: `@supabase/supabase-js` + tipos generados + migraciones SQL planas.
+
+## Estructura del repo
+
+```
+supabase/migrations/20261025000000.init.sql   # esquema fuente de verdad (RLS, funciones, triggers)
+supabase/seed/korad-chronology.json            # 143 obras extraídas de Revista Korad
+src/                                           # frontend Astro (SSR solo en /noticias y /mi-perfil)
+DOCS/                                          # documentación (AGENTS.md, ARCHITECTURE.md, TODO.md, CONTRIBUTING.md)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- Astro 7.4.2, TypeScript strict, Tailwind 4 (`@tailwindcss/vite`)
+- `@astrojs/cloudflare` 14.x (SSR + prerender), `@astrojs/sitemap`
+- pnpm (package-lock / yarn.lock rechazados)
+- Hosting: Cloudflare Pages (free tier)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Desarrollo
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+pnpm install
+pnpm dev
+pnpm check
+pnpm lint
+pnpm format:check
+pnpm build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro y las herramientas de desarrollo están declarados en `package.json`. El lockfile se
+genera con `pnpm install` y debe incluirse en los cambios de dependencias.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Para cargar el conjunto inicial en una instancia Supabase local o enlazada, configura
+`PUBLIC_SUPABASE_URL` y `SUPABASE_SERVICE_ROLE_KEY` en `.env` y ejecuta `pnpm db:seed`. La
+clave de servicio solo se usa en ese script local y nunca en la aplicación web.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Base de datos
 
-## 🧞 Commands
+Validar la migración contra PostgreSQL local (con stub de `auth`):
 
-All commands are run from the root of the project, from a terminal:
+```bash
+# crea un cluster temporal en /tmp/opencode, aplica la migración y ejecuta el suite RLS
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Véase `DOCS/ARCHITECTURE.md` para el modelo de datos, RLS y los ADR.
 
-## 👀 Want to learn more?
+## Licencia
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Privado — proyecto personal.

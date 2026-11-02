@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+import { SITE } from '../config/site';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SITE.title, description = SITE.description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+---
+
+<!doctype html>
+<html lang="es-CU">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title} — {SITE.title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-black focus:p-4 focus:text-white"
+    >
+      Saltar al contenido
+    </a>
+
+    <header class="panel sticky top-0 z-50 border-b border-green-600/40">
+      <div class="mx-auto flex max-w-7xl flex-row items-center justify-between gap-4 px-6 py-4">
+        <a
+          href="/"
+          class="font-mono text-xl uppercase tracking-widest text-bone-50 transition-colors hover:text-green-500"
+        >
+          cubanCF<span class="text-green-500">cronology</span>
+        </a>
+
+        <nav
+          aria-label="Navegación principal"
+          class="hidden flex-row gap-8 font-mono text-sm md:flex"
+        >
+          <a href="/" class="nav-link">
+            inicio
+          </a>
+          <a href="/cronologia" class="nav-link">
+            cronología
+          </a>
+          <a href="/autores" class="nav-link">
+            autores
+          </a>
+          <a href="/obras" class="nav-link">
+            obras
+          </a>
+          <a href="/noticias" class="nav-link">
+            noticias
+          </a>
+          <a href="/mi-perfil" class="nav-link">
+            mi perfil
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main
+      id="main-content"
+      class="mx-auto w-full max-w-7xl flex-grow px-6 py-8"
+    >
+      <slot />
+    </main>
+
+    <footer class="panel mt-auto border-t border-green-600/40">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 md:flex-row">
+        <p class="font-mono text-xs text-bone-400">
+          © {new Date().getFullYear()} CubanCFCronology — Cronología de la
+          ciencia ficción cubana contemporánea.
+        </p>
+        <div class="flex flex-row gap-6 font-mono text-xs text-bone-400">
+          <a href="/" class="transition-colors hover:text-green-500">
+            base de datos
+          </a>
+          <a href="/noticias" class="transition-colors hover:text-green-500">
+            noticias
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

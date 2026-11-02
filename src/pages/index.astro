@@ -1,16 +1,159 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE, NAV } from '../config/site';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Inicio" description={SITE.description}>
+  <div class="flex flex-column gap-8">
+    <!-- ── Módulo de bienvenida ── -->
+    <section class="panel p-8">
+      <div class="hud-corner-tl"></div>
+      <div class="hud-corner-tr"></div>
+      <div class="hud-corner-bl"></div>
+      <div class="hud-corner-br"></div>
+      <div class="hud-line"></div>
+
+      <header class="mb-6">
+        <span class="text-green-500 font-mono text-xs uppercase tracking-widest">
+          sistema operativo cubancf
+        </span>
+        <h1 class="text-4xl font-mono text-bone-50 mt-2 tracking-tight">
+          cronología de la ciencia ficción cubana
+        </h1>
+        <p class="text-bone-400 mt-3 max-w-2xl">
+          Registro de obras, autores y editoriales de la ciencia ficción y
+          fantasía cubana contemporánea (1999-2025). Datos extraídos de{' '}
+          <a
+            href="https://revistakorad.wordpress.com/"
+            target="_blank"
+            rel="noopener"
+          >
+            Revista Korad
+          </a>{' '}
+          y almacenados en Supabase.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="panel p-6">
+          <span class="text-green-500 font-mono text-xs uppercase tracking-widest">
+            entidades
+          </span>
+          <h2 class="text-2xl font-mono text-bone-50 mt-1">143</h2>
+          <p class="text-bone-400 text-sm mt-2">obras catalogadas</p>
+        </div>
+        <div class="panel p-6">
+          <span class="text-green-500 font-mono text-xs uppercase tracking-widest">
+            entidades
+          </span>
+          <h2 class="text-2xl font-mono text-bone-50 mt-1">52</h2>
+          <p class="text-bone-400 text-sm mt-2">autores registrados</p>
+        </div>
+        <div class="panel p-6">
+          <span class="text-green-500 font-mono text-xs uppercase tracking-widest">
+            entidades
+          </span>
+          <h2 class="text-2xl font-mono text-bone-50 mt-1">34</h2>
+          <p class="text-bone-400 text-sm mt-2">editoriales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Módulo de navegación ── -->
+    <section class="panel p-8">
+      <div class="hud-corner-tl"></div>
+      <div class="hud-corner-tr"></div>
+      <div class="hud-corner-bl"></div>
+      <div class="hud-corner-br"></div>
+      <div class="hud-line"></div>
+
+      <h2 class="section-title">módulos de acceso</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {NAV.map((item) => (
+          <a
+            href={item.href}
+            class="panel p-6 hover:border-green-500 transition-colors group flex flex-row items-center justify-between"
+          >
+            <div>
+              <span class="text-green-500 font-mono text-xs uppercase tracking-widest block mb-1">
+                {item.label}
+              </span>
+              <span class="text-bone-300 font-mono text-sm group-hover:text-bone-50 transition-colors">
+                acceder al módulo
+              </span>
+            </div>
+            <span class="text-green-500 font-mono text-xs opacity-50 group-hover:opacity-100">
+              ▸
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- ── Obras recientes ── -->
+    <section class="panel p-8">
+      <div class="hud-corner-tl"></div>
+      <div class="hud-corner-tr"></div>
+      <div class="hud-corner-bl"></div>
+      <div class="hud-corner-br"></div>
+      <div class="hud-line"></div>
+
+      <div class="flex flex-row justify-between items-end mb-6">
+        <h2 class="section-title">últimas entradas del registro</h2>
+        <a href="/obras" class="btn-ship">
+          ver todo el registro
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Tarjetas de ejemplo (placeholder hasta que se conecte Supabase) -->
+        <article class="work-card">
+          <div class="flex flex-row justify-between items-start mb-3">
+            <h3 class="text-bone-50 font-mono text-lg">holocausto 2084</h3>
+            <span class="badge badge-published">publicada</span>
+          </div>
+          <p class="text-bone-400 text-sm mb-3">
+            f. mond · novela · 1999 · letras cubanas · 215 págs.
+          </p>
+          <div class="flex flex-row gap-2">
+            <span class="text-xs font-mono text-green-500">
+              ciencia ficción
+            </span>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="flex flex-row justify-between items-start mb-3">
+            <h3 class="text-bone-50 font-mono text-lg">la historia de zoe</h3>
+            <span class="badge badge-published">publicada</span>
+          </div>
+          <p class="text-bone-400 text-sm mb-3">
+            alejandro rodríguez · cómic · 2016 · editorial gente nueva
+          </p>
+          <div class="flex flex-row gap-2">
+            <span class="text-xs font-mono text-green-500">
+              ciencia ficción
+            </span>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="flex flex-row justify-between items-start mb-3">
+            <h3 class="text-bone-50 font-mono text-lg">mundo hipotecado</h3>
+            <span class="badge badge-draft">borrador</span>
+          </div>
+          <p class="text-bone-400 text-sm mb-3">
+            roberto estrada bourgeois · novela · 2025 · editorial gente nueva ·
+            en preparación
+          </p>
+          <div class="flex flex-row gap-2">
+            <span class="text-xs font-mono text-green-500">
+              ciencia ficción
+            </span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
