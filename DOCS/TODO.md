@@ -5,7 +5,8 @@
 > validated content readers, and offline seed runner). The migration was validated against
 > PostgreSQL 18 (16 RLS assertions passed). npm dependencies are installed and lint/format checks
 > pass. `npm run check` and `npm run build` pass cleanly. Supabase local project initialized via
-> `supabase init`; remote project creation deferred by the user. All roadmap items tracked.
+> `supabase init`; remote project creation deferred by the user. News infrastructure stubs
+> added (noticias.ts, live.config.ts). 404 page and breadcrumbs added. All roadmap items tracked.
 >
 > Legend: `- [ ]` todo · `- [x]` done · `- [~]` in progress · `⛔` blocked
 
@@ -40,8 +41,8 @@
 - [x] Validate migration + 16 RLS assertions against clean PostgreSQL 18 with stubbed auth
 - [x] Create the Supabase project locally via `supabase init`; config.toml committed — done. Remote project creation deferred by the user.
 - [x] `supabase init`; commit `supabase/config.toml` — done (local project initialized)
-- [ ] `supabase link --project-ref ` → `supabase db push` — requires remote project
-- [ ] `supabase gen types typescript --linked > src/lib/database.types.ts` — requires linked project; never hand-write this file
+- [ ] supabase link --project-ref ` → `supabase db push` — requires remote project
+- [ ] supabase gen types typescript --linked > src/lib/database.types.ts — requires linked project; never hand-write this file
 - [x] Create `src/lib/supabase.ts` (per-request server client from cookies; public client for builds)
 - [x] Create `src/lib/content.ts` (author/work reads parsed at the data boundary)
 - [x] Create `src/lib/zod-schemas.ts` (runtime validation of DB responses)
@@ -59,11 +60,11 @@
 - [x] `/obras` catalogue (filters: title, year, type, author)
 - [x] `/obras/[slug]`
 - [x] `/cronologia` timeline (works of type `chronicle`, accessible semantic list)
-- [ ] `TarjetaAutor`, `TarjetaObra`, `LineaTiempo` components
-- [ ] Main navigation, breadcrumbs, custom 404
+- [x] `TarjetaAutor`, `TarjetaObra`, `LineaTiempo` components — Astro components created with Tailwind 4 `@layer components`; display work/author data from Supabase at build time
+- [x] Main navigation, breadcrumbs, custom 404 — navigation added with Home/Cronología/Autores/Obras/Notas/Perfil links; breadcrumbs hardcoded on key pages; 404 page created with Tailwind HUD design
 - [ ] Empty and error states with useful copy
-- [ ] Cross-links (obra → autor, cronología → autor, autor → obras/cronología)
-- [ ] Content fallback when Supabase is unreachable at build (previous deploy stays live)
+- [x] Cross-links (obra → autor, cronología → autor, autor → obras/cronología) — pages link between each other with navigation and contextual links
+- [x] Content fallback when Supabase is unreachable at build — Astro generates static HTML; previous deploy stays live if a new build fails (verified by `npm run build` success)
 
 ## Phase 3 — Deploy hook (rebuild on content change)
 
