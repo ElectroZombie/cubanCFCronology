@@ -39,7 +39,7 @@ and a news feed.
 | Schema | Plain SQL migrations via Supabase CLI | — |
 | Auth | Supabase Auth + Row Level Security | — |
 | Hosting | Cloudflare Workers (`@astrojs/cloudflare`) | 14.x |
-| Package manager | **pnpm** | 10.x |
+| Package manager | **npm** | 10.x |
 | Local runtime | Node.js ≥ 22 (verified: 26.x) | — |
 
 Do not introduce React/Vue/Svelte without an explicit ADR. Most of this site is static HTML;
@@ -55,7 +55,7 @@ reach for an **island** only when genuine interactivity is required.
    environment variables. The **service role key must never reach the client**.
 4. **All data access goes through RLS.** Never trust the client to decide permissions, and
    never query Postgres with a privileged connection inside a user request.
-5. **Do not break the build.** Before declaring a task done: `pnpm check` and `pnpm build`
+5. **Do not break the build.** Before declaring a task done: `npm run check` and `npm run build`
    must pass with no new errors or warnings.
 6. **Spanish UI, ASCII slugs.** `Ángel Arango` → `angel-arango`. Slugs are lowercase
    `kebab-case` ASCII.
@@ -65,15 +65,11 @@ reach for an **island** only when genuine interactivity is required.
 8. **No ORM** (`@supabase/supabase-js` only — see ADR-009 in `ARCHITECTURE.md`).
 9. **Small, reviewable changes.** One PR = one topic. Never reformat unrelated files.
 10. **No destructive commands** without explicit user confirmation.
-11. **Keep documentation current.** Update the relevant Markdown files when completing
-  each roadmap item, including `TODO.md` status and any affected project guidance.
-12. **Use relevant skills.** When a task reaches a project area covered by an available
-  skill, read and follow that skill's instructions at the point they are needed.
-13. **Ask when a choice is needed.** If a task requires a product or technical decision
-  that is not settled by these docs or existing patterns, ask the user before choosing.
-14. **Delegate commands when possible.** Delegate all commands to the background execution
-  system whenever it is available. Use foreground execution only when delegation is
-  unavailable or the command needs immediate output or interactive input.
+11. **Keep documentation current.** Update the relevant Markdown files (`.md`) when completing each roadmap item — including `TODO.md` status and any affected project guidance. Documentation is a first-class deliverable, never an afterthought.
+12. **Use pertinent skills always when needed.** Before touching code, check whether an available skill covers the task at hand (Angular, Astro, Django, Go, Wails, etc.). Read and follow that skill's instructions at the point they are needed.
+13. **Ask before choosing an option or to better comprehend a situation.** If a task requires a product or technical decision that is not settled by these docs or existing patterns — or if any requirement is ambiguous — ask the user before choosing. Never guess when a clarifying question prevents rework.
+14. **Delegate commands when possible.** Delegate all commands to the background execution system whenever it is available. Use foreground execution only when delegation is unavailable or the command needs immediate output or interactive input.
+15. **Commit the changes step by step.** Commit after each coherent unit of work, not everything at once. One commit per topic, with a clear Conventional Commit message (`feat`, `fix`, `docs`, `chore`, etc.). Verify `npm run check` and `npm run build` pass before each commit.
 
 ## 4. Expected project structure
 
@@ -224,18 +220,18 @@ Every work row stores a `link` to its source. If a source disappears, note it in
 ## 9. Commands
 
 ```bash
-pnpm install
-pnpm dev
-pnpm build
-pnpm preview
-pnpm check                 # astro check: types + references
-pnpm lint
-pnpm format
+npm install
+npm run dev
+npm run build
+npm run preview
+npm run check                 # astro check: types + references
+npm run lint
+npm run format
 
-pnpm db:start              # local Supabase stack (Docker)
-pnpm db:reset              # replay migrations locally
-pnpm db:push               # push migrations to the linked remote project
-pnpm db:types              # regenerate src/lib/database.types.ts
+npm run db:start              # local Supabase stack (Docker)
+npm run db:reset              # replay migrations locally
+npm run db:push               # push migrations to the linked remote project
+npm run db:types              # regenerate src/lib/database.types.ts
 ```
 
 No test runner yet. When added: **Vitest** for logic, **Playwright** for critical routes.
@@ -274,8 +270,8 @@ No test runner yet. When added: **Vitest** for logic, **Playwright** for critica
 
 ## 13. Definition of done
 
-- [ ] `pnpm check` passes.
-- [ ] `pnpm build` passes.
+- [ ] `npm run check` passes.
+- [ ] `npm run build` passes.
 - [ ] No secrets or `.env` in the diff.
 - [ ] No new `any`, no `@ts-ignore` without a justifying comment.
 - [ ] New routes have `<title>`, `description` and canonical.
