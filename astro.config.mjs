@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
 import tailwind from '@tailwindcss/vite';
-import { cloudflare } from '@astrojs/cloudflare';
+import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config

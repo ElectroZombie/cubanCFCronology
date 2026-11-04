@@ -1,5 +1,5 @@
 import type { createPublicSupabaseClient } from './supabase';
-import { AuthorSchema, WorkSchema } from './zod-schemas';
+import { AuthorSchema, WorkSchema, type Author } from './zod-schemas';
 
 type SupabaseClient = ReturnType<typeof createPublicSupabaseClient>;
 
@@ -61,6 +61,10 @@ export async function getPublishedWorksWithAuthors(client: SupabaseClient) {
     );
   throwOnQueryError(linkError);
 
+  if (!links) {
+    return works.map((work) => ({ ...work, authors: [] }));
+  }
+
   const authorIds = [...new Set(links.map(({ author_id }) => author_id))];
   if (authorIds.length === 0)
     return works.map((work) => ({ ...work, authors: [] }));
@@ -99,6 +103,8 @@ export async function getPublishedWorksByAuthor(
     .select('work_id')
     .eq('author_id', authorId);
   throwOnQueryError(linkError);
+
+  if (!links) return [];
 
   const workIds = links.map(({ work_id }) => work_id);
   if (workIds.length === 0) return [];

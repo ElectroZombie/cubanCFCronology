@@ -57,145 +57,148 @@ body {
   min-height: 100vh;
 }
 
-/* ── Tipografía de nave (mono para datos) ── */
-.mono {
-  font-family: var(--font-mono);
-}
+/* ── Componentes de la nave ── */
+@layer components {
+  /* ── Tipografía de nave (mono para datos) ── */
+  .mono {
+    font-family: var(--font-mono);
+  }
 
-/* ── Panel de nave ── */
-.panel {
-  @apply relative border border-green-600/50 bg-space-800 text-bone-50;
-}
+  /* ── Panel de nave ── */
+  .panel {
+    @apply relative border border-green-600/50 bg-space-800 text-bone-50;
+  }
 
-.panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 1px solid transparent;
-  pointer-events: none;
-  z-index: 0;
-}
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid transparent;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-/* ── Esquina superior izquierda del HUD ── */
-.hud-corner-tl {
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 12px;
-  height: 12px;
-  border-top: 2px solid var(--color-green-500);
-  border-left: 2px solid var(--color-green-500);
-  z-index: 1;
-}
+  /* ── Esquina superior izquierda del HUD ── */
+  .hud-corner-tl {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid var(--color-green-500);
+    border-left: 2px solid var(--color-green-500);
+    z-index: 1;
+  }
 
-/* ── Esquina superior derecha del HUD ── */
-.hud-corner-tr {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  width: 12px;
-  height: 12px;
-  border-top: 2px solid var(--color-green-500);
-  border-right: 2px solid var(--color-green-500);
-  z-index: 1;
-}
+  /* ── Esquina superior derecha del HUD ── */
+  .hud-corner-tr {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid var(--color-green-500);
+    border-right: 2px solid var(--color-green-500);
+    z-index: 1;
+  }
 
-/* ── Esquina inferior izquierda del HUD ── */
-.hud-corner-bl {
-  position: absolute;
-  bottom: -1px;
-  left: -1px;
-  width: 12px;
-  height: 12px;
-  border-bottom: 2px solid var(--color-green-500);
-  border-left: 2px solid var(--color-green-500);
-  z-index: 1;
-}
+  /* ── Esquina inferior izquierda del HUD ── */
+  .hud-corner-bl {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid var(--color-green-500);
+    border-left: 2px solid var(--color-green-500);
+    z-index: 1;
+  }
 
-/* ── Esquina inferior derecha del HUD ── */
-.hud-corner-br {
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 12px;
-  height: 12px;
-  border-bottom: 2px solid var(--color-green-500);
-  border-right: 2px solid var(--color-green-500);
-  z-index: 1;
-}
+  /* ── Esquina inferior derecha del HUD ── */
+  .hud-corner-br {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid var(--color-green-500);
+    border-right: 2px solid var(--color-green-500);
+    z-index: 1;
+  }
 
-/* ── Línea divisoria de nave ── */
-.hud-line {
-  @apply border-t border-green-600/40 my-6;
-}
+  /* ── Línea divisoria de nave ── */
+  .hud-line {
+    @apply border-t border-green-600/40 my-6;
+  }
 
-/* ── Texto brillante ── */
-.glow-text {
-  text-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
-}
+  /* ── Texto brillante ── */
+  .glow-text {
+    text-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+  }
 
-/* ── Botón de nave ── */
-.btn-ship {
-  @apply inline-block px-6 py-3 text-green-500 bg-transparent border border-green-500 font-mono text-sm uppercase tracking-widest transition-all duration-200;
-  cursor: pointer;
-}
+  /* ── Botón de nave ── */
+  .btn-ship {
+    @apply inline-block px-6 py-3 text-green-500 bg-transparent border border-green-500 font-mono text-sm uppercase tracking-widest transition-all duration-200;
+    cursor: pointer;
+  }
 
-.btn-ship:hover {
-  @apply bg-green-500 text-space-900;
-  box-shadow: var(--shadow-glow-strong);
-}
+  .btn-ship:hover {
+    @apply bg-green-500 text-space-900;
+    box-shadow: var(--shadow-glow-strong);
+  }
 
-.btn-ship:active {
-  transform: scale(0.96);
-}
+  .btn-ship:active {
+    transform: scale(0.96);
+  }
 
-/* ── Tarjeta de obra ── */
-.work-card {
-  @apply panel p-6 mb-4 transition-all duration-200;
-}
+  /* ── Tarjeta de obra ── */
+  .work-card {
+    @apply relative border border-green-600/50 bg-space-800 text-bone-50 p-6 mb-4 transition-all duration-200;
+  }
 
-.work-card:hover {
-  border-color: var(--color-green-500);
-  box-shadow: var(--shadow-glow);
-}
+  .work-card:hover {
+    border-color: var(--color-green-500);
+    box-shadow: var(--shadow-glow);
+  }
 
-/* ── Badge de estado ── */
-.badge {
-  @apply inline-block px-3 py-1 text-xs font-mono uppercase border rounded-none;
-}
+  /* ── Badge de estado ── */
+  .badge {
+    @apply inline-block px-3 py-1 text-xs font-mono uppercase border rounded-none;
+  }
 
-.badge-published {
-  @apply text-green-500 border-green-500/50 bg-green-500/10;
-}
+  .badge-published {
+    @apply text-green-500 border-green-500/50 bg-green-500/10;
+  }
 
-.badge-draft {
-  @apply text-bone-400 border-bone-400/50 bg-bone-400/10;
-}
+  .badge-draft {
+    @apply text-bone-400 border-bone-400/50 bg-bone-400/10;
+  }
 
-/* ── Navegación ── */
-.nav-link {
-  @apply text-bone-300 hover:text-green-500 transition-colors font-mono text-sm;
-}
+  /* ── Navegación ── */
+  .nav-link {
+    @apply text-bone-300 hover:text-green-500 transition-colors font-mono text-sm;
+  }
 
-/* ── Títulos de sección ── */
-.section-title {
-  @apply text-bone-50 text-2xl font-mono tracking-tight mb-6 border-b border-green-600/30 pb-2;
-}
+  /* ── Títulos de sección ── */
+  .section-title {
+    @apply text-bone-50 text-2xl font-mono tracking-tight mb-6 border-b border-green-600/30 pb-2;
+  }
 
-/* ── Utilidades de diseño recto ── */
-.border-none {
-  border-radius: 0;
-}
+  /* ── Utilidades de diseño recto ── */
+  .border-none {
+    border-radius: 0;
+  }
 
-.bg-bone {
-  background-color: var(--color-bone-50);
-}
+  .bg-bone {
+    background-color: var(--color-bone-50);
+  }
 
-.text-space {
-  color: var(--color-space-900);
+  .text-space {
+    color: var(--color-space-900);
+  }
 }
 
 /* ── Enlaces ── */
