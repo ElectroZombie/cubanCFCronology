@@ -8,7 +8,6 @@ export interface Props {
 }
 
 const { title = SITE.title, description = SITE.description } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 ---
 
 <!doctype html>
@@ -19,7 +18,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={canonicalURL} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site ?? Astro.url)} />
     <title>{title} — {SITE.title}</title>
   </head>
   <body class="min-h-screen flex flex-col">
@@ -73,7 +72,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
     </main>
 
     <footer class="panel mt-auto border-t border-green-600/40">
-      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 md:flex-row">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 md:flex">
         <p class="font-mono text-xs text-bone-400">
           © {new Date().getFullYear()} CubanCFCronology — Cronología de la
           ciencia ficción cubana contemporánea.

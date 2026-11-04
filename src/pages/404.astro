@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+title: "Página no encontrada"
+description: "Página no encontrada"
+---
+
+<BaseLayout title="404" description="Página no encontrada">
+
+  <div class="min-h-screen flex flex-col items-center justify-center panel p-8 text-center">
+
+    <div class="hud-corner-tl"></div>
+    <div class="hud-corner-tr"></div>
+    <div class="hud-corner-bl"></div>
+    <div class="hud-corner-br"></div>
+    <div class="hud-line mb-8"></div>
+
+    <h1 class="text-4xl font-mono text-green-500 mb-4">404</h1>
+    <p class="text-bone-400 text-2xl mb-6">La página que buscas no existe</p>
+
+    <a href="/" class="btn-ship mb-6">Volver al inicio</a>
+
+    <div class="panel p-6 my-8">
+      <p class="text-bone-300">
+        Parece que el enlace esté roto o la página haya sido movida. Usa la navegación de arriba
+        o el menú principal para encontrar lo que buscas.
+      </p>
+    </div>
+
+  </div>
+</BaseLayout>

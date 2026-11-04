@@ -2,10 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPublishedWorksWithAuthors } from '../../lib/content';
 import { createPublicSupabaseClient } from '../../lib/supabase';
-import {
-  PUBLIC_SUPABASE_ANON_KEY,
-  PUBLIC_SUPABASE_URL,
-} from 'astro:env/client';
+import { SITE } from '../../config/site';
+import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
 
 const supabaseConfigured = Boolean(
   PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
@@ -34,10 +32,17 @@ const workTypeLabels: Record<string, string> = {
 const workTypes = [...new Set(works.map(({ type }) => type))].sort();
 ---
 
-<BaseLayout
-  title="Obras"
-  description="Catálogo de obras publicadas de ciencia ficción y fantasía cubanas."
->
+<BaseLayout title="Obras" description="Catálogo de obras publicadas de ciencia ficción y fantasía cubanas.">
+  <!-- Breadcrumbs -->
+  <div class="panel p-4 mb-6 border-green-600/30">
+    <nav aria-label="breadcrumb">
+      <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
+        <li><a href="/" class="nav-link">Inicio</a></li>
+        <li><span class="text-bone-400">Obras</span></li>
+      </ol>
+    </nav>
+  </div>
+
   <section class="space-y-8">
     <header class="border-b border-green-600/40 pb-6">
       <p class="font-mono text-xs uppercase text-green-500">
