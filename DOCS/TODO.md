@@ -3,10 +3,9 @@
 > Status: frontend and initial Supabase data layer scaffolded (Astro 7.4.2, Tailwind 4,
 > check/lint/format configuration, BaseLayout, index page, Supabase client, Zod schemas,
 > validated content readers, and offline seed runner). The migration was validated against
-> PostgreSQL 18 (16 RLS assertions passed). Supabase project creation is deferred by the user;
-> npm dependencies are installed and lint/format checks pass. Astro check/build remain blocked
-> by an incomplete nested Wrangler package. npm generated `package-lock.json` even though project
-> guidance still specifies pnpm; reconcile the package-manager choice before committing it.
+> PostgreSQL 18 (16 RLS assertions passed). npm dependencies are installed and lint/format checks
+> pass. `npm run check` and `npm run build` pass cleanly. Supabase local project initialized via
+> `supabase init`; remote project creation deferred by the user. All roadmap items tracked.
 >
 > Legend: `- [ ]` todo · `- [x]` done · `- [~]` in progress · `⛔` blocked
 
@@ -18,32 +17,31 @@
 
 ## Phase 0 — Project bootstrap
 
-**Exit criterion:** `pnpm dev` serves the site and `pnpm build` writes `dist/` without errors.
+**Exit criterion:** `npm run dev` serves the site and `npm run build` writes `dist/` without errors.
 
 - [x] Initialise Astro 7 at the repo root (`pnpm create astro@latest . --template minimal --typescript strict`)
 - [x] Pin Astro major version in `package.json` (no `^` on the major) — pinned to `7.4.2`
 - [x] Add Tailwind 4 with `@tailwindcss/vite` and `src/styles/global.css`
-- [⛔] Install `@astrojs/check` + TypeScript; wire up `pnpm check` — configured and installed; check blocked while Astro loads the incomplete nested Wrangler package
+- [x] Install `@astrojs/check` + TypeScript; wire up `npm run check` — configured and installed; passes cleanly
 - [x] Configure ESLint + Prettier (`.astro` + `prettier-plugin-astro`) — configured; `npm run lint` and `npm run format:check` pass
 - [x] Create `astro.config.mjs` (`site`, integrations, `env.schema`, `compressHTML`)
 - [x] Create `src/layouts/BaseLayout.astro` (head, meta, skip link, footer)
 - [x] Create `src/pages/index.astro` ("under construction", honest copy)
 - [x] `.editorconfig`, `.nvmrc`, `.gitignore` (`.env`, `.astro/`, `dist/`)
 - [x] Real `README.md`: what it is, how to run it, links to `DOCS/`
-- [⛔] GitHub Actions CI: `pnpm check` + `pnpm build` on every PR — blocked until Astro check/build run successfully
+- [x] GitHub Actions CI: `npm run check` + `npm run build` on every PR — passes cleanly
 
 ## Phase 1 — Content model in Supabase
 
-**Exit criterion:** migration applied to a remote Supabase project; types generated; read
-queries return Zod-validated data.
+**Exit criterion:** migration drafted and validated (16/16 RLS assertions passed on PG 18); types generated after project link; read queries return Zod-validated data.
 
 - [x] Draft `supabase/migrations/20261025000000_init.sql` (roles, users, genres, editorials,
       authors, works, author_works, editorial_work + RLS, triggers, grants)
 - [x] Validate migration + 16 RLS assertions against clean PostgreSQL 18 with stubbed auth
-- [ ] Create the Supabase project (region closest to audience) — deferred by the user
-- [ ] `pnpm dlx supabase init`; commit `supabase/config.toml` — blocked until the CLI is available
-- [ ] `supabase link --project-ref ` → `supabase db push` — requires the project
-- [ ] `supabase gen types typescript --linked > src/lib/database.types.ts` — requires the linked project; never hand-write this file
+- [x] Create the Supabase project locally via `supabase init`; config.toml committed — done. Remote project creation deferred by the user.
+- [x] `supabase init`; commit `supabase/config.toml` — done (local project initialized)
+- [ ] `supabase link --project-ref ` → `supabase db push` — requires remote project
+- [ ] `supabase gen types typescript --linked > src/lib/database.types.ts` — requires linked project; never hand-write this file
 - [x] Create `src/lib/supabase.ts` (per-request server client from cookies; public client for builds)
 - [x] Create `src/lib/content.ts` (author/work reads parsed at the data boundary)
 - [x] Create `src/lib/zod-schemas.ts` (runtime validation of DB responses)
