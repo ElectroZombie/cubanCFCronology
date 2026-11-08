@@ -26,4 +26,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwind()],
   },
+  routeRules: {
+    '/noticias': { maxAge: 600 },
+  },
 });
