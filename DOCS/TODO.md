@@ -5,8 +5,9 @@
 > validated content readers, and offline seed runner). The migration was validated against
 > PostgreSQL 18 (16 RLS assertions passed). npm dependencies are installed and lint/format checks
 > pass. `npm run check`, `npm run build`, and `npm test` pass cleanly. Supabase local project
-> initialized via `supabase init`; remote project creation deferred by the user. News infrastructure
-> stubs added (noticias.ts, live.config.ts). 404 page, breadcrumbs, auth pages (entrar/salir/mi-perfil),
+> initialized via `supabase init`; remote project creation deferred by the user. **DB tests run
+> against a local Supabase instance (`supabase start`).** News infrastructure stubs added
+> (noticias.ts, live.config.ts). 404 page, breadcrumbs, auth pages (entrar/salir/mi-perfil),
 > about page, JSON-LD structured data, robots.txt, and Vitest test suite implemented.
 >
 > Legend: `- [ ]` todo · `- [x]` done · `- [~]` in progress · `⛔` blocked
@@ -104,7 +105,7 @@ RLS proven with two users.
 
 ## Phase 6 — Quality
 
-- [x] Vitest for `src/lib/` (content queries, Zod schemas, dates) — vitest.config.mjs, 14 tests passing (Zod schemas + content.query filtering)
+- [x] Vitest for `src/lib/` (content queries, Zod schemas, dates) — vitest.config.mjs, 14 tests passing (Zod schemas + content.query filtering). **DB tests run against a local Supabase instance (`supabase start`), not the remote project.**
 - [ ] Playwright for critical routes (home, author, work, chronology)
 - [ ] `@axe-core/playwright` on the five main routes
 - [ ] Lighthouse CI (Perf ≥ 95, A11y = 100, SEO = 100)
@@ -147,8 +148,8 @@ RLS proven with two users.
 
 - [ ] Build-time dependency on Supabase availability (build fails if DB down; old deploy stays live)
 - [ ] Provenance is a single `link` per work — no multi-source `fuentes` table (future migration: normalized `sources` table to cite multiple sources per work)
-- [ ] No test runner until Phase 6
 - [ ] Database types must be regenerated after every migration
+- [~] DB tests run against a local Supabase instance (`supabase start`) — Docker required; remote project deferred by the user
 
 ## Open questions
 
