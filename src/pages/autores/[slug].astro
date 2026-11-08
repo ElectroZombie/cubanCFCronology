@@ -31,12 +31,23 @@ export async function getStaticPaths() {
 }
 
 const { author, works } = Astro.props;
+
+const authorJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: author.fullname,
+  alternateName: author.pseudonyme ?? undefined,
+  description: author.biography ?? undefined,
+  url: `https://cubancfcronology.com/autores/${author.slug}`,
+  sameAs: [],
+};
 ---
 
 <BaseLayout
   title={author.fullname}
   description={`Obras de ${author.fullname} — CubanCFCronology`}
 >
+  <script type="application/ld+json">{JSON.stringify(authorJsonLd)}</script>
   <article class="space-y-8">
     <header class="border-b border-green-600/40 pb-6">
       <a href="/autores" class="font-mono text-sm text-green-400">

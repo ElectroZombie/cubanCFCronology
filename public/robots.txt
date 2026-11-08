@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Public pages
+Allow: /autores/
+Allow: /obras/
+Allow: /cronologia
+Allow: /noticias
+
+# Admin/auth routes (not for indexing)
+Disallow: /entrar
+Disallow: /salir
+Disallow: /mi-perfil
+
+# Static assets
+Allow: /_astro/
+
+Sitemap: https://cubancfcronology.com/sitemap-index.xml

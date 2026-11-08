@@ -36,12 +36,27 @@ const typeLabels: Record<string, string> = {
   anthology: 'Antología',
   comic: 'Historieta',
 };
+
+const workJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: work.title,
+  author: work.authors.map((a) => ({
+    '@type': 'Person',
+    name: a.fullname,
+  })),
+  datePublished: String(work.year),
+  isbn: undefined,
+  url: `https://cubancfcronology.com/obras/${work.slug}`,
+  inLanguage: 'es',
+};
 ---
 
 <BaseLayout
   title={work.title}
   description={`${work.title} (${work.year}), ${typeLabels[work.type].toLocaleLowerCase('es')}. Catálogo de ciencia ficción y fantasía cubanas.`}
 >
+  <script type="application/ld+json">{JSON.stringify(workJsonLd)}</script>
   <article class="max-w-3xl space-y-8">
     <header class="border-b border-green-600/40 pb-6">
       <a href="/obras" class="font-mono text-sm text-green-400">
