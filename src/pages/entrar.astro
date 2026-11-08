@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
+
+const supabaseConfigured = Boolean(
+  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
+);
+---
+
+<BaseLayout
+  title="Entrar"
+  description={`Iniciar sesión en ${SITE.title}`}
+>
+  <!-- Breadcrumbs -->
+  <div class="panel p-4 mb-6 border-green-600/30">
+    <nav aria-label="breadcrumb">
+      <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
+        <li><a href="/" class="nav-link">Inicio</a></li>
+        <li><span class="text-bone-400">Entrar</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="max-w-md mx-auto space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <p class="font-mono text-xs uppercase text-green-500">
+        Acceso de autor
+      </p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Entrar</h1>
+      <p class="mt-3 max-w-2xl text-bone-300">
+        Inicia sesión para acceder a tu perfil de autor y gestionar tus obras.
+      </p>
+    </header>
+
+    {!supabaseConfigured ? (
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Autenticación no configurada
+        </h2>
+        <p class="text-bone-300 mb-6">
+          El inicio de sesión estará disponible cuando se configure la conexión
+          con Supabase y se definan las variables de entorno.
+        </p>
+        <a href="/" class="btn-ship inline-block">
+          Volver al inicio
+        </a>
+      </section>
+    ) : (
+      <form class="space-y-6 panel p-8 border-green-600/50">
+        <div class="space-y-4">
+          <label class="flex flex-col gap-2 font-mono text-sm text-bone-300">
+            <span>Correo electrónico</span>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full border border-green-600/50 bg-space-800 px-4 py-3 text-sm text-bone-50 focus:outline-none focus:border-green-500 transition-colors"
+              placeholder="tu@correo.cu"
+            />
+          </label>
+          <label class="flex flex-col gap-2 font-mono text-sm text-bone-300">
+            <span>Contraseña</span>
+            <input
+              type="password"
+              name="password"
+              required
+              class="w-full border border-green-600/50 bg-space-800 px-4 py-3 text-sm text-bone-50 focus:outline-none focus:border-green-500 transition-colors"
+              placeholder="••••••••"
+            />
+          </label>
+        </div>
+        <button
+          type="submit"
+          class="w-full btn-ship py-4 text-center"
+        >
+          Iniciar sesión
+        </button>
+        <p class="text-center text-bone-400 text-sm">
+          ¿No tienes cuenta? Regístrate primero.
+        </p>
+      </form>
+    )}
+  </section>
+</BaseLayout>

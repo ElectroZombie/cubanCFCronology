@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
+
+const supabaseConfigured = Boolean(
+  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
+);
+---
+
+<BaseLayout
+  title="Salir"
+  description={`Cerrar sesión en ${SITE.title}`}
+>
+  <!-- Breadcrumbs -->
+  <div class="panel p-4 mb-6 border-green-600/30">
+    <nav aria-label="breadcrumb">
+      <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
+        <li><a href="/" class="nav-link">Inicio</a></li>
+        <li><span class="text-bone-400">Salir</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="max-w-md mx-auto space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <p class="font-mono text-xs uppercase text-green-500">
+        Cierre de sesión
+      </p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Salir</h1>
+    </header>
+
+    {!supabaseConfigured ? (
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Autenticación no configurada
+        </h2>
+        <p class="text-bone-300 mb-6">
+          El cierre de sesión estará disponible cuando se configure la conexión
+          con Supabase.
+        </p>
+        <a href="/" class="btn-ship inline-block">
+          Volver al inicio
+        </a>
+      </section>
+    ) : (
+      <section class="panel p-8 border-green-600/50">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Sesión cerrada
+        </h2>
+        <p class="text-bone-300 mb-6">
+          Has cerrado sesión correctamente. Vuelve pronto.
+        </p>
+        <a href="/" class="btn-ship inline-block">
+          Volver al inicio
+        </a>
+      </section>
+    )}
+  </section>
+</BaseLayout>
