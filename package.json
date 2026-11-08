@@ -14,26 +14,31 @@
     "lint": "eslint \"src/**/*.{ts,astro}\" astro.config.mjs eslint.config.mjs",
     "format": "prettier --write \"src/**/*.{astro,ts,css}\" astro.config.mjs eslint.config.mjs package.json .prettierrc.json",
     "format:check": "prettier --check \"src/**/*.{astro,ts,css}\" astro.config.mjs eslint.config.mjs package.json .prettierrc.json",
-    "db:seed": "node scripts/seed.mjs"
+    "db:seed": "node scripts/seed.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
-    "astro": "7.4.2",
-    "@supabase/ssr": "^0.12.7",
-    "@supabase/supabase-js": "^2.118.0",
     "@astrojs/cloudflare": "^14.0.0",
     "@astrojs/sitemap": "^3.0.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
     "@tailwindcss/vite": "^4.0.0",
+    "astro": "7.4.2",
     "cookie": "^2.0.1",
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
+    "@vitest/coverage-v8": "^5.1.0",
     "eslint": "^10.0.0",
     "eslint-plugin-astro": "^3.2.1",
+    "jsdom": "^31.0.0",
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.2",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.1"
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0"
   },
   "allowScripts": {
     "esbuild": true,

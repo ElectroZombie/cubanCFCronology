@@ -3,7 +3,7 @@ import { AuthorSchema, WorkSchema, type Author } from './zod-schemas';
 
 type SupabaseClient = ReturnType<typeof createPublicSupabaseClient>;
 
-function throwOnQueryError(error: { message: string } | null) {
+export function throwOnQueryError(error: { message: string } | null) {
   if (error) {
     throw new Error(`Supabase content query failed: ${error.message}`);
   }
