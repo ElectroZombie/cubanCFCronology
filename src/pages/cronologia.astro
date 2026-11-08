@@ -36,14 +36,32 @@ const chronicles = supabaseConfigured
     </header>
 
     {!supabaseConfigured ? (
-      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
-        La cronología estará disponible cuando se configure la conexión con la
-        base de datos.
-      </p>
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Conexión pendiente
+        </h2>
+        <p class="text-bone-300 mb-4">
+          La cronología estará disponible cuando se configure la conexión con la
+          base de datos de Supabase.
+        </p>
+        <a href="/" class="btn-ship inline-block">
+          Volver al inicio
+        </a>
+      </section>
     ) : chronicles.length === 0 ? (
-      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
-        Todavía no hay crónicas publicadas en el registro.
-      </p>
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Sin crónicas registradas
+        </h2>
+        <p class="text-bone-300 mb-4">
+          Todavía no hay crónicas publicadas en el registro. Los datos se
+          poblarán desde la fuente Korad una vez que la base de datos esté
+          configurada.
+        </p>
+        <a href="/" class="btn-ship inline-block">
+          Volver al inicio
+        </a>
+      </section>
     ) : (
       <ol class="divide-y divide-green-600/25 border-l border-green-600/50 pl-5">
         {chronicles.map((work) => (

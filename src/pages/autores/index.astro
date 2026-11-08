@@ -37,14 +37,38 @@ const authors = supabaseConfigured
     </header>
 
     {!supabaseConfigured ? (
-      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
-        El archivo estará disponible cuando se configure la conexión con la base
-        de datos.
-      </p>
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Conexión pendiente
+        </h2>
+        <p class="text-bone-300 mb-4">
+          El archivo de autores estará disponible cuando se configure la
+          conexión con la base de datos de Supabase.
+        </p>
+        <a
+          href="/"
+          class="btn-ship inline-block"
+        >
+          Volver al inicio
+        </a>
+      </section>
     ) : authors.length === 0 ? (
-      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
-        Todavía no hay perfiles registrados.
-      </p>
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Sin perfiles registrados
+        </h2>
+        <p class="text-bone-300 mb-4">
+          Todavía no hay perfiles de autores en el registro. Los datos se
+          poblarán desde la fuente Korad una vez que la base de datos esté
+          configurada.
+        </p>
+        <a
+          href="/"
+          class="btn-ship inline-block"
+        >
+          Volver al inicio
+        </a>
+      </section>
     ) : (
       <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {authors.map((author) => (

@@ -56,14 +56,31 @@ const workTypes = [...new Set(works.map(({ type }) => type))].sort();
     </header>
 
     {!supabaseConfigured ? (
-      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
-        El catálogo estará disponible cuando se configure la conexión con la
-        base de datos.
-      </p>
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Conexión pendiente
+        </h2>
+        <p class="text-bone-300 mb-4">
+          El catálogo de obras estará disponible cuando se configure la conexión
+          con la base de datos de Supabase.
+        </p>
+        <a href="/" class="btn-ship inline-block">
+          Volver al inicio
+        </a>
+      </section>
     ) : works.length === 0 ? (
-      <p class="border-l-2 border-bone-400 px-4 py-3 text-bone-300">
-        Todavía no hay obras publicadas en el catálogo.
-      </p>
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Sin obras publicadas
+        </h2>
+        <p class="text-bone-300 mb-4">
+          Todavía no hay obras publicadas en el catálogo. Los datos se poblarán
+          desde la fuente Korad una vez que la base de datos esté configurada.
+        </p>
+        <a href="/" class="btn-ship inline-block">
+          Volver al inicio
+        </a>
+      </section>
     ) : (
       <>
         <form
