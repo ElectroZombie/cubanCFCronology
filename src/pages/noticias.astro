@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { fetchNoticias } from '../lib/noticias';
+import { SITE } from '../config/site';
+
+// Prerendered for now; switch to prerender = false (SSR) when a real news
+// provider is integrated (see TODO.md Phase 4).
+const { headlines, loading, error } = await fetchNoticias();
+---
+
+<BaseLayout
+  title="Noticias"
+  description={`Noticias de ciencia ficción y fantasía cubana — ${SITE.title}`}
+>
+  <!-- Breadcrumbs -->
+  <div class="panel p-4 mb-6 border-green-600/30">
+    <nav aria-label="breadcrumb">
+      <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
+        <li><a href="/" class="nav-link">Inicio</a></li>
+        <li><span class="text-bone-400">Noticias</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <p class="font-mono text-xs uppercase text-green-500">
+        Registro de noticias
+      </p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Noticias</h1>
+      <p class="mt-3 max-w-2xl text-bone-300">
+        Últimas novedades de la ciencia ficción y la fantasía cubana.
+      </p>
+    </header>
+
+    {loading ? (
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Cargando noticias…
+        </h2>
+        <p class="text-bone-300 mb-6">
+          Obteniendo las últimas publicaciones de las fuentes configuradas.
+        </p>
+      </section>
+    ) : error ? (
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          No se pudieron cargar las noticias
+        </h2>
+        <p class="text-bone-300 mb-4">{error}</p>
+        <p class="text-bone-400 text-sm">
+          El proveedor de noticias no está disponible en este momento.
+          Vuelve a intentarlo más tarde o consulta las fuentes directamente.
+        </p>
+      </section>
+    ) : headlines.length === 0 ? (
+      <section class="panel p-8 border-green-600/30">
+        <h2 class="font-mono text-xl text-bone-50 mb-4">
+          Sin noticias disponibles
+        </h2>
+        <p class="text-bone-300 mb-4">
+          No hay noticias registradas en este momento. El proveedor de noticias
+          aún no está configurado. Consulta nuestras fuentes directamente para
+          mantenerte al día.
+        </p>
+        <ul class="list-disc list-inside text-bone-300 space-y-2 mt-6">
+          <li>
+            Revista Korad:
+            <a
+              href="https://revistakorad.wordpress.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-green-500 hover:text-green-400"
+            >
+              https://revistakorad.wordpress.com/
+            </a>
+          </li>
+        </ul>
+      </section>
+    ) : (
+      <ul class="divide-y divide-green-600/25">
+        {headlines.map((noticia) => (
+          <li class="py-6">
+            <article class="panel p-5 border-green-600/50">
+              <time
+                class="font-mono text-xs text-green-400 block mb-2"
+                datetime={noticia.publishedAt}
+              >
+                {new Date(noticia.publishedAt).toLocaleDateString('es-CU', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+              <h3 class="font-mono text-lg text-bone-50 mb-2">
+                <a
+                  href={noticia.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-green-500 transition-colors"
+                >
+                  {noticia.title}
+                </a>
+              </h3>
+              <p class="text-bone-300 mb-2">{noticia.summary}</p>
+              <span class="font-mono text-xs text-bone-400">
+                Fuente: {noticia.source}
+              </span>
+            </article>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</BaseLayout>
