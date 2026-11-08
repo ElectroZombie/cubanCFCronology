@@ -228,13 +228,16 @@ npm run check                 # astro check: types + references
 npm run lint
 npm run format
 
-npm run db:start              # local Supabase stack (Docker)
+npm run db:start              # local Supabase stack (Docker) — used for DB tests
 npm run db:reset              # replay migrations locally
 npm run db:push               # push migrations to the linked remote project
 npm run db:types              # regenerate src/lib/database.types.ts
+npm run test                  # Vitest — DB tests run against local Supabase instance
 ```
 
-No test runner yet. When added: **Vitest** for logic, **Playwright** for critical routes.
+Vitest is configured for `src/lib/` tests; DB tests run against a local
+Supabase instance (`npm run db:start`). Playwright for critical routes is
+planned.
 
 ## 10. Code conventions
 
@@ -265,13 +268,14 @@ No test runner yet. When added: **Vitest** for logic, **Playwright** for critica
 - Default branch: `main` (protected). Work branches: `feat/…`, `fix/…`, `content/…`,
   `docs/…`, `chore/…`.
 - **Conventional Commits** (see `CONTRIBUTING.md`). English commit messages.
-- Before committing: `pnpm check && pnpm build`.
+- Before committing: `npm run check && npm run build && npm run test`.
 - Never rewrite published history on `main`.
 
 ## 13. Definition of done
 
 - [ ] `npm run check` passes.
 - [ ] `npm run build` passes.
+- [ ] `npm run test` passes (DB tests run against local Supabase instance).
 - [ ] No secrets or `.env` in the diff.
 - [ ] No new `any`, no `@ts-ignore` without a justifying comment.
 - [ ] New routes have `<title>`, `description` and canonical.
