@@ -25,6 +25,7 @@
 - [x] Initialise Astro 7 at the repo root (`pnpm create astro@latest . --template minimal --typescript strict`)
 - [x] Pin Astro major version in `package.json` (no `^` on the major) — pinned to `7.4.2`
 - [x] Add Tailwind 4 with `@tailwindcss/vite` and `src/styles/global.css`
+- [x] Set `KORAD.ttf` as the official project font in `src/styles/global.css` (`@font-face` + `--font-sans`)
 - [x] Install `@astrojs/check` + TypeScript; wire up `npm run check` — configured and installed; passes cleanly
 - [x] Configure ESLint + Prettier (`.astro` + `prettier-plugin-astro`) — configured; `npm run lint` and `npm run format:check` pass
 - [x] Create `astro.config.mjs` (`site`, integrations, `env.schema`, `compressHTML`)
