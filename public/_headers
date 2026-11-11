@@ -1,0 +1,33 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/autores/*
+  Cache-Control: public, max-age=3600
+
+/obras/*
+  Cache-Control: public, max-age=3600
+
+/cronologia
+  Cache-Control: public, max-age=3600
+
+/noticias
+  Cache-Control: public, max-age=600
+
+/admin
+  Cache-Control: no-store, no-cache, must-revalidate
+  X-Content-Type-Options: nosniff
+
+/entrar
+  Cache-Control: no-store, no-cache, must-revalidate
+  X-Content-Type-Options: nosniff
+
+/salir
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/mi-perfil
+  Cache-Control: no-store, no-cache, must-revalidate
+  X-Content-Type-Options: nosniff
