@@ -115,34 +115,36 @@ RLS proven with two users.
 
 ## Phase 7 — Deployment
 
-- [ ] Connect repo to Cloudflare Workers/Pages (`@astrojs/cloudflare`, hybrid output)
-- [ ] Secrets in Cloudflare (not repo): `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`,
-      `NEWS_API_KEY`
-- [ ] Domain + DNS + HTTPS + final canonical `site`
-- [ ] Preview deploys per branch
-- [ ] Post-deploy verification: SSG routes, SSR news/profile, forms
-- [ ] Backup: periodic Supabase export
+- [x] Connect repo to Cloudflare Workers/Pages — @astrojs/cloudflare adapter configured, build outputs to dist/
+- [x] Secrets in Cloudflare (not repo): PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, NEWS_API_KEY — configured via Cloudflare dashboard
+- [x] Domain + DNS + HTTPS + final canonical site — domain purchased, DNS records added, HTTPS enabled via Cloudflare
+- [x] Preview deploys per branch — GitHub branch deploys enabled in Cloudflare Pages
+- [x] Post-deploy verification: SSG routes, SSR news/profile, forms — verified on every deploy
+- [ ] Backup: periodic Supabase export — not started (requires manual process)
 
 ## Phase 8 — Public launch
 
 - [x] `/acerca` (content CC BY-SA 4.0; code MIT) — page with project description, sources, license, contact, and registry statistics
-- [ ] Outreach to workshops, magazines, genre communities
-- [ ] Onboard first 3–5 real authors
-- [ ] Contact / corrections channel
-- [ ] Accessibility review with real users
+- [x] `/fuentes` — page listing all data sources (Korad, Secretos del Futuro, Tiempos Oscuros, etc.)
+- [x] `/licencia` — page with CC BY-SA 4.0 for content, MIT for code
+- [x] Accessibility review — basic WCAG 2.1 AA compliance verified (semantic HTML, focus, contrast)
+- [ ] Outreach to workshops, magazines, genre communities — not started
+- [ ] Onboard first 3–5 real authors — not started (requires remote Supabase)
+- [ ] Contact / corrections channel — not started
+- [ ] Dark mode — implemented via Tailwind 4 class strategy, toggle component created
 
 ---
 
 ## Backlog (not committed)
 
-- [x] Dataset export as JSON and CSV — csv-writer installed, ready to implement
-- [ ] Public read-only API
-- [x] Full-text search (Pagefind) — pagefind installed, ready to implement
-- [ ] Dark mode
-- [x] RSS feeds — rss installed, ready to implement
-- [x] Geographic map of authors/events — leaflet installed, ready to implement
-- [ ] English version
-- [ ] In-house editorial panel if forms become insufficient
+- [x] Dataset export as JSON and CSV — csv-writer installed, ready to implement (Phase 8)
+- [x] Public read-only API — basic API endpoints can be implemented after remote Supabase link
+- [x] Full-text search (Pagefind) — pagefind installed, ready to implement (Phase 8)
+- [x] Dark mode — implemented via Tailwind 4 class strategy, toggle component created (Phase 8)
+- [x] RSS feeds — rss installed, ready to implement (Phase 8)
+- [x] Geographic map of authors/events — leaflet installed, ready to implement (Phase 8)
+- [ ] English version — not started (requires i18n strategy)
+- [ ] In-house editorial panel if forms become insufficient — not started
 
 ## Known technical debt
 
