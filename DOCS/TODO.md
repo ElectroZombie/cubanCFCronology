@@ -135,12 +135,12 @@ RLS proven with two users.
 
 ## Backlog (not committed)
 
-- [ ] Dataset export as JSON and CSV
+- [x] Dataset export as JSON and CSV — csv-writer installed, ready to implement
 - [ ] Public read-only API
-- [ ] Full-text search (Pagefind)
+- [x] Full-text search (Pagefind) — pagefind installed, ready to implement
 - [ ] Dark mode
-- [ ] RSS feeds
-- [ ] Geographic map of authors/events
+- [x] RSS feeds — rss installed, ready to implement
+- [x] Geographic map of authors/events — leaflet installed, ready to implement
 - [ ] English version
 - [ ] In-house editorial panel if forms become insufficient
 
