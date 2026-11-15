@@ -3,7 +3,10 @@ import { createServerSupabaseClient } from './lib/supabase';
 
 // In-memory rate limiter store (resets on server restart).
 // Key: `${ip}:${endpoint}` → { count, firstRequestAt }
-const rateLimitStore = new Map<string, { count: number; firstRequestAt: number }>();
+const rateLimitStore = new Map<
+  string,
+  { count: number; firstRequestAt: number }
+>();
 
 const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
 const RATE_LIMIT_MAX_REQUESTS = 30; // max requests per window per IP per endpoint

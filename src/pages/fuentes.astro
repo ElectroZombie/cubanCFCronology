@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+
+interface Fuente {
+  nombre: string;
+  tipo: string;
+  descripcion: string;
+  enlace?: string;
+  prioridad: number;
+}
+
+const fuentes: Fuente[] = [
+  {
+    nombre: 'Revista Korad',
+    tipo: 'Revista',
+    descripcion:
+      'Publicación Cuban de ciencia ficción y fantasía. Su taller "Espacio Abierto" (número 53, 2025) incluye la "Cronología de la ciencia ficción cubana contemporánea (1999-2025)", base primaria de este registro.',
+    enlace: 'https://revistakorad.wordpress.com/',
+    prioridad: 1,
+  },
+  {
+    nombre: 'Secretos del Futuro',
+    tipo: 'Antología',
+    descripcion:
+      'Antología de ciencia ficción cubana publicada en 2005. Su prólogo presenta las cuatro etapas del género en Cuba y aporta datos bibliográficos de obras y autores.',
+    prioridad: 2,
+  },
+  {
+    nombre: 'Tiempos Oscuros',
+    tipo: 'Revista',
+    descripcion:
+      'Revistaisitica de ciencia ficción, fantasía y terror. Sus números están digitalizados en archive.org y consultables para contrastar fechas de publicación y datos de autoria.',
+    enlace: 'https://archive.org/details/tiempos-oscuros',
+    prioridad: 3,
+  },
+  {
+    nombre: 'Catálogos de editoriales cubanas',
+    tipo: 'Editorial',
+    descripcion:
+      'Catálogos publicados por editoriales del país (Helios, Leyenda, etc.), usados para confirmar tiradas, fechas de edición y datos de autoría.',
+    prioridad: 4,
+  },
+  {
+    nombre: 'Registro nacional de ISBN',
+    tipo: 'Registro',
+    descripcion:
+      'Registro oficial de ISBN para validar datos de edición de obras publicadas en Cuba.',
+    prioridad: 5,
+  },
+  {
+    nombre: 'Entrevistas y prensa',
+    tipo: 'Prensa',
+    descripcion:
+      'Entrevistas y cobertura de prensa con autores, editores y organisedores de eventos del género, usadas para fechas de actividad y datos biográficos complementarios.',
+    prioridad: 6,
+  },
+];
+
+const ordenadas = [...fuentes].sort((a, b) => a.prioridad - b.prioridad);
+---
+
+<BaseLayout
+  title="Fuentes"
+  description="Fuentes bibliográficas y de investigación utilizadas para compilar CubanCFCronology"
+>
+  <div class="panel p-4 mb-6 border-green-600/30">
+    <nav aria-label="breadcrumb">
+      <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Fuentes</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="max-w-3xl mx-auto space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <p class="font-mono text-xs uppercase text-green-500">Metodología</p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Fuentes</h1>
+      <p class="mt-3 text-bone-300 leading-relaxed">
+        Todo dato en {SITE.title} procede de una fuente verificable. Cada obra
+        registrada incluye un enlace a su fuente original; las biografías y
+        sinopsis son texto original redactado a partir de esas fuentes, nunca
+        copias.
+      </p>
+    </header>
+
+    <article class="space-y-6">
+      <h2 class="font-mono text-xl text-bone-50">Orden de prioridad</h2>
+      <p class="text-bone-300 leading-relaxed">
+        Cuando dos fuentes discrepan, se privilegia la más cercana al hecho
+        registrado: la publicación original sobre la reimpresión, y la fuente
+        primaria sobre la secundaria.
+      </p>
+
+      <ol class="space-y-6">
+        {ordenadas.map((fuente) => (
+          <li class="panel p-5 border-green-600/40">
+            <div class="flex flex-wrap items-baseline gap-3">
+              <span class="font-mono text-xs text-green-500">
+                {String(fuente.prioridad).padStart(2, '0')}
+              </span>
+              <h3 class="font-mono text-lg text-bone-50">{fuente.nombre}</h3>
+              <span class="badge">{fuente.tipo}</span>
+            </div>
+            <p class="mt-3 text-bone-300 leading-relaxed">
+              {fuente.descripcion}
+            </p>
+            {fuente.enlace && (
+              <a
+                href={fuente.enlace}
+                rel="noopener noreferrer"
+                target="_blank"
+                class="mt-3 inline-block font-mono text-xs text-green-500 hover:text-green-400"
+              >
+                visitar fuente →
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+
+      <h2 class="font-mono text-xl text-bone-50">Criterios editoriales</h2>
+      <ul class="space-y-3 text-bone-300 leading-relaxed">
+        <li>
+          <strong class="text-bone-50">Nada sin fuente.</strong> Si no hay
+          fuente verificable, el dato no se registra; queda anotado como
+          pendiente de verificación en la hoja de ruta.
+        </li>
+        <li>
+          <strong class="text-bone-50">Texto original.</strong> Biografías y
+          sinopsis se redactan de nuevo. Como máximo se citan dos o tres líneas
+          con atribución.
+        </li>
+        <li>
+          <strong class="text-bone-50">Fuentes que desaparecen.</strong> Si un
+          enlace deja de funcionar, se anota en la hoja de ruta para buscar un
+          reemplazo o archivo.
+        </li>
+      </ul>
+    </article>
+
+    <aside class="panel p-6 border-green-600/50">
+      <h2 class="font-mono text-lg text-bone-50 mb-3">¿Falta una fuente?</h2>
+      <p class="text-bone-300 leading-relaxed">
+        Si conoces una publicación, catálogo o archivo que debería estar aquí,
+        escríbenos por el
+        <a href="/contacto" class="text-green-500 hover:text-green-400">
+          canal de contacto
+        </a>
+        .
+      </p>
+    </aside>
+  </section>
+</BaseLayout>

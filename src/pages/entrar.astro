@@ -1,32 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../config/site';
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
+import { PUBLIC_SUPABASE_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
 
-const supabaseConfigured = Boolean(
-  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
-);
+const supabaseConfigured = Boolean(PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_KEY);
 ---
 
-<BaseLayout
-  title="Entrar"
-  description={`Iniciar sesión en ${SITE.title}`}
->
+<BaseLayout title="Entrar" description={`Iniciar sesión en ${SITE.title}`}>
   <!-- Breadcrumbs -->
   <div class="panel p-4 mb-6 border-green-600/30">
     <nav aria-label="breadcrumb">
       <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
-        <li><a href="/" class="nav-link">Inicio</a></li>
-        <li><span class="text-bone-400">Entrar</span></li>
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Entrar</span>
+        </li>
       </ol>
     </nav>
   </div>
 
   <section class="max-w-md mx-auto space-y-8">
     <header class="border-b border-green-600/40 pb-6">
-      <p class="font-mono text-xs uppercase text-green-500">
-        Acceso de autor
-      </p>
+      <p class="font-mono text-xs uppercase text-green-500">Acceso de autor</p>
       <h1 class="mt-2 font-mono text-3xl text-bone-50">Entrar</h1>
       <p class="mt-3 max-w-2xl text-bone-300">
         Inicia sesión para acceder a tu perfil de autor y gestionar tus obras.
@@ -70,10 +69,7 @@ const supabaseConfigured = Boolean(
             />
           </label>
         </div>
-        <button
-          type="submit"
-          class="w-full btn-ship py-4 text-center"
-        >
+        <button type="submit" class="w-full btn-ship py-4 text-center">
           Iniciar sesión
         </button>
         <p class="text-center text-bone-400 text-sm">

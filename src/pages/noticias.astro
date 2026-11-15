@@ -16,8 +16,14 @@ const { headlines, loading, error } = await fetchNoticias();
   <div class="panel p-4 mb-6 border-green-600/30">
     <nav aria-label="breadcrumb">
       <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
-        <li><a href="/" class="nav-link">Inicio</a></li>
-        <li><span class="text-bone-400">Noticias</span></li>
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Noticias</span>
+        </li>
       </ol>
     </nav>
   </div>
@@ -35,9 +41,7 @@ const { headlines, loading, error } = await fetchNoticias();
 
     {loading ? (
       <section class="panel p-8 border-green-600/30">
-        <h2 class="font-mono text-xl text-bone-50 mb-4">
-          Cargando noticias…
-        </h2>
+        <h2 class="font-mono text-xl text-bone-50 mb-4">Cargando noticias…</h2>
         <p class="text-bone-300 mb-6">
           Obteniendo las últimas publicaciones de las fuentes configuradas.
         </p>
@@ -49,8 +53,8 @@ const { headlines, loading, error } = await fetchNoticias();
         </h2>
         <p class="text-bone-300 mb-4">{error}</p>
         <p class="text-bone-400 text-sm">
-          El proveedor de noticias no está disponible en este momento.
-          Vuelve a intentarlo más tarde o consulta las fuentes directamente.
+          El proveedor de noticias no está disponible en este momento. Vuelve a
+          intentarlo más tarde o consulta las fuentes directamente.
         </p>
       </section>
     ) : headlines.length === 0 ? (

@@ -38,12 +38,24 @@ const websiteJsonLd = {
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="CubanCFCronology — obras"
+      href="/rss/works.xml"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site ?? Astro.url)} />
-    <script type="application/ld+json">{JSON.stringify(orgJsonLd)}</script>
-    <script type="application/ld+json">{JSON.stringify(websiteJsonLd)}</script>
+    <link
+      rel="canonical"
+      href={new URL(Astro.url.pathname, Astro.site ?? Astro.url)}
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(websiteJsonLd)}
+    />
     <title>{title} — {SITE.title}</title>
   </head>
   <body class="min-h-screen flex flex-col">
@@ -108,6 +120,29 @@ const websiteJsonLd = {
           </a>
           <a href="/noticias" class="transition-colors hover:text-green-500">
             noticias
+          </a>
+          <a href="/fuentes" class="transition-colors hover:text-green-500">
+            fuentes
+          </a>
+          <a href="/licencia" class="transition-colors hover:text-green-500">
+            licencia
+          </a>
+          <a href="/contacto" class="transition-colors hover:text-green-500">
+            contacto
+          </a>
+          <a
+            href="/rss/works.xml"
+            class="transition-colors hover:text-green-500"
+            title="Canal RSS de obras"
+          >
+            rss
+          </a>
+          <a
+            href="/api/works"
+            class="transition-colors hover:text-green-500"
+            title="API pública de obras"
+          >
+            api
           </a>
         </div>
       </div>

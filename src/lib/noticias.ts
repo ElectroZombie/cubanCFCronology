@@ -1,9 +1,9 @@
 /**
  * Noticias module - Live news feed for CubanCFCronology.
- * 
+ *
  * TODO: Integrate with a news provider (Directorio Cubano, NewsAPI, or APITube).
  * Currently a stub — returns empty state until a provider is configured.
- * 
+ *
  * Provider priority:
  * 1. Directorio Cubano (if open and accessible)
  * 2. NewsAPI (requires paid plan for serious use)

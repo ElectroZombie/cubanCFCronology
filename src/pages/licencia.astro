@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout
+  title="Licencia"
+  description="Licencias de CubanCFCronology: CC BY-SA 4.0 para el contenido editorial, MIT para el código"
+>
+  <div class="panel p-4 mb-6 border-green-600/30">
+    <nav aria-label="breadcrumb">
+      <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Licencia</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="max-w-3xl mx-auto space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <p class="font-mono text-xs uppercase text-green-500">Derechos de uso</p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Licencia</h1>
+      <p class="mt-3 text-bone-300 leading-relaxed">
+        {SITE.title} publica dos tipos de contenido con licencias distintas: los
+        datos editoriales y el código fuente del sitio.
+      </p>
+    </header>
+
+    <article class="space-y-8">
+      <section class="panel p-6 border-green-600/50">
+        <h2 class="font-mono text-xl text-bone-50">
+          Contenido editorial — CC BY-SA 4.0
+        </h2>
+        <p class="mt-3 text-bone-300 leading-relaxed">
+          Las obras, autores, editoriales, cronología, biografías y sinopsis
+          registrados en este sitio se publican bajo
+          <a
+            href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"
+            rel="license noopener noreferrer"
+            target="_blank"
+            class="text-green-500 hover:text-green-400"
+          >
+            Creative Commons Atribución-CompartirIgual 4.0 Internacional
+          </a>
+          .
+        </p>
+
+        <h3 class="mt-6 font-mono text-base text-bone-50">Qué permite</h3>
+        <ul class="mt-2 space-y-2 text-bone-300 leading-relaxed">
+          <li>
+            <strong class="text-bone-50">Compartir:</strong> copiar y
+            redistribuir el material en cualquier medio.
+          </li>
+          <li>
+            <strong class="text-bone-50">Adaptar:</strong> remixar, transformar
+            y construir sobre el material.
+          </li>
+          <li>
+            <strong class="text-bone-50">Uso comercial:</strong> siempre que se
+            indique el cambio y se cite la fuente.
+          </li>
+        </ul>
+
+        <h3 class="mt-6 font-mono text-base text-bone-50">Qué exige</h3>
+        <ul class="mt-2 space-y-2 text-bone-300 leading-relaxed">
+          <li>
+            <strong class="text-bone-50">Atribución:</strong> indicar la autoría
+            y enlazar a la licencia original.
+          </li>
+          <li>
+            <strong class="text-bone-50">Misma licencia:</strong> las
+            adaptaciones se distribuyen bajo CC BY-SA 4.0.
+          </li>
+          <li>
+            <strong class="text-bone-50">Sin restricciones adicionales:</strong>{' '}
+            no se pueden aplicar DRM ni limitar otros derechos licenses.
+          </li>
+        </ul>
+
+        <p class="mt-6 border-l-2 border-green-600/50 pl-4 text-sm text-bone-400 leading-relaxed">
+          Nota sobre las fuentes: las obras de terceros que se referencian
+          mediante enlaces siguen perteneciendo a sus autores y editoriales.
+          Este sitio registra datos bibliográficos y ofrece un enlace a la
+          fuente original; no reproduce obras completas.
+        </p>
+      </section>
+
+      <section class="panel p-6 border-green-600/50">
+        <h2 class="font-mono text-xl text-bone-50">Código fuente — MIT</h2>
+        <p class="mt-3 text-bone-300 leading-relaxed">
+          El código del sitio (Astro, componentes, scripts de migración, seed
+          runner) se publica bajo la
+          <a
+            href="https://opensource.org/licenses/MIT"
+            rel="license noopener noreferrer"
+            target="_blank"
+            class="text-green-500 hover:text-green-400"
+          >
+            Licencia MIT
+          </a>
+          .
+        </p>
+
+        <h3 class="mt-6 font-mono text-base text-bone-50">Permisos</h3>
+        <ul class="mt-2 space-y-2 text-bone-300 leading-relaxed">
+          <li>Usar el código con fines comerciales.</li>
+          <li>Modificarlo y distribuir versiones modificadas.</li>
+          <li>Incluirlo en proyectos privados o públicos.</li>
+        </ul>
+
+        <h3 class="mt-6 font-mono text-base text-bone-50">Condición</h3>
+        <p class="mt-2 text-bone-300 leading-relaxed">
+          El aviso de copyright y el texto de la licencia deben incluirse en
+          todas las copias o partes sustanciales del software.
+        </p>
+      </section>
+
+      <section class="panel p-6 border-green-600/50">
+        <h2 class="font-mono text-xl text-bone-50">Cómo citar</h2>
+        <p class="mt-3 text-bone-300 leading-relaxed">
+          Para referenciar el conjunto del registro:
+        </p>
+        <pre class="mt-4 overflow-x-auto border border-green-600/40 bg-space-800 p-4 font-mono text-xs text-bone-300"><code>CubanCFCronology (2025). Cronología de la ciencia ficción y fantasía
+cubana contemporánea (1999-2025) [Base de datos]. {SITE.site}.
+Datos editoriales bajo CC BY-SA 4.0. Código bajo MIT.</code></pre>
+      </section>
+
+      <section class="panel p-6 border-green-600/50">
+        <h2 class="font-mono text-xl text-bone-50">Contribuciones</h2>
+        <p class="mt-3 text-bone-300 leading-relaxed">
+          Quien contribuya con datos o código acepta que su aportación se
+          publique bajo estas mismas licencias: CC BY-SA 4.0 para el contenido
+          editorial y MIT para el código.
+        </p>
+        <p class="mt-3 text-bone-300 leading-relaxed">
+          Para participar, revisa la
+          <a
+            href="https://github.com/OWNER/REPO/blob/main/DOCS/CONTRIBUTING.md"
+            class="text-green-500 hover:text-green-400"
+          >
+            guía de contribución
+          </a>
+          o escribe por el
+          <a href="/contacto" class="text-green-500 hover:text-green-400">
+            canal de contacto
+          </a>
+          .
+        </p>
+      </section>
+    </article>
+
+    <aside class="panel p-6 border-green-600/50">
+      <h2 class="font-mono text-lg text-bone-50 mb-3">Resumen</h2>
+      <ul class="space-y-3 text-bone-300">
+        <li class="flex flex-wrap justify-between gap-2">
+          <span>Contenido editorial</span>
+          <span class="font-mono text-bone-50">CC BY-SA 4.0</span>
+        </li>
+        <li class="flex flex-wrap justify-between gap-2">
+          <span>Código fuente</span>
+          <span class="font-mono text-bone-50">MIT</span>
+        </li>
+        <li class="flex flex-wrap justify-between gap-2">
+          <span>Fuentes de terceros</span>
+          <span class="font-mono text-bone-50">
+            Enlazadas, no redistribuidas
+          </span>
+        </li>
+      </ul>
+    </aside>
+  </section>
+</BaseLayout>

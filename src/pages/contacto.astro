@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+
+interface TipoContacto {
+  id: string;
+  titulo: string;
+  descripcion: string;
+  ejemplo: string;
+}
+
+const tipos: TipoContacto[] = [
+  {
+    id: 'correccion',
+    titulo: 'Corrección de un dato',
+    descripcion:
+      'Un título, una fecha, un apellido o un enlace equivocado. Incluye la URL de la página afectada y la fuente correcta.',
+    ejemplo:
+      'La obra "El rugir de los dragones" figura con año 2014; la fuente de Korad la sitúa en 2013.',
+  },
+  {
+    id: 'obra',
+    titulo: 'Obra que falta',
+    descripcion:
+      'Una obra publicada que no aparece en el registro. Aporta título, año, tipo, autor y, si es posible, editorial.',
+    ejemplo:
+      'Novela de Anna Kordán, "El significar de los árboles" (Fénix, 2011).',
+  },
+  {
+    id: 'autor',
+    titulo: 'Autor que falta o datos incompletos',
+    descripcion:
+      'Un autor sin ficha, o una biografía que necesita ampliación. Indica pseudónimos y colaboraciones.',
+    ejemplo:
+      'Reinaldo Montero figura con seudónimo "R. Mont"; usa también "Reynaldo".',
+  },
+  {
+    id: 'colaboracion',
+    titulo: 'Colaboración editorial',
+    descripcion:
+      'Proponer una fuente, una revisión de un tramo de la cronología, o una colección propia para enlazar.',
+    ejemplo:
+      'La revista Fantasmaína guarda digitalizada la colección "Distorsión" (2010-2012).',
+  },
+];
+
+const correo = 'contacto@cubancfcronology.com';
+---
+
+<BaseLayout
+  title="Contacto"
+  description="Canal de contacto y correcciones para CubanCFCronology"
+>
+  <div class="panel p-4 mb-6 border-green-600/30">
+    <nav aria-label="breadcrumb">
+      <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Contacto</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="max-w-3xl mx-auto space-y-8">
+    <header class="border-b border-green-600/40 pb-6">
+      <p class="font-mono text-xs uppercase text-green-500">
+        Correcciones y colaboraciones
+      </p>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Contacto</h1>
+      <p class="mt-3 text-bone-300 leading-relaxed">
+        Este registro se mantiene con ayuda de quien lee el género. Todo error
+        que encuentres es una contribución. Escríbenos a
+        <a
+          href={`mailto:${correo}`}
+          class="text-green-500 hover:text-green-400"
+        >
+          {correo}
+        </a>
+        .
+      </p>
+    </header>
+
+    <article class="space-y-6">
+      <h2 class="font-mono text-xl text-bone-50">Qué escribir</h2>
+      <p class="text-bone-300 leading-relaxed">
+        Un mensaje con el tipo de aviso, la referencia exacta y la fuente que
+        respalda la corrección. No hace falta que sea largo: la precisión
+        importa más que la extensión.
+      </p>
+
+      <div class="space-y-4">
+        {tipos.map((tipo) => (
+          <section class="panel p-5 border-green-600/40">
+            <h3 class="font-mono text-lg text-bone-50">{tipo.titulo}</h3>
+            <p class="mt-2 text-bone-300 leading-relaxed">{tipo.descripcion}</p>
+            <p class="mt-3 border-l-2 border-green-600/40 pl-3 font-mono text-xs text-bone-400">
+              {tipo.ejemplo}
+            </p>
+          </section>
+        ))}
+      </div>
+
+      <h2 class="font-mono text-xl text-bone-50">Cómo se aplica un cambio</h2>
+      <ol class="space-y-3 text-bone-300 leading-relaxed">
+        <li>
+          <strong class="text-bone-50">1. Recepción.</strong> El aviso llega al
+          correo del proyecto y se registra con fecha.
+        </li>
+        <li>
+          <strong class="text-bone-50">2. Verificación.</strong> Se contrasta el
+          dato con la fuente. Si no hay fuente verificable, el cambio se rechaza
+          o queda pendiente.
+        </li>
+        <li>
+          <strong class="text-bone-50">3. Publicación.</strong> La corrección se
+          aplica en la base de datos y dispara una reconstrucción del sitio.
+        </li>
+        <li>
+          <strong class="text-bone-50">4. Confirmación.</strong> Si el aviso
+          incluye dirección de correo, se responde con la fecha del cambio.
+        </li>
+      </ol>
+
+      <h2 class="font-mono text-xl text-bone-50">Privacidad</h2>
+      <p class="text-bone-300 leading-relaxed">
+        Los mensajes de contacto se usan solo para resolver la consulta. No se
+        publican ni se comparten con terceros. Si prefieres no dar tu nombre,
+        basta con indicar la fuente y el dato: el valor de la corrección está en
+        la evidencia, no en el remitente.
+      </p>
+    </article>
+
+    <aside class="panel p-6 border-green-600/50">
+      <h2 class="font-mono text-lg text-bone-50 mb-3">Datos del proyecto</h2>
+      <ul class="space-y-3 text-bone-300">
+        <li class="flex flex-wrap justify-between gap-2">
+          <span>Correo</span>
+          <a
+            href={`mailto:${correo}`}
+            class="font-mono text-sm text-green-500 hover:text-green-400"
+          >
+            {correo}
+          </a>
+        </li>
+        <li class="flex flex-wrap justify-between gap-2">
+          <span>Sitio</span>
+          <a
+            href={SITE.site}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="font-mono text-sm text-green-500 hover:text-green-400"
+          >
+            {SITE.site.replace('https://', '')}
+          </a>
+        </li>
+        <li class="flex flex-wrap justify-between gap-2">
+          <span>Fuentes documentadas</span>
+          <a
+            href="/fuentes"
+            class="font-mono text-sm text-green-500 hover:text-green-400"
+          >
+            /fuentes
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </section>
+</BaseLayout>

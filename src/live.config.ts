@@ -1,6 +1,6 @@
 /**
  * Live configuration for CubanCFCronology.
- * 
+ *
  * TODO: Configure live/deferred regeneration based on content changes.
  * Currently a stub — Supabase webhook deployment will be set up
  * when a remote Supabase project is available.

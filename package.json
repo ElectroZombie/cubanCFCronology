@@ -15,8 +15,12 @@
     "format": "prettier --write \"src/**/*.{astro,ts,css}\" astro.config.mjs eslint.config.mjs package.json .prettierrc.json",
     "format:check": "prettier --check \"src/**/*.{astro,ts,css}\" astro.config.mjs eslint.config.mjs package.json .prettierrc.json",
     "db:seed": "node scripts/seed.mjs",
+    "db:types": "supabase gen types typescript --linked > src/lib/database.types.ts",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "ping:supabase": "node scripts/ping-supabase.mjs",
+    "pagefind:build": "pagefind --source dist",
+    "db:push:remote": "node scripts/db-push-remote.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.0.0",
@@ -34,17 +38,13 @@
     "eslint": "^10.0.0",
     "eslint-plugin-astro": "^3.2.1",
     "jsdom": "^31.0.0",
-    "node-cron": "^3.0.3",
+    "node-cron": "^4.6.0",
+    "pagefind": "^1.6.0",
     "prettier": "^3.9.10",
     "prettier-plugin-astro": "^1.1.2",
-    "rss": "^2.0.23",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.1",
-    "vitest": "^5.1.0",
-    "@types/leaflet": "^1.9.14"
-  },
-  "dependencies": {
-    "leaflet": "^1.9.4"
+    "vitest": "^5.1.0"
   },
   "allowScripts": {
     "esbuild": true,

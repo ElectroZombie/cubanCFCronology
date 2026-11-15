@@ -1,20 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../config/site';
-import { z } from 'astro/zod';
+import { PUBLIC_SUPABASE_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
 
-// Zod schema for profile validation (client + server)
-const ProfileSchema = z.object({
-  fullname: z.string().min(2, 'El nombre debe tener al menos 2 caracteres').max(200),
-  pseudonyme: z.string().max(100).optional().or(z.literal('')),
-  biography: z.string().max(1000).optional().or(z.literal('')),
-});
-
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
-
-const supabaseConfigured = Boolean(
-  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
-);
+const supabaseConfigured = Boolean(PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_KEY);
 ---
 
 <BaseLayout
@@ -25,17 +14,21 @@ const supabaseConfigured = Boolean(
   <div class="panel p-4 mb-6 border-green-600/30">
     <nav aria-label="breadcrumb">
       <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
-        <li><a href="/" class="nav-link">Inicio</a></li>
-        <li><span class="text-bone-400">Mi perfil</span></li>
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Mi perfil</span>
+        </li>
       </ol>
     </nav>
   </div>
 
   <section class="max-w-2xl mx-auto space-y-8">
     <header class="border-b border-green-600/40 pb-6">
-      <p class="font-mono text-xs uppercase text-green-500">
-        Perfil de autor
-      </p>
+      <p class="font-mono text-xs uppercase text-green-500">Perfil de autor</p>
       <h1 class="mt-2 font-mono text-3xl text-bone-50">Mi Perfil</h1>
       <p class="mt-3 max-w-2xl text-bone-300">
         Gestiona tu información de autor y tus obras publicadas.
@@ -56,10 +49,7 @@ const supabaseConfigured = Boolean(
         </a>
       </section>
     ) : (
-      <form
-        class="panel p-8 border-green-600/50 space-y-6"
-        method="POST"
-      >
+      <form class="panel p-8 border-green-600/50 space-y-6" method="POST">
         <div class="space-y-4">
           <label class="flex flex-col gap-2 font-mono text-sm text-bone-300">
             <span>Nombre completo</span>
@@ -90,10 +80,7 @@ const supabaseConfigured = Boolean(
             ></textarea>
           </label>
         </div>
-        <button
-          type="submit"
-          class="w-full btn-ship py-4 text-center"
-        >
+        <button type="submit" class="w-full btn-ship py-4 text-center">
           Guardar perfil
         </button>
       </form>
@@ -102,38 +89,31 @@ const supabaseConfigured = Boolean(
 </BaseLayout>
 
 <script>
-  // Client-side validation using the same Zod schema shape
+  import { parseProfile } from '../lib/profile';
+
   const form = document.querySelector('form');
+
   if (form) {
     form.addEventListener('submit', (event) => {
-      const fullnameEl = form.elements.namedItem('fullname') as
-        | HTMLInputElement
-        | null;
-      const pseudonymeEl = form.elements.namedItem('pseudonyme') as
-        | HTMLInputElement
-        | null;
-      const biographyEl = form.elements.namedItem('biography') as
-        | HTMLTextAreaElement
-        | null;
+      const fullnameEl = form.elements.namedItem(
+        'fullname',
+      ) as HTMLInputElement | null;
+      const pseudonymeEl = form.elements.namedItem(
+        'pseudonyme',
+      ) as HTMLInputElement | null;
+      const biographyEl = form.elements.namedItem(
+        'biography',
+      ) as HTMLTextAreaElement | null;
 
-      const fullname = fullnameEl?.value ?? '';
-      const pseudonyme = pseudonymeEl?.value ?? '';
-      const biography = biographyEl?.value ?? '';
+      const result = parseProfile({
+        fullname: fullnameEl?.value ?? '',
+        pseudonyme: pseudonymeEl?.value ?? '',
+        biography: biographyEl?.value ?? '',
+      });
 
-      if (fullname.length < 2) {
+      if (!result.ok) {
         event.preventDefault();
-        alert('El nombre debe tener al menos 2 caracteres.');
-        return;
-      }
-      if (pseudonyme.length > 100) {
-        event.preventDefault();
-        alert('El pseudónimo no puede exceder 100 caracteres.');
-        return;
-      }
-      if (biography.length > 1000) {
-        event.preventDefault();
-        alert('La biografía no puede exceder 1000 caracteres.');
-        return;
+        alert(result.errors.join('\n'));
       }
     });
   }

@@ -3,10 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAuthors, getPublishedWorksByAuthor } from '../../lib/content';
 import { createPublicSupabaseClient } from '../../lib/supabase';
 import type { Author, Work } from '../../lib/zod-schemas';
-import {
-  PUBLIC_SUPABASE_ANON_KEY,
-  PUBLIC_SUPABASE_URL,
-} from 'astro:env/client';
+import { PUBLIC_SUPABASE_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
 
 interface Props {
   author: Author;
@@ -14,7 +11,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  if (!PUBLIC_SUPABASE_URL || !PUBLIC_SUPABASE_ANON_KEY) return [];
+  if (!PUBLIC_SUPABASE_URL || !PUBLIC_SUPABASE_KEY) return [];
 
   const client = createPublicSupabaseClient();
   const authors = await getAuthors(client);
@@ -47,7 +44,7 @@ const authorJsonLd = {
   title={author.fullname}
   description={`Obras de ${author.fullname} — CubanCFCronology`}
 >
-  <script type="application/ld+json">{JSON.stringify(authorJsonLd)}</script>
+  <script type="application/ld+json" set:html={JSON.stringify(authorJsonLd)} />
   <article class="space-y-8">
     <header class="border-b border-green-600/40 pb-6">
       <a href="/autores" class="font-mono text-sm text-green-400">

@@ -3,23 +3,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAuthors } from '../../lib/content';
 import { createPublicSupabaseClient } from '../../lib/supabase';
 import { SITE } from '../../config/site';
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
+import { PUBLIC_SUPABASE_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
 
-const supabaseConfigured = Boolean(
-  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
-);
+const supabaseConfigured = Boolean(PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_KEY);
 const authors = supabaseConfigured
   ? await getAuthors(createPublicSupabaseClient())
   : [];
 ---
 
-<BaseLayout title="Autores" description={`Autores de la ciencia ficción y fantasía cubana — ${SITE.title}`}>
+<BaseLayout
+  title="Autores"
+  description={`Autores de la ciencia ficción y fantasía cubana — ${SITE.title}`}
+>
   <!-- Breadcrumbs -->
   <div class="panel p-4 mb-6 border-green-600/30">
     <nav aria-label="breadcrumb">
       <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
-        <li><a href="/" class="nav-link">Inicio</a></li>
-        <li><span class="text-bone-400">Autores</span></li>
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Autores</span>
+        </li>
       </ol>
     </nav>
   </div>
@@ -38,17 +45,12 @@ const authors = supabaseConfigured
 
     {!supabaseConfigured ? (
       <section class="panel p-8 border-green-600/30">
-        <h2 class="font-mono text-xl text-bone-50 mb-4">
-          Conexión pendiente
-        </h2>
+        <h2 class="font-mono text-xl text-bone-50 mb-4">Conexión pendiente</h2>
         <p class="text-bone-300 mb-4">
           El archivo de autores estará disponible cuando se configure la
           conexión con la base de datos de Supabase.
         </p>
-        <a
-          href="/"
-          class="btn-ship inline-block"
-        >
+        <a href="/" class="btn-ship inline-block">
           Volver al inicio
         </a>
       </section>
@@ -62,10 +64,7 @@ const authors = supabaseConfigured
           poblarán desde la fuente Korad una vez que la base de datos esté
           configurada.
         </p>
-        <a
-          href="/"
-          class="btn-ship inline-block"
-        >
+        <a href="/" class="btn-ship inline-block">
           Volver al inicio
         </a>
       </section>

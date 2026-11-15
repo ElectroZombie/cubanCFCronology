@@ -1,25 +1,28 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import {
-  getPublishedChronicles,
-  throwOnQueryError,
-} from '../content';
+import { getPublishedChronicles, throwOnQueryError } from '../content';
 import type { Work } from '../zod-schemas';
 
-function createMockClient(queryResult: { data: Work[] | null; error: any }) {
-  const chain = {
+interface QueryResult<T> {
+  data: T | null;
+  error: { message: string } | null;
+}
+
+/**
+ * Minimal stand-in for a Supabase query builder.
+ * Every method returns the chain so calls can be composed; awaiting the chain
+ * resolves to the configured result.
+ */
+function createMockClient<T>(queryResult: QueryResult<T>) {
+  const chain: Record<string, unknown> = {
     from: vi.fn(() => chain),
     select: vi.fn(() => chain),
     eq: vi.fn(() => chain),
     order: vi.fn(() => chain),
-    maybeSingle: vi.fn(() => Promise.resolve(queryResult)),
     in: vi.fn(() => chain),
-  } as any;
-
-  // Make the full chain awaitable to resolve to queryResult
-  const thenable = {
-    then: (resolve: (val: any) => void) => resolve(queryResult),
+    maybeSingle: vi.fn(() => Promise.resolve(queryResult)),
+    then: (resolve: (value: QueryResult<T>) => unknown) =>
+      Promise.resolve(queryResult).then(resolve),
   };
-  chain.then = thenable.then.bind(thenable);
 
   return chain;
 }
@@ -91,24 +94,30 @@ describe('getPublishedChronicles', () => {
 
   it('filters works to only chronicles', async () => {
     const client = createMockClient({ data: mockWorks, error: null });
-    const chronicles = await getPublishedChronicles(client as any);
+    const chronicles = await getPublishedChronicles(
+      client as unknown as Parameters<typeof getPublishedChronicles>[0],
+    );
     expect(chronicles).toHaveLength(2);
-    expect(chronicles.map((w) => w.title)).toEqual([
+    expect(chronicles.map((work) => work.title)).toEqual([
       'Crónica 1999',
       'Crónica 2005',
     ]);
   });
 
   it('returns empty array when no chronicles', async () => {
-    const nonChronicles = mockWorks.filter((w) => w.type !== 'chronicle');
+    const nonChronicles = mockWorks.filter((work) => work.type !== 'chronicle');
     const client = createMockClient({ data: nonChronicles, error: null });
-    const result = await getPublishedChronicles(client as any);
+    const result = await getPublishedChronicles(
+      client as unknown as Parameters<typeof getPublishedChronicles>[0],
+    );
     expect(result).toHaveLength(0);
   });
 
   it('returns empty array for empty input', async () => {
     const client = createMockClient({ data: [], error: null });
-    const result = await getPublishedChronicles(client as any);
+    const result = await getPublishedChronicles(
+      client as unknown as Parameters<typeof getPublishedChronicles>[0],
+    );
     expect(result).toHaveLength(0);
   });
 });

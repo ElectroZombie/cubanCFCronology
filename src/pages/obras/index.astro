@@ -2,12 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getPublishedWorksWithAuthors } from '../../lib/content';
 import { createPublicSupabaseClient } from '../../lib/supabase';
-import { SITE } from '../../config/site';
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
+import { PUBLIC_SUPABASE_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
 
-const supabaseConfigured = Boolean(
-  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
-);
+const supabaseConfigured = Boolean(PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_KEY);
 const works = supabaseConfigured
   ? await getPublishedWorksWithAuthors(createPublicSupabaseClient())
   : [];
@@ -32,13 +29,22 @@ const workTypeLabels: Record<string, string> = {
 const workTypes = [...new Set(works.map(({ type }) => type))].sort();
 ---
 
-<BaseLayout title="Obras" description="Catálogo de obras publicadas de ciencia ficción y fantasía cubanas.">
+<BaseLayout
+  title="Obras"
+  description="Catálogo de obras publicadas de ciencia ficción y fantasía cubanas."
+>
   <!-- Breadcrumbs -->
   <div class="panel p-4 mb-6 border-green-600/30">
     <nav aria-label="breadcrumb">
       <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
-        <li><a href="/" class="nav-link">Inicio</a></li>
-        <li><span class="text-bone-400">Obras</span></li>
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Obras</span>
+        </li>
       </ol>
     </nav>
   </div>
@@ -57,9 +63,7 @@ const workTypes = [...new Set(works.map(({ type }) => type))].sort();
 
     {!supabaseConfigured ? (
       <section class="panel p-8 border-green-600/30">
-        <h2 class="font-mono text-xl text-bone-50 mb-4">
-          Conexión pendiente
-        </h2>
+        <h2 class="font-mono text-xl text-bone-50 mb-4">Conexión pendiente</h2>
         <p class="text-bone-300 mb-4">
           El catálogo de obras estará disponible cuando se configure la conexión
           con la base de datos de Supabase.

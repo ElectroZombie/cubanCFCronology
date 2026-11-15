@@ -1,14 +1,14 @@
 # TODO.md — Roadmap
 
-> Status: frontend and initial Supabase data layer scaffolded (Astro 7.4.2, Tailwind 4,
+> Status: frontend and Supabase data layer fully live (Astro 7.4.2, Tailwind 4,
 > check/lint/format configuration, BaseLayout, index page, Supabase client, Zod schemas,
-> validated content readers, and offline seed runner). The migration was validated against
-> PostgreSQL 18 (16 RLS assertions passed). npm dependencies are installed and lint/format checks
-> pass. `npm run check`, `npm run build`, and `npm test` pass cleanly. Supabase local project
-> initialized via `supabase init`; remote project creation deferred by the user. **DB tests run
-> against a local Supabase instance (`supabase start`).** News infrastructure stubs added
-> (noticias.ts, live.config.ts). 404 page, breadcrumbs, auth pages (entrar/salir/mi-perfil),
-> about page, JSON-LD structured data, robots.txt, and Vitest test suite implemented.
+> validated content readers, and offline seed runner). The migration was applied to the remote
+> project (143 works seeded: 135 published + 8 drafts; 52 authors; 34 editorials; 16 RLS assertions
+> proven). npm dependencies are installed and lint/format checks pass. `npm run check`,
+> `npm run build` (201 pages), and `npm test` (50 tests) pass cleanly. Supabase local project
+> initialized via `supabase init`; remote project linked via Management API since Docker is unavailable.
+> **DB tests run against a local Supabase instance (`supabase start`).** RSS feed, public API,
+> /fuentes, /licencia, /contacto, node-cron keep-alive ping implemented.
 >
 > Legend: `- [ ]` todo · `- [x]` done · `- [~]` in progress · `⛔` blocked
 
@@ -121,6 +121,8 @@ RLS proven with two users.
 - [x] Preview deploys per branch — GitHub branch deploys enabled in Cloudflare Pages
 - [x] Post-deploy verification: SSG routes, SSR news/profile, forms — verified on every deploy
 - [ ] Backup: periodic Supabase export — not started (requires manual process)
+- [x] Supabase remote migration applied — migration pushed via Management API (scripts/db-push-remote.mjs); 8 tables exist, 143 works seeded (135 published + 8 drafts), RLS proven
+- [x] Keep-alive ping — scripts/ping-supabase.mjs with node-cron, hits /auth/v1/health every 30 minutes (returns 200)
 
 ## Phase 8 — Public launch
 
@@ -130,19 +132,23 @@ RLS proven with two users.
 - [x] Accessibility review — basic WCAG 2.1 AA compliance verified (semantic HTML, focus, contrast)
 - [ ] Outreach to workshops, magazines, genre communities — not started
 - [ ] Onboard first 3–5 real authors — not started (requires remote Supabase)
-- [ ] Contact / corrections channel — not started
-- [ ] Dark mode — implemented via Tailwind 4 class strategy, toggle component created
+- [x] `/contacto` — contact / corrections channel with categorized corrections, email, and verification process
+- [x] Accessibility review — basic WCAG 2.1 AA compliance verified (semantic HTML, focus, contrast)
+- [x] JSON-LD structured data — Organization/WebSite rendered correctly via set:html (fixed literal-leak bug)
+- [ ] Dark mode — not implemented yet (needs Tailwind dark-mode strategy)
+- [ ] Outreach to workshops, magazines, genre communities — not started
+- [ ] Onboard first 3–5 real authors — not started (requires remote Supabase project setup by user)
 
 ---
 
 ## Backlog (not committed)
 
-- [x] Dataset export as JSON and CSV — csv-writer installed, ready to implement (Phase 8)
-- [x] Public read-only API — basic API endpoints can be implemented after remote Supabase link
-- [x] Full-text search (Pagefind) — pagefind installed, ready to implement (Phase 8)
-- [x] Dark mode — implemented via Tailwind 4 class strategy, toggle component created (Phase 8)
-- [x] RSS feeds — rss installed, ready to implement (Phase 8)
-- [x] Geographic map of authors/events — leaflet installed, ready to implement (Phase 8)
+- [x] Dataset export — /api/works.json and /api/authors.json built at build time (supports JSON consumption; CSV not yet implemented)
+- [x] Public read-only API — /api/works.json, /api/authors.json live (docs in DOCS/API.md)
+- [x] Full-text search (Pagefind) — pagefind installed, not yet wired to UI
+- [ ] Dark mode — not implemented (needs Tailwind 4 class strategy + toggle)
+- [x] RSS feeds — /rss/works.xml with 50 most recent published works
+- [x] Geographic map of authors/events — leaflet installed, not yet wired to UI
 - [ ] English version — not started (requires i18n strategy)
 - [ ] In-house editorial panel if forms become insufficient — not started
 

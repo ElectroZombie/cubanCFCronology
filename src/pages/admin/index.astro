@@ -1,32 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { createPublicSupabaseClient } from '../../lib/supabase';
-import { z } from 'astro/zod';
-import {
-  PUBLIC_SUPABASE_ANON_KEY,
-  PUBLIC_SUPABASE_URL,
-} from 'astro:env/client';
+import { AuthorSchema } from '../../lib/zod-schemas';
+import { PUBLIC_SUPABASE_KEY, PUBLIC_SUPABASE_URL } from 'astro:env/client';
 
-const supabaseConfigured = Boolean(
-  PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_ANON_KEY,
-);
-
-// Zod schema for author creation
-const CreateAuthorSchema = z.object({
-  fullname: z.string().min(2, 'El nombre debe tener al menos 2 caracteres').max(200),
-  pseudonyme: z.string().max(100).optional().or(z.literal('')),
-  biography: z.string().max(1000).optional().or(z.literal('')),
-  slug: z.string().min(2, 'El slug debe tener al menos 2 caracteres').max(100).regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'Slug debe ser kebab-case ASCII'),
-  owner_user_id: z.string().uuid({ message: 'ID de usuario inválido' }),
-});
-
-type CreateAuthorData = z.infer<typeof CreateAuthorSchema>;
-
-interface UserRow {
-  id: string;
-  email: string;
-  raw_user_meta_data: Record<string, unknown>;
-}
+const supabaseConfigured = Boolean(PUBLIC_SUPABASE_URL && PUBLIC_SUPABASE_KEY);
 
 interface AuthorRow {
   id: string;
@@ -36,55 +14,62 @@ interface AuthorRow {
   owner_user_id: string | null;
 }
 
-// ---- Data fetching (server-side only) ----
-
-async function getUnlinkedUsers(client: any): Promise<UserRow[]> {
-  const { data: users, error } = await client.auth.admin.listUsers();
-  if (error) throw new Error(`No se pudieron listar usuarios: ${error.message}`);
-
-  const { data: authors, error: authorsError } = await client
+/**
+ * Read every author row.
+ *
+ * This runs at build time, so the output is a snapshot. The service role key is
+ * deliberately not used here: the site build must never depend on privileged
+ * credentials. `owner_user_id` is only readable with elevated rights, so this
+ * page reports link status from what the public client can see.
+ */
+async function getAllAuthors(): Promise<AuthorRow[]> {
+  const client = createPublicSupabaseClient();
+  const { data, error } = await client
     .from('authors')
-    .select('owner_user_id');
-  if (authorsError) throw new Error(`No se pudieron listar autores: ${authorsError.message}`);
+    .select('id, fullname, pseudonyme, slug, owner_user_id')
+    .order('fullname');
 
-  const linkedIds = new Set(authors?.map((a: AuthorRow) => a.owner_user_id).filter(Boolean));
-  return (users || []).filter((u: UserRow) => !linkedIds.has(u.id));
+  if (error) throw new Error(error.message);
+
+  // `owner_user_id` is filtered out by RLS for non-owners; validate the rest.
+  return AuthorSchema.array()
+    .parse(data ?? [])
+    .map(({ id, fullname, pseudonyme, slug }) => ({
+      id,
+      fullname,
+      pseudonyme,
+      slug,
+      owner_user_id: null,
+    }));
 }
 
-async function getAllAuthors(client: any): Promise<AuthorRow[]> {
-  const { data, error } = await client.from('authors').select('*').order('fullname');
-  if (error) throw new Error(`No se pudieron listar autores: ${error.message}`);
-  return data || [];
-}
-
-// Page is prerendered at build time; shows setup state when Supabase unconfigured.
-let unlinkedUsers: UserRow[] = [];
 let authors: AuthorRow[] = [];
 let serverError: string | null = null;
 
 if (supabaseConfigured) {
-  const publicClient = createPublicSupabaseClient();
   try {
-    [unlinkedUsers, authors] = await Promise.all([
-      getUnlinkedUsers(publicClient),
-      getAllAuthors(publicClient),
-    ]);
-  } catch (err: any) {
-    serverError = err.message;
+    authors = await getAllAuthors();
+  } catch (error) {
+    serverError = error instanceof Error ? error.message : String(error);
   }
 }
 ---
 
 <BaseLayout
   title="Panel de administración"
-  description="Administración de autores y obras — CubanCFCronology"
+  description="Resumen del registro de autores — CubanCFCronology"
 >
-  <!-- Breadcrumbs -->
   <div class="panel p-4 mb-6 border-green-600/30">
     <nav aria-label="breadcrumb">
       <ol class="flex flex-wrap gap-2 text-sm text-bone-300">
-        <li><a href="/" class="nav-link">Inicio</a></li>
-        <li><span class="text-bone-400">Administración</span></li>
+        <li>
+          <a href="/" class="nav-link">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <span class="text-bone-400">Administración</span>
+        </li>
       </ol>
     </nav>
   </div>
@@ -94,21 +79,20 @@ if (supabaseConfigured) {
       <p class="font-mono text-xs uppercase text-green-500">
         Panel de administración
       </p>
-      <h1 class="mt-2 font-mono text-3xl text-bone-50">Administrar autores</h1>
+      <h1 class="mt-2 font-mono text-3xl text-bone-50">Administración</h1>
       <p class="mt-3 max-w-2xl text-bone-300">
-        Vincula usuarios registrados a registros de autor y asigna
-        <code class="text-green-400">owner_user_id</code>.
+        Resumen de solo lectura del registro de autores. Las altas, ediciones y
+        vinculaciones de cuentas se hacen en Supabase Studio con privilegios de
+        administrador.
       </p>
     </header>
 
     {!supabaseConfigured ? (
       <section class="panel p-8 border-green-600/30">
-        <h2 class="font-mono text-xl text-bone-50 mb-4">
-          Conexión pendiente
-        </h2>
+        <h2 class="font-mono text-xl text-bone-50 mb-4">Conexión pendiente</h2>
         <p class="text-bone-300 mb-6">
-          El panel de administración estará disponible cuando se configure la
-          conexión con Supabase y se definan las variables de entorno.
+          El panel estará disponible cuando se configuren las variables de
+          entorno de Supabase.
         </p>
         <a href="/" class="btn-ship inline-block">
           Volver al inicio
@@ -126,88 +110,43 @@ if (supabaseConfigured) {
       </section>
     ) : (
       <>
-        {/* Form to create author */}
-        <form
-          class="panel p-8 border-green-600/50 space-y-6"
-          method="POST"
-        >
-          <h2 class="font-mono text-xl text-bone-50 mb-4">
-            Crear registro de autor
+        <div class="panel p-6 border-green-600/50">
+          <h2 class="font-mono text-lg text-bone-50 mb-4">
+            Cómo administrar el registro
           </h2>
+          <ol class="space-y-3 text-bone-300 leading-relaxed">
+            <li>
+              <strong class="text-bone-50">1. Crear un autor.</strong> En
+              Supabase Studio, tabla <code class="text-green-400">authors</code>
+              : inserta <code class="text-green-400">fullname</code>,
+              <code class="text-green-400">slug</code> y
+              <code class="text-green-400">biography</code>.
+            </li>
+            <li>
+              <strong class="text-bone-50">2. Vincular una cuenta.</strong>
+              Asigna <code class="text-green-400">owner_user_id</code> al
+              <code class="text-green-400">id</code> del usuario de Auth. Solo
+              los administradores pueden cambiar esta columna.
+            </li>
+            <li>
+              <strong class="text-bone-50">3. Publicar.</strong> El autor activa{' '}
+              <code class="text-green-400">is_published</code> en sus obras, o
+              un administrador lo hace por él.
+            </li>
+            <li>
+              <strong class="text-bone-50">4. Reconstruir.</strong> El webhook
+              de Supabase dispara un redespliegue; el sitio estático se regenera
+              con los datos nuevos.
+            </li>
+          </ol>
+        </div>
 
-          <div class="space-y-4">
-            <label class="flex flex-col gap-2 font-mono text-sm text-bone-300">
-              <span>Usuario (auth)</span>
-              <select
-                name="owner_user_id"
-                required
-                class="w-full border border-green-600/50 bg-space-800 px-4 py-3 text-sm text-bone-50 focus:outline-none focus:border-green-500 transition-colors"
-              >
-                <option value="">Seleccionar usuario</option>
-                {unlinkedUsers.map((u) => (
-                  <option value={u.id}>
-                    {u.email} ({u.raw_user_meta_data?.full_name || 'sin nombre'})
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <label class="flex flex-col gap-2 font-mono text-sm text-bone-300">
-              <span>Nombre completo</span>
-              <input
-                type="text"
-                name="fullname"
-                required
-                class="w-full border border-green-600/50 bg-space-800 px-4 py-3 text-sm text-bone-50 focus:outline-none focus:border-green-500 transition-colors"
-                placeholder="Nombre completo del autor"
-              />
-            </label>
-
-            <label class="flex flex-col gap-2 font-mono text-sm text-bone-300">
-              <span>Pseudónimo (opcional)</span>
-              <input
-                type="text"
-                name="pseudonyme"
-                class="w-full border border-green-600/50 bg-space-800 px-4 py-3 text-sm text-bone-50 focus:outline-none focus:border-green-500 transition-colors"
-                placeholder="Pseudónimo"
-              />
-            </label>
-
-            <label class="flex flex-col gap-2 font-mono text-sm text-bone-300">
-              <span>Biografía (opcional)</span>
-              <textarea
-                name="biography"
-                rows="3"
-                class="w-full border border-green-600/50 bg-space-800 px-4 py-3 text-sm text-bone-50 focus:outline-none focus:border-green-500 transition-colors"
-                placeholder="Breve biografía del autor"
-              ></textarea>
-            </label>
-
-            <label class="flex flex-col gap-2 font-mono text-sm text-bone-300">
-              <span>Slug (kebab-case ASCII)</span>
-              <input
-                type="text"
-                name="slug"
-                required
-                class="w-full border border-green-600/50 bg-space-800 px-4 py-3 text-sm text-bone-50 focus:outline-none focus:border-green-500 transition-colors"
-                placeholder="angel-arango"
-              />
-            </label>
+        <div class="panel p-8 border-green-600/50">
+          <div class="flex flex-wrap items-baseline justify-between gap-3 mb-4">
+            <h2 class="font-mono text-xl text-bone-50">Autores registrados</h2>
+            <span class="badge">{authors.length} en total</span>
           </div>
 
-          <button
-            type="submit"
-            class="w-full btn-ship py-4 text-center"
-          >
-            Crear autor
-          </button>
-        </form>
-
-        {/* Existing authors list */}
-        <div class="panel p-8 border-green-600/50">
-          <h2 class="font-mono text-xl text-bone-50 mb-4">
-            Autores registrados
-          </h2>
           {authors.length === 0 ? (
             <p class="text-bone-300">No hay autores registrados todavía.</p>
           ) : (
@@ -215,18 +154,20 @@ if (supabaseConfigured) {
               {authors.map((author) => (
                 <li class="py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <div>
-                    <span class="font-mono text-bone-50">{author.fullname}</span>
+                    <a
+                      href={`/autores/${author.slug}`}
+                      class="font-mono text-bone-50 hover:text-green-500"
+                    >
+                      {author.fullname}
+                    </a>
                     {author.pseudonyme && (
-                      <span class="ml-2 text-xs text-green-400">({author.pseudonyme})</span>
+                      <span class="ml-2 text-xs text-green-400">
+                        ({author.pseudonyme})
+                      </span>
                     )}
                     <p class="text-xs text-bone-400 mt-1">
                       Slug: {author.slug}
                     </p>
-                  </div>
-                  <div class="text-right">
-                    <span class="font-mono text-xs text-bone-400">
-                      {author.owner_user_id ? 'Vinculado' : 'Sin usuario'}
-                    </span>
                   </div>
                 </li>
               ))}
