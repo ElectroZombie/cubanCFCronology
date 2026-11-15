@@ -52,6 +52,7 @@ npm run db:types     # regenerate src/lib/database.types.ts
 | `docs/TODO.md` | Roadmap: accomplished and unaccomplished items |
 | `docs/MISSING_ELEMENTS.md` | Missing elements by priority |
 | `docs/API.md` | Public read-only API documentation |
+| `docs/SAAS.md` | Third-party service configurations (Supabase, Cloudflare Pages, news providers) |
 
 ## Key directories
 

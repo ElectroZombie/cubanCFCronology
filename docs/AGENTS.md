@@ -78,8 +78,14 @@ reach for an **island** only when genuine interactivity is required.
 ├── docs/
 │   ├── AGENTS.md            ← this file
 │   ├── ARCHITECTURE.md
+│   ├── API.md               ← public API documentation (if needed)
 │   ├── CONTRIBUTING.md
-│   └── TODO.md
+│   ├── GUIDELINES.md        ← end-user guide
+│   ├── MISSING_ELEMENTS.md  ← missing elements by priority
+│   ├── README.md            ← developer entry point
+│   ├── SAAS.md              ← third-party service configurations (if needed)
+│   ├── STYLES.md            ← visual styles
+│   └── TODO.md              ← roadmap
 ├── public/
 ├── supabase/
 │   ├── config.toml

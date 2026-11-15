@@ -70,6 +70,7 @@ work. Each item links to its owning doc instead of duplicating information.
 - docs/README.md — developer entry point
 - docs/GUIDELINES.md — end-user guide
 - docs/API.md — public read-only API documentation
+- docs/SAAS.md — third-party service configurations (Supabase, Cloudflare Pages, news providers)
 
 No duplicated blocks: if information exists in one doc, other docs link to it
 instead of repeating it.
