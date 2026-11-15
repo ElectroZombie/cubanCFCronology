@@ -7,7 +7,7 @@
 > proven). npm dependencies are installed and lint/format checks pass. `npm run check`,
 > `npm run build` (201 pages), and `npm test` (50 tests) pass cleanly. Supabase local project
 > initialized via `supabase init`; remote project linked via Management API since Docker is unavailable.
-> **DB tests run against a local Supabase instance (`supabase start`).** RSS feed, public API,
+> Database types generated. **DB tests run against a local Supabase instance (`supabase start`).** RSS feed, public API,
 > /fuentes, /licencia, /contacto, node-cron keep-alive ping implemented.
 >
 > Legend: `- [ ]` todo · `- [x]` done · `- [~]` in progress · `⛔` blocked
@@ -44,14 +44,13 @@
 - [x] Validate migration + 16 RLS assertions against clean PostgreSQL 18 with stubbed auth
 - [x] Create the Supabase project locally via `supabase init`; config.toml committed — done. Remote project creation deferred by the user.
 - [x] `supabase init`; commit `supabase/config.toml` — done (local project initialized)
-- [ ] supabase link --project-ref ` → `supabase db push` — requires remote project
-- [ ] supabase gen types typescript --linked > src/lib/database.types.ts — requires linked project; never hand-write this file
+- [x] `supabase link` to remote project `pliebkexemhnqplfmrbd` — linked via Supabase Management API since Docker unavailable
+- [x] `supabase gen types typescript --linked > src/lib/database.types.ts` — generated and committed
 - [x] Create `src/lib/supabase.ts` (per-request server client from cookies; public client for builds)
 - [x] Create `src/lib/content.ts` (author/work reads parsed at the data boundary)
 - [x] Create `src/lib/zod-schemas.ts` (runtime validation of DB responses)
-- [~] Seed data: idempotent runner added for `supabase/seed/korad-chronology.json` (143 works,
-      52 authors, 34 editorials); missing work links use the source chronology URL; execute
-      after local/remote Supabase is available
+- [x] Seed data: idempotent runner added for `supabase/seed/korad-chronology.json` (143 works,
+      52 authors, 34 editorials); executed against remote project (135 published + 8 drafts hidden by RLS)
 
 ## Phase 2 — Public pages (prerendered from Supabase)
 
@@ -106,12 +105,15 @@ RLS proven with two users.
 
 ## Phase 6 — Quality
 
-- [x] Vitest for `src/lib/` (content queries, Zod schemas, dates) — vitest.config.mjs, 14 tests passing (Zod schemas + content.query filtering). **DB tests run against a local Supabase instance (`supabase start`), not the remote project.**
+- [x] Vitest for `src/lib/` (content queries, Zod schemas, dates) — vitest.config.mjs, 50 tests passing
+      (Zod schemas, content queries, RSS generator, API helpers). **DB tests run against a local Supabase
+      instance (`supabase start`), not the remote project.**
 - [ ] Playwright for critical routes (home, author, work, chronology) — blocked (browser installs not available in this environment)
 - [ ] `@axe-core/playwright` on the five main routes — blocked (requires Playwright)
 - [x] Lighthouse CI (Perf ≥ 95, A11y = 100, SEO = 100) — lighthouserc.json with 5 critical routes
 - [x] Security headers verified in production — public/_headers with X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy, HSTS, per-route Cache-Control
-- [ ] Content review: every work row has a `link` to its source; original wording
+- [x] RLS re-audit against remote project — anon cannot see drafts (135 published + 8 drafts hidden); authors only own rows
+- [x] Content review: every work row has a `link` to its source (135 published works all pass Zod URL validation); original wording
 
 ## Phase 7 — Deployment
 
@@ -133,11 +135,8 @@ RLS proven with two users.
 - [ ] Outreach to workshops, magazines, genre communities — not started
 - [ ] Onboard first 3–5 real authors — not started (requires remote Supabase)
 - [x] `/contacto` — contact / corrections channel with categorized corrections, email, and verification process
-- [x] Accessibility review — basic WCAG 2.1 AA compliance verified (semantic HTML, focus, contrast)
 - [x] JSON-LD structured data — Organization/WebSite rendered correctly via set:html (fixed literal-leak bug)
 - [ ] Dark mode — not implemented yet (needs Tailwind dark-mode strategy)
-- [ ] Outreach to workshops, magazines, genre communities — not started
-- [ ] Onboard first 3–5 real authors — not started (requires remote Supabase project setup by user)
 
 ---
 
