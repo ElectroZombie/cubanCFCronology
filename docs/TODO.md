@@ -32,7 +32,7 @@
 - [x] Create `src/layouts/BaseLayout.astro` (head, meta, skip link, footer)
 - [x] Create `src/pages/index.astro` ("under construction", honest copy)
 - [x] `.editorconfig`, `.nvmrc`, `.gitignore` (`.env`, `.astro/`, `dist/`)
-- [x] Real `README.md`: what it is, how to run it, links to `DOCS/`
+- [x] Real `README.md`: what it is, how to run it, links to `docs/`
 - [x] GitHub Actions CI: `npm run check` + `npm run build` on every PR — passes cleanly
 
 ## Phase 1 — Content model in Supabase
@@ -143,7 +143,7 @@ RLS proven with two users.
 ## Backlog (not committed)
 
 - [x] Dataset export — /api/works.json and /api/authors.json built at build time (supports JSON consumption; CSV not yet implemented)
-- [x] Public read-only API — /api/works.json, /api/authors.json live (docs in DOCS/API.md)
+- [x] Public read-only API — /api/works.json, /api/authors.json live (docs in docs/API.md)
 - [x] Full-text search (Pagefind) — pagefind installed, not yet wired to UI
 - [ ] Dark mode — not implemented (needs Tailwind 4 class strategy + toggle)
 - [x] RSS feeds — /rss/works.xml with 50 most recent published works

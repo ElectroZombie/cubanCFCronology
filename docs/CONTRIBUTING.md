@@ -13,8 +13,8 @@ There are two ways to contribute, and **both are equally valuable**:
 
 ## 0. Before you start
 
-- Read `DOCS/ARCHITECTURE.md` if you will touch code or the database.
-- Read `DOCS/TODO.md` to avoid duplicating work in progress.
+- Read `docs/ARCHITECTURE.md` if you will touch code or the database.
+- Read `docs/TODO.md` to avoid duplicating work in progress.
 - Open an issue before starting anything large (new section, schema change, data migration).
   No surprise 800-line PRs.
 - Be respectful. This is a cultural workspace: we discuss data and code, not people.
@@ -138,7 +138,7 @@ These are enforced by database constraints and Zod validation, but know them bef
 5. **ISO dates:** `1966-03-12`; year only `1966` when the day is unknown. Never `12/03/1966`.
 6. **Work titles in italics** in prose (`*El mundo de la ciencia ficción*`).
 7. **"ciencia ficción"** lowercase; capitals only inside proper names.
-8. **Do not speculate.** Mark uncertain data and flag it in `DOCS/TODO.md`.
+8. **Do not speculate.** Mark uncertain data and flag it in `docs/TODO.md`.
 
 ### Accepted sources (priority order)
 
@@ -233,7 +233,7 @@ Reviewer checklist:
 - [ ] New tables have RLS enabled **and** policies.
 - [ ] Accessibility reviewed (keyboard + contrast).
 - [ ] Architecture docs updated if a decision changed.
-- [ ] Follow-ups noted in `DOCS/TODO.md`.
+- [ ] Follow-ups noted in `docs/TODO.md`.
 
 We aim to respond within **7 days**. No response? Mention a maintainer; no duplicate PRs.
 

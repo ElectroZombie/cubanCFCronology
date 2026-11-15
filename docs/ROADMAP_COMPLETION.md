@@ -316,7 +316,7 @@
      "db:types": "supabase gen types typescript --linked > src/lib/database.types.ts"
    }
    ```
-2. Create `DOCS/TYPES.md` documenting:
+2. Create `docs/TYPES.md` documenting:
    - When to regenerate types (after every migration)
    - How to regenerate: `npm run db:types`
    - Commit the generated file

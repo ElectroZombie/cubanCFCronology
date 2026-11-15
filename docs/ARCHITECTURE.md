@@ -309,7 +309,7 @@ filtering is by `year` ranges.
 | Wrong or unsourced historical data | Loss of credibility | Every work row carries a `link` to its source; seed data records provenance in `meta.notes`; publish gate |
 | Supabase unreachable at build | Build fails, old deploy stays live | Previous deployment remains active; monitor builds |
 | News API unstable | Broken feed | Server-side fallback + cached headlines |
-| Single maintainer | Abandonment | Docs in `DOCS/`, data in open SQL/JSON |
+| Single maintainer | Abandonment | Docs in `docs/`, data in open SQL/JSON |
 
 ## 12. Planned evolution
 

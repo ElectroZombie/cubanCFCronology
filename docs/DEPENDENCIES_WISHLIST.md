@@ -97,7 +97,7 @@
 - Set `SUPABASE_SERVICE_ROLE_KEY` environment variable
 - Run `npm run db:seed` (or `supabase db seed`)
 - Verify count in Supabase Studio
-- Document seed process in `DOCS/SEEDING.md`
+- Document seed process in `docs/SEEDING.md`
 
 **Estimated effort:** 10 minutes
 
@@ -127,7 +127,7 @@
 **Implementation approach:**
 - Go to Cloudflare Pages → Project → Deployments → Settings
 - Generate Deploy Hook URL
-- Copy URL to `.env.example` and `DOCS/DEPLOYMENT.md`
+- Copy URL to `.env.example` and `docs/DEPLOYMENT.md`
 
 **Estimated effort:** 5 minutes
 
@@ -259,7 +259,7 @@
 - Test as `anon` user: cannot see unpublished works
 - Test as `authenticated` user: can only see own works
 - Test as `admin` user: can see everything
-- Document findings in `DOCS/RLS_AUDIT.md`
+- Document findings in `docs/RLS_AUDIT.md`
 
 **Estimated effort:** 1 hour
 
@@ -342,7 +342,7 @@
 - Export works with missing `link` to CSV
 - Review against original Korad chronology
 - Update seed data and re-seed
-- Document sources in `DOCS/SOURCES.md`
+- Document sources in `docs/SOURCES.md`
 - Add `source_review` column to `works` table (if needed)
 
 **Estimated effort:** 2-3 hours (manual review)
@@ -366,7 +366,7 @@
 - Verify Cloudflare adapter is configured in `astro.config.mjs`
 - Create `wrangler.toml` for local preview
 - Test `npm run preview` with Cloudflare adapter
-- Document deployment steps in `DOCS/DEPLOYMENT.md`
+- Document deployment steps in `docs/DEPLOYMENT.md`
 - Verify build output (`dist/`) is static HTML
 
 **Estimated effort:** 1 hour
@@ -387,7 +387,7 @@
   - `PUBLIC_SUPABASE_URL`
   - `PUBLIC_SUPABASE_ANON_KEY`
   - `NEWS_API_KEY` (if news provider chosen)
-- Document secret names in `DOCS/DEPLOYMENT.md`
+- Document secret names in `docs/DEPLOYMENT.md`
 - Verify secrets are loaded via `astro:env/client`
 - Test `npm run preview` with secrets
 
@@ -471,7 +471,7 @@
 - Weekly backup in Supabase Studio
 - Export to SQL file
 - Store in version control (with `.gitignore`)
-- Document backup process in `DOCS/BACKUP.md`
+- Document backup process in `docs/BACKUP.md`
 
 **Implementation approach (automated):**
 - Add `pg_dump` to devDependencies
@@ -520,7 +520,7 @@
 - Identify Cuban SF/F communities (workshops, magazines, Discord servers)
 - Create outreach email/message template
 - Send messages to 10-15 organizations
-- Track responses in `DOCS/OUTREACH.md`
+- Track responses in `docs/OUTREACH.md`
 
 **Estimated effort:** 2-3 hours
 
@@ -540,7 +540,7 @@
 - Guide them through registration process
 - Create `authors` records via `/admin` page
 - Verify they can log in and toggle `is_published`
-- Document onboarding process in `DOCS/ONBOARDING.md`
+- Document onboarding process in `docs/ONBOARDING.md`
 
 **Estimated effort:** 3-4 hours
 
@@ -578,7 +578,7 @@
 **Implementation approach:**
 - Recruit 5-10 users with disabilities
 - Guide them through site with screen readers, keyboard navigation
-- Collect feedback in `DOCS/ACCESSIBILITY_REVIEW.md`
+- Collect feedback in `docs/ACCESSIBILITY_REVIEW.md`
 - Fix any issues found
 - Update accessibility checklist
 
@@ -625,7 +625,7 @@
 - Create `src/pages/api/works/[id].ts` (GET /api/works/:id)
 - Create `src/pages/api/works/[id]/chapters.ts` (GET /api/works/:id/chapters)
 - Apply RLS policies for public read access
-- Document API endpoints in `DOCS/API.md`
+- Document API endpoints in `docs/API.md`
 - Add rate limiting (100 req/min per IP)
 - Add OpenAPI schema (`swagger.yaml`)
 
@@ -689,7 +689,7 @@
 - Create `/rss/works.xml` feed for new works
 - Create `/rss/noticias.xml` feed for news
 - Add RSS badges to `/acerca` page
-- Document feed URLs in `DOCS/FEEDS.md`
+- Document feed URLs in `docs/FEEDS.md`
 - Add feeds to sitemap
 
 **Estimated effort:** 1 hour
@@ -734,7 +734,7 @@
 - Translate all pages (manual translation, not machine translation)
 - Add language switcher component
 - Test English version
-- Document translation process in `DOCS/I18N.md`
+- Document translation process in `docs/I18N.md`
 
 **Estimated effort:** 20-30 hours (full translation)
 
@@ -757,7 +757,7 @@
   - View statistics
 - Add role-based access (admin only)
 - Test editor panel
-- Document usage in `DOCS/EDITORIAL_PANEL.md`
+- Document usage in `docs/EDITORIAL_PANEL.md`
 
 **Estimated effort:** 3-4 hours
 
@@ -779,7 +779,7 @@
 - Use `try-catch` in page frontmatter
 - Fall back to cached data if Supabase is unreachable
 - Log warning if fallback is used
-- Document fallback behavior in `DOCS/DEPLOYMENT.md`
+- Document fallback behavior in `docs/DEPLOYMENT.md`
 
 **Estimated effort:** 2 hours
 
@@ -799,7 +799,7 @@
 - Add foreign key from `works` to `sources`
 - Update seed data with multiple sources per work
 - Update UI to display multiple sources
-- Document schema change in `DOCS/MIGRATION_GUIDE.md`
+- Document schema change in `docs/MIGRATION_GUIDE.md`
 
 **Estimated effort:** 2 hours
 
@@ -816,7 +816,7 @@
 
 **Implementation approach:**
 - Add `db:types` script to `package.json`
-- Document in `DOCS/TYPES.md`
+- Document in `docs/TYPES.md`
 - Add to migration checklist
 - Test regeneration process
 
@@ -838,7 +838,7 @@
 - Run `supabase start` in CI
 - Update CI workflow to include `npm run db:start`
 - Add database tests to CI pipeline
-- Document testing process in `DOCS/TESTING.md`
+- Document testing process in `docs/TESTING.md`
 
 **Estimated effort:** 1 hour
 

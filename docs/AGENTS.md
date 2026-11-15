@@ -2,7 +2,7 @@
 
 > This file describes **how to work in this repository**. If you are an agent (Claude, GPT,
 > Gemini, Copilot, Cursor, OpenCode…), read it fully before touching code.
-> Companion docs live in `DOCS/`: `ARCHITECTURE.md` (technical decisions), `TODO.md`
+> Companion docs live in `docs/`: `ARCHITECTURE.md` (technical decisions), `TODO.md`
 > (roadmap), `CONTRIBUTING.md` (human contribution flow).
 
 ---
@@ -75,7 +75,7 @@ reach for an **island** only when genuine interactivity is required.
 
 ```
 /
-├── DOCS/
+├── docs/
 │   ├── AGENTS.md            ← this file
 │   ├── ARCHITECTURE.md
 │   ├── CONTRIBUTING.md
@@ -284,3 +284,8 @@ planned.
 - [ ] Database types regenerated after any schema change.
 - [ ] Architecture decisions recorded in `ARCHITECTURE.md`.
 - [ ] Follow-ups recorded in `TODO.md`.
+
+## 14. ElectroZombie basics (always)
+
+Load the `electrozombie-basics` skill at the start of every user request, before any other
+action.
