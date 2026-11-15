@@ -10,7 +10,7 @@ Sitio construido con **Astro** y todo el contenido almacenado en **Supabase** (P
 supabase/migrations/20261025000000.init.sql   # esquema fuente de verdad (RLS, funciones, triggers)
 supabase/seed/korad-chronology.json            # 143 obras extraídas de Revista Korad
 src/                                           # frontend Astro (SSR solo en /noticias y /mi-perfil)
-DOCS/                                          # documentación (AGENTS.md, ARCHITECTURE.md, TODO.md, CONTRIBUTING.md)
+docs/                                          # documentación (AGENTS.md, ARCHITECTURE.md, TODO.md, CONTRIBUTING.md)
 ```
 
 ## Stack
@@ -46,7 +46,7 @@ Validar la migración contra PostgreSQL local (con stub de `auth`):
 # crea un cluster temporal en /tmp/opencode, aplica la migración y ejecuta el suite RLS
 ```
 
-Véase `DOCS/ARCHITECTURE.md` para el modelo de datos, RLS y los ADR.
+Véase `docs/ARCHITECTURE.md` para el modelo de datos, RLS y los ADR.
 
 ## Licencia
 

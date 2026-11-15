@@ -2,7 +2,7 @@
 -- CubanCFCronology — initial schema
 --
 -- Source of truth for the Supabase/PostgreSQL database.
--- Design rationale: DOCS/ARCHITECTURE.md (ADR-009: no ORM, supabase-js only).
+-- Design rationale: docs/ARCHITECTURE.md (ADR-009: no ORM, supabase-js only).
 --
 -- Tables:
 --   roles        — admin | author
