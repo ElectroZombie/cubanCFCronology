@@ -20,6 +20,11 @@ export default defineConfig({
         access: 'public',
         optional: true,
       }),
+      DEPLOY_HOOK_URL: envField.string({
+        context: 'server',
+        access: 'private',
+        optional: true,
+      }),
     },
   },
   integrations: [cloudflare(), sitemap()],

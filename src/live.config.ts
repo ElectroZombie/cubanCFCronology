@@ -1,24 +1,30 @@
 /**
  * Live configuration for CubanCFCronology.
  *
- * TODO: Configure live/deferred regeneration based on content changes.
- * Currently a stub — Supabase webhook deployment will be set up
- * when a remote Supabase project is available.
+ * Deploy hook configuration for automatic rebuilds on content change.
+ * When authors/works rows change, Supabase pg_net trigger POSTs to this URL,
+ * triggering a Cloudflare Pages rebuild (debounced).
+ *
+ * Deploy hook URL is set via Cloudflare Dashboard → Project → Deployments → Deploy Hooks
+ * and stored in DEPLOY_HOOK_URL environment variable.
+ *
+ * Supabase webhook trigger is defined in:
+ *   supabase/migrations/20261115000000_deploy_hook.sql
+ *
+ * Local development: supabase start does not support webhooks.
+ * Use `npm run db:reset` to manually trigger a rebuild after content changes.
  */
 
-// Deploy hook configuration (will be set via Cloudflare Dashboard)
+// Deploy hook URL from environment (set in Cloudflare dashboard or .env)
 export const DEPLOY_HOOK_URL = import.meta.env.DEPLOY_HOOK_URL || '';
 
-// Supabase webhook configuration (set via supabase remote project)
-// When a remote project is linked, configure pg_net webhook triggers:
-// CREATE TRIGGER on authors/works tables to POST to DEPLOY_HOOK_URL
+// Supabase webhook configuration reference
+// Configured via supabase/migrations/20261115000000_deploy_hook.sql
+// When remote project is linked, pg_net triggers POST to DEPLOY_HOOK_URL on
+// authors/works INSERT/UPDATE/DELETE with 5-minute debounce via pg_net.
 export const SUPABASE_WEBHOOK_CONFIG = {
-  // enabled: false, // until remote project is linked
-  // projectRef: '', // remote Supabase project reference
-  // hookName: 'content_update', // name for the webhook
-  // event: 'INSERT/UPDATE', // which events trigger a rebuild
-  // debounceMinutes: 5, // debounce window to avoid rebuild storms,
+  hookUrl: DEPLOY_HOOK_URL,
+  events: ['INSERT', 'UPDATE', 'DELETE'],
+  tables: ['authors', 'works'],
+  debounceMinutes: 5,
 };
-
-// Local development: supabase start does not support webhooks.
-// Use `npm run db:reset` to manually trigger a rebuild after content changes.
